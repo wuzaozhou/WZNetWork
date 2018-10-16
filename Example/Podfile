@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'HZFrameWork_Example' do
+  pod 'HZFrameWork', :path => '../'
+
+  target 'HZFrameWork_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
