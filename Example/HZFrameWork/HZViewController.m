@@ -12,6 +12,9 @@
 #import "Masonry.h"
 #import "HZTableViewController.h"
 #import "HZCollectionViewController.h"
+#import "HZNetworking.h"
+
+#define list_URL @"http://api.dotaly.com/lol/api/v1/authors?iap=0"
 
 @interface HZViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -87,7 +90,12 @@
     UIViewController *vc = nil;
     switch (indexPath.row) {
         case 0:{
-            [self.tableView hz_showEmptyView];
+            //[self.tableView hz_showEmptyView];
+            /**
+             *  HZRequestTypeCache 为 有缓存使用缓存 无缓存就重新请求
+             *  默认缓存路径/Library/Caches/HZKit/AppCache
+             */
+            [self getDataWithApiType:HZRequestTypeCache];
         }
             break;
         case 1:
@@ -100,8 +108,56 @@
     if(vc){
         [self.navigationController pushViewController:vc animated:YES];
     }
-    
 }
+
+#pragma mark - AFNetworking
+//apiType 是请求类型 在HZRequestConst 里
+- (void)getDataWithApiType:(apiType)requestType{
+    
+    [HZRequestManager requestWithConfig:^(HZURLRequest *request){
+        request.URLString=list_URL;
+        request.methodType=HZMethodTypeGET;//默认为GET
+        request.apiType=requestType;//默认为HZRequestTypeRefresh
+        // request.requestSerializer=HZHTTPRequestSerializer;//默认HZHTTPRequestSerializer 上传参数默认为二进制 格式
+        // request.responseSerializer=HZJSONResponseSerializer;//默认HZJSONResponseSerializer  返回的数据默认为json格式
+        // request.timeoutInterval=10;//默认30
+    }  success:^(id responseObject,apiType type,BOOL isCache){
+        //如果是刷新的数据
+        if (type==HZRequestTypeRefresh) {
+            [self.dataArray removeAllObjects];
+            
+        }
+        //上拉加载 要添加 apiType 类型 HZRequestTypeCacheMore(读缓存)或HZRequestTypeRefreshMore(重新请求)， 也可以不遵守此枚举
+        if (type==HZRequestTypeRefreshMore) {
+            //上拉加载
+        }
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dict = (NSDictionary *)responseObject;
+            NSArray *array=[dict objectForKey:@"authors"];
+//            for (NSDictionary *dic in array) {
+//                RootModel *model=[[RootModel alloc]initWithDict:dic];
+//                [self.dataArray addObject:model];
+//            }
+//            [self.tableView reloadData];
+//            [self.refreshControl endRefreshing];    //结束刷新
+            if (isCache==YES) {
+                NSLog(@"使用了缓存");
+            }else{
+                NSLog(@"重新请求");
+            }
+        }
+        
+    } failure:^(NSError *error){
+        if (error.code==NSURLErrorCancelled)return;
+        if (error.code==NSURLErrorTimedOut){
+            //[self alertTitle:@"请求超时" andMessage:@""];
+        }else{
+            //[self alertTitle:@"请求失败" andMessage:@""];
+        }
+        //[self.refreshControl endRefreshing];  //结束刷新
+    }];
+}
+
 
 
 @end

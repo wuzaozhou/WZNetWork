@@ -1,14 +1,36 @@
 PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - HZFrameWork (1.0.0):
-    - HZFrameWork/HZEmptyView (= 1.0.0)
-  - HZFrameWork/HZEmptyView (1.0.0):
+  - HZFrameWork (1.0.1):
+    - HZFrameWork/HZEmptyView (= 1.0.1)
+    - HZFrameWork/HZNetworking (= 1.0.1)
+  - HZFrameWork/HZEmptyView (1.0.1):
     - Masonry
+  - HZFrameWork/HZNetworking (1.0.1):
+    - AFNetworking
+    - SDWebImage
   - Masonry (1.1.0)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -19,9 +41,11 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HZFrameWork: b4bde171e8ae51ea8565ef5b32db5a723f6b7311
+  HZFrameWork: b0c83d2f93327d8655efb45e3ed9816de67528a3
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
 PODFILE CHECKSUM: 88511265e4b4847e5d5053b67ca57d5f670fd56a
 
