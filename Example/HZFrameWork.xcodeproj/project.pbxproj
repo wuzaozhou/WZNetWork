@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		1912641E6E0D20B7C8948918 /* Pods-HZFrameWork_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Tests/Pods-HZFrameWork_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1E6FB97D4800A461106B5A87 /* Pods-HZFrameWork_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		4FF1222717D1DF51ECD5C667 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4FF1222717D1DF51ECD5C667 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* HZFrameWork_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HZFrameWork_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,8 +64,8 @@
 		9C6F7DCE904757C767F632EF /* Pods_HZFrameWork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1EBF636EC74659689E1890 /* Pods-HZFrameWork_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example.release.xcconfig"; sourceTree = "<group>"; };
-		E184D5776DABF7270F2BF6D1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		F90B915D9B1818E408424D1E /* HZFrameWork.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = HZFrameWork.podspec; path = ../HZFrameWork.podspec; sourceTree = "<group>"; };
+		E184D5776DABF7270F2BF6D1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F90B915D9B1818E408424D1E /* HZFrameWork.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HZFrameWork.podspec; path = ../HZFrameWork.podspec; sourceTree = "<group>"; };
 		FD0B6604191701F2AB66AA3D /* Pods-HZFrameWork_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Tests/Pods-HZFrameWork_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +132,15 @@
 		6003F593195388D20070C39A /* Example for HZFrameWork */ = {
 			isa = PBXGroup;
 			children = (
+				9B75170D2175F80100E8ED3A /* AppDelegate */,
+				9B75170C2175F7FB00E8ED3A /* Modules */,
+				9B75170B2175F7F400E8ED3A /* Manager */,
+				9B75170A2175F7EF00E8ED3A /* Utils */,
+				9B7517092175F7E800E8ED3A /* Base */,
+				9B7517082175F7DC00E8ED3A /* ThridParty */,
+				9B7517072175F7D500E8ED3A /* Define */,
+				9B7517062175F7CD00E8ED3A /* Resource */,
+				9B7517042175F7BE00E8ED3A /* Tool */,
 				6003F59C195388D20070C39A /* HZAppDelegate.h */,
 				6003F59D195388D20070C39A /* HZAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -194,6 +203,69 @@
 				1912641E6E0D20B7C8948918 /* Pods-HZFrameWork_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9B7517042175F7BE00E8ED3A /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		9B7517062175F7CD00E8ED3A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		9B7517072175F7D500E8ED3A /* Define */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		9B7517082175F7DC00E8ED3A /* ThridParty */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThridParty;
+			sourceTree = "<group>";
+		};
+		9B7517092175F7E800E8ED3A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9B75170A2175F7EF00E8ED3A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9B75170B2175F7F400E8ED3A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		9B75170C2175F7FB00E8ED3A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9B75170D2175F80100E8ED3A /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,9 +408,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/HZFrameWork/HZFrameWork.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HZFrameWork.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -352,11 +427,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/HZFrameWork/HZFrameWork.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HZFrameWork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

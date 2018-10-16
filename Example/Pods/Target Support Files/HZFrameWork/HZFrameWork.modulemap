@@ -1,0 +1,6 @@
+framework module HZFrameWork {
+  umbrella header "HZFrameWork-umbrella.h"
+
+  export *
+  module * { export * }
+}
