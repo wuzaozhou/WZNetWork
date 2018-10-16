@@ -1,29 +1,107 @@
 //
 //  HZViewController.m
-//  HZFrameWork
+//  HZEmptyView
 //
-//  Created by Runyalsj on 10/16/2018.
+//  Created by Runyalsj on 10/02/2018.
 //  Copyright (c) 2018 Runyalsj. All rights reserved.
 //
 
 #import "HZViewController.h"
+#import "HZEmptyView.h"
+#import "UIView+HZKit.h"
+#import "Masonry.h"
+#import "HZTableViewController.h"
+#import "HZCollectionViewController.h"
 
-@interface HZViewController ()
-
+@interface HZViewController ()<UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 @end
 
 @implementation HZViewController
+- (NSMutableArray *)dataArray {
+    if (!_dataArray) {
+        _dataArray =[NSMutableArray array];
+    }
+    return _dataArray;
+}
 
-- (void)viewDidLoad
-{
+
+#pragma mark-- tableview
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [UITableView new];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+        _tableView.tableFooterView = [UIView new];
+    }
+    return _tableView;
+}
+
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    //一、一句话添加展位图
+    self.tableView.emptyView = [HZEmptyView createEmptyViewWithType:HZEmptyTypeNotNetwork resetBlock:^{
+        //三、手动关闭
+        [self.tableView hz_hideEmptyView];
+        
+        self.dataArray = [NSMutableArray arrayWithObjects:@"手动显示",@"自动显示（Tableview）",@"自动显隐（Collection）",nil];
+        [self.tableView reloadData];
+    }];
+    
+    
+    //二、手动显示
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView hz_showEmptyView];
+    });
+    
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataArray.count ;
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    cell.textLabel.text = self.dataArray[indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self cellDidAtIndexPath:indexPath];
+}
+
+- (void)cellDidAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController *vc = nil;
+    switch (indexPath.row) {
+        case 0:{
+            [self.tableView hz_showEmptyView];
+        }
+            break;
+        case 1:
+            vc = [[HZTableViewController alloc] init];
+            break;
+        case 2:
+            vc = [[HZCollectionViewController alloc] init];
+            break;
+    }
+    if(vc){
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+}
+
 
 @end

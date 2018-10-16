@@ -14,7 +14,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* HZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* HZAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* HZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* HZViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -23,6 +22,10 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		9BBBA60821760BF400C3CF6B /* HZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA60621760BF400C3CF6B /* HZViewController.m */; };
+		9BBBA60D21760C8100C3CF6B /* HZCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA60921760C8000C3CF6B /* HZCollectionViewController.m */; };
+		9BBBA60E21760C8100C3CF6B /* HZTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA60C21760C8000C3CF6B /* HZTableViewController.m */; };
+		9BBBA61121760DC400C3CF6B /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA61021760DC400C3CF6B /* UIView+Frame.m */; };
 		A02D225768E26CE887C1F0C6 /* Pods_HZFrameWork_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +53,6 @@
 		6003F59B195388D20070C39A /* HZFrameWork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HZFrameWork-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* HZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* HZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* HZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* HZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* HZFrameWork_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HZFrameWork_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -61,6 +62,14 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9BBBA60621760BF400C3CF6B /* HZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZViewController.m; sourceTree = "<group>"; };
+		9BBBA60721760BF400C3CF6B /* HZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZViewController.h; sourceTree = "<group>"; };
+		9BBBA60921760C8000C3CF6B /* HZCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZCollectionViewController.m; sourceTree = "<group>"; };
+		9BBBA60A21760C8000C3CF6B /* HZCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZCollectionViewController.h; sourceTree = "<group>"; };
+		9BBBA60B21760C8000C3CF6B /* HZTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZTableViewController.h; sourceTree = "<group>"; };
+		9BBBA60C21760C8000C3CF6B /* HZTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZTableViewController.m; sourceTree = "<group>"; };
+		9BBBA60F21760DC400C3CF6B /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		9BBBA61021760DC400C3CF6B /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		9C6F7DCE904757C767F632EF /* Pods_HZFrameWork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1EBF636EC74659689E1890 /* Pods-HZFrameWork_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,8 +153,12 @@
 				6003F59C195388D20070C39A /* HZAppDelegate.h */,
 				6003F59D195388D20070C39A /* HZAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* HZViewController.h */,
-				6003F5A6195388D20070C39A /* HZViewController.m */,
+				9BBBA60721760BF400C3CF6B /* HZViewController.h */,
+				9BBBA60621760BF400C3CF6B /* HZViewController.m */,
+				9BBBA60A21760C8000C3CF6B /* HZCollectionViewController.h */,
+				9BBBA60921760C8000C3CF6B /* HZCollectionViewController.m */,
+				9BBBA60B21760C8000C3CF6B /* HZTableViewController.h */,
+				9BBBA60C21760C8000C3CF6B /* HZTableViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -243,6 +256,7 @@
 		9B75170A2175F7EF00E8ED3A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9BBBA6022176073600C3CF6B /* Categroy */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -266,6 +280,15 @@
 			children = (
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		9BBBA6022176073600C3CF6B /* Categroy */ = {
+			isa = PBXGroup;
+			children = (
+				9BBBA60F21760DC400C3CF6B /* UIView+Frame.h */,
+				9BBBA61021760DC400C3CF6B /* UIView+Frame.m */,
+			);
+			path = Categroy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,10 +450,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/HZFrameWork/HZFrameWork.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HZFrameWork.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,9 +506,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BBBA61121760DC400C3CF6B /* UIView+Frame.m in Sources */,
 				6003F59E195388D20070C39A /* HZAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* HZViewController.m in Sources */,
+				9BBBA60D21760C8100C3CF6B /* HZCollectionViewController.m in Sources */,
+				9BBBA60E21760C8100C3CF6B /* HZTableViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				9BBBA60821760BF400C3CF6B /* HZViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

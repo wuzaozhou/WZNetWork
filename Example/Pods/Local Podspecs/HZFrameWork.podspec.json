@@ -1,8 +1,8 @@
 {
   "name": "HZFrameWork",
   "version": "1.0.0",
-  "summary": "花镇私有库管理",
-  "description": "花镇私有库管理  共有部分组件化",
+  "summary": "花镇封装私有库",
+  "description": "花镇封装私有库  共有部分组件化管理",
   "homepage": "https://git.coding.net/Runya_lsj/HZFrameWork.git",
   "license": {
     "type": "MIT",
@@ -23,10 +23,9 @@
       "HZFrameWork/Assets/*.png"
     ]
   },
-  "source_files": "HZFrameWork/Classes/**/*",
   "subspecs": [
     {
-      "name": "RYEmptyView",
+      "name": "HZEmptyView",
       "source_files": "HZFrameWork/Classes/HZEmptyView/**/*",
       "dependencies": {
         "Masonry": [

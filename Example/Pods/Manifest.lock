@@ -5,8 +5,8 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - HZFrameWork (1.0.0):
-    - HZFrameWork/RYEmptyView (= 1.0.0)
-  - HZFrameWork/RYEmptyView (1.0.0):
+    - HZFrameWork/HZEmptyView (= 1.0.0)
+  - HZFrameWork/HZEmptyView (1.0.0):
     - Masonry
   - Masonry (1.1.0)
 
@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HZFrameWork: 91b213441833614e53ea3d694a202fc8a280d79e
+  HZFrameWork: b4bde171e8ae51ea8565ef5b32db5a723f6b7311
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: 88511265e4b4847e5d5053b67ca57d5f670fd56a
