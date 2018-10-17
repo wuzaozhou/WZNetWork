@@ -46,17 +46,17 @@
 //                                    success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
 //                                    failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 //
-///**
-// 下载文件
-//
-// @param request HZURLRequest
-// @param downloadProgressBlock 进度
-// @param completionHandler 回调
-// @return task
-// */
-//- (NSURLSessionDownloadTask *)downloadWithRequest:(HZURLRequest *)request
-//                                         progress:(void (^)(NSProgress *downloadProgress)) downloadProgressBlock
-//                                completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler;
+/**
+ 下载文件
+
+ @param request HZURLRequest
+ @param downloadProgressBlock 进度
+ @param completionHandler 回调
+ @return task
+ */
+- (NSURLSessionDownloadTask *)downloadWithRequest:(HZURLRequest *)request
+                                         progress:(void (^)(NSProgress *downloadProgress)) downloadProgressBlock
+                                completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler;
 
 /**
  取消请求任务

@@ -84,6 +84,7 @@
 		9BBBA6D72177089F00C3CF6B /* HZNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6D62177089F00C3CF6B /* HZNetworkModel.m */; };
 		9BBBA6DA21770BC600C3CF6B /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6D921770BC600C3CF6B /* UIImage+Category.m */; };
 		9BBBA6DF2177140800C3CF6B /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6DE2177140800C3CF6B /* UIView+Category.m */; };
+		9BBBA6E9217724EE00C3CF6B /* HZNetWorkDownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6E8217724EE00C3CF6B /* HZNetWorkDownLoadViewController.m */; };
 		A02D225768E26CE887C1F0C6 /* Pods_HZFrameWork_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -213,6 +214,8 @@
 		9BBBA6DC21770E9E00C3CF6B /* TransitionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionProtocol.h; sourceTree = "<group>"; };
 		9BBBA6DD2177140800C3CF6B /* UIView+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
 		9BBBA6DE2177140800C3CF6B /* UIView+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Category.m"; sourceTree = "<group>"; };
+		9BBBA6E7217724EE00C3CF6B /* HZNetWorkDownLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZNetWorkDownLoadViewController.h; sourceTree = "<group>"; };
+		9BBBA6E8217724EE00C3CF6B /* HZNetWorkDownLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZNetWorkDownLoadViewController.m; sourceTree = "<group>"; };
 		9C6F7DCE904757C767F632EF /* Pods_HZFrameWork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1EBF636EC74659689E1890 /* Pods-HZFrameWork_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -470,11 +473,11 @@
 				9BBBA6362176323700C3CF6B /* HZRequestManager.m */,
 				9BBBA641217637B900C3CF6B /* HZURLRequest.h */,
 				9BBBA642217637B900C3CF6B /* HZURLRequest.m */,
-				9BBBA63D2176366F00C3CF6B /* HZRequestEngine.h */,
-				9BBBA63E2176366F00C3CF6B /* HZRequestEngine.m */,
 				9BBBA64721763AF600C3CF6B /* HZCacheManager.h */,
 				9BBBA64821763AF600C3CF6B /* HZCacheManager.m */,
 				9BBBA6382176328E00C3CF6B /* HZRequestConst.h */,
+				9BBBA63D2176366F00C3CF6B /* HZRequestEngine.h */,
+				9BBBA63E2176366F00C3CF6B /* HZRequestEngine.m */,
 				9BBBA64421763A2D00C3CF6B /* NSString+HZUTF8Encoding.h */,
 				9BBBA64521763A2D00C3CF6B /* NSString+HZUTF8Encoding.m */,
 			);
@@ -631,12 +634,22 @@
 		9BBBA6D1217706A000C3CF6B /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				9BBBA6E32177244400C3CF6B /* HZNetworkDemo */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		9BBBA6E32177244400C3CF6B /* HZNetworkDemo */ = {
+			isa = PBXGroup;
+			children = (
 				9BBBA6D22177073000C3CF6B /* HZNetworkViewController.h */,
 				9BBBA6D32177073000C3CF6B /* HZNetworkViewController.m */,
+				9BBBA6E7217724EE00C3CF6B /* HZNetWorkDownLoadViewController.h */,
+				9BBBA6E8217724EE00C3CF6B /* HZNetWorkDownLoadViewController.m */,
 				9BBBA6D52177089F00C3CF6B /* HZNetworkModel.h */,
 				9BBBA6D62177089F00C3CF6B /* HZNetworkModel.m */,
 			);
-			path = Others;
+			path = HZNetworkDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -900,6 +913,7 @@
 				9BBBA6D72177089F00C3CF6B /* HZNetworkModel.m in Sources */,
 				9BBBA6372176323700C3CF6B /* HZRequestManager.m in Sources */,
 				9BBBA6572176DBA900C3CF6B /* BaseViewController.m in Sources */,
+				9BBBA6E9217724EE00C3CF6B /* HZNetWorkDownLoadViewController.m in Sources */,
 				9BBBA66B2176E69500C3CF6B /* HZDiscoverViewController.m in Sources */,
 				9BBBA64921763AF600C3CF6B /* HZCacheManager.m in Sources */,
 				9BBBA6742176E7A300C3CF6B /* BaseNavigationController.m in Sources */,

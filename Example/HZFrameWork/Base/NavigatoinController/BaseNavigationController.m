@@ -12,6 +12,10 @@
 //协议
 #import "TransitionProtocol.h"
 
+#define kDevice_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size)): NO)
+
+#define kNavigationHeight (kDevice_Is_iPhoneX ? 88 : 64)
+
 @interface BaseNavigationController ()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic, weak) id popDelegate;
 @property (nonatomic,strong) UIPercentDrivenInteractiveTransition *interactivePopTransition;
@@ -22,8 +26,7 @@
 @implementation BaseNavigationController
 
 //APP生命周期中 只会执行一次
-+ (void)initialize
-{
++ (void)initialize{
     //导航栏主题 title文字属性
     UINavigationBar *navBar = [UINavigationBar appearance];
     //导航栏背景图
@@ -199,9 +202,8 @@
 
 #pragma mark ————— 转场动画区 —————
 //navigation切换是会走这个代理
--(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
-{
-    NSLog(@"转场动画代理方法");
+-(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
+    //NSLog(@"转场动画代理方法");
     self.isSystemSlidBack = YES;
     //如果来源VC和目标VC都实现协议，那么都做动画
     if ([fromVC conformsToProtocol:@protocol(TransitionProtocol)] && [toVC conformsToProtocol:@protocol(TransitionProtocol)]) {

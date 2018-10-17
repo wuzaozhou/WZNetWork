@@ -34,10 +34,18 @@
     if (request.methodType==HZMethodTypeUpload) {
         //[self sendUploadRequest:request progress:progress success:success failure:failure];
     }else if (request.methodType==HZMethodTypeDownLoad){
-        //[self sendDownLoadRequest:request progress:progress success:success failure:failure];
+        [self sendDownLoadRequest:request progress:progress success:success failure:failure];
     }else{
         [self sendHTTPRequest:request progress:progress success:success failure:failure];
     }
+}
+
+
++ (void)sendDownLoadRequest:(HZURLRequest *)request progress:(progressBlock)progress success:(requestSuccess)success failure:(requestFailure)failure{
+    [[HZRequestEngine defaultEngine] downloadWithRequest:request progress:progress completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        failure ? failure(error) : nil;
+        success ? success([filePath path],request.apiType,NO) : nil;
+    }];
 }
 
 

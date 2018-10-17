@@ -44,6 +44,7 @@
     [self invalidateSessionCancelingTasks:YES];
 }
 
+
 #pragma mark - GET/POST/PUT/PATCH/DELETE
 - (NSURLSessionDataTask *)dataTaskWithMethod:(HZURLRequest *)request
                                  hz_progress:(void (^)(NSProgress * _Nonnull))hz_progress
@@ -66,6 +67,41 @@
     }else{
         return [self GET:URLString parameters:request.parameters progress:hz_progress success:success failure:failure];
     }
+}
+
+
+#pragma mark - DownLoad
+- (NSURLSessionDownloadTask *)downloadWithRequest:(HZURLRequest *)request
+                                         progress:(void (^)(NSProgress *downloadProgress)) downloadProgressBlock
+                                completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler{
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString hz_stringUTF8Encoding:request.URLString]]];
+    
+    [self headersAndTimeConfig:request];
+    
+    NSURL *downloadFileSavePath;
+    BOOL isDirectory;
+    if(![[NSFileManager defaultManager] fileExistsAtPath:request.downloadSavePath isDirectory:&isDirectory]) {
+        isDirectory = NO;
+    }
+    if (isDirectory) {
+        NSString *fileName = [urlRequest.URL lastPathComponent];
+        downloadFileSavePath = [NSURL fileURLWithPath:[NSString pathWithComponents:@[request.downloadSavePath, fileName]] isDirectory:NO];
+    } else {
+        downloadFileSavePath = [NSURL fileURLWithPath:request.downloadSavePath isDirectory:NO];
+    }
+    NSURLSessionDownloadTask *dataTask = [self downloadTaskWithRequest:urlRequest progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            downloadProgressBlock ? downloadProgressBlock(downloadProgress) : nil;
+        });
+        
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        return downloadFileSavePath;
+    } completionHandler:completionHandler];
+    
+    [dataTask resume];
+    return dataTask;
 }
 
 
