@@ -87,6 +87,11 @@
 		9BBBA64521763A2D00C3CF6B /* NSString+HZUTF8Encoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HZUTF8Encoding.m"; sourceTree = "<group>"; };
 		9BBBA64721763AF600C3CF6B /* HZCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZCacheManager.h; sourceTree = "<group>"; };
 		9BBBA64821763AF600C3CF6B /* HZCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZCacheManager.m; sourceTree = "<group>"; };
+		9BBBA64F2176D42700C3CF6B /* ThirdMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdMacros.h; sourceTree = "<group>"; };
+		9BBBA6502176D43500C3CF6B /* FontAndColorMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontAndColorMacros.h; sourceTree = "<group>"; };
+		9BBBA6512176D44100C3CF6B /* CommonMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacros.h; sourceTree = "<group>"; };
+		9BBBA6522176D45100C3CF6B /* URLMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLMacros.h; sourceTree = "<group>"; };
+		9BBBA6542176D46A00C3CF6B /* UtilsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsMacros.h; sourceTree = "<group>"; };
 		9C6F7DCE904757C767F632EF /* Pods_HZFrameWork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1EBF636EC74659689E1890 /* Pods-HZFrameWork_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +253,11 @@
 		9B7517072175F7D500E8ED3A /* Define */ = {
 			isa = PBXGroup;
 			children = (
+				9BBBA64F2176D42700C3CF6B /* ThirdMacros.h */,
+				9BBBA6502176D43500C3CF6B /* FontAndColorMacros.h */,
+				9BBBA6512176D44100C3CF6B /* CommonMacros.h */,
+				9BBBA6522176D45100C3CF6B /* URLMacros.h */,
+				9BBBA6542176D46A00C3CF6B /* UtilsMacros.h */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -262,6 +272,11 @@
 		9B7517092175F7E800E8ED3A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				9BBBA64E2176D3BF00C3CF6B /* TabbarController */,
+				9BBBA64D2176D3A700C3CF6B /* NavigatoinController */,
+				9BBBA64C2176D39800C3CF6B /* WebViewController */,
+				9BBBA64B2176D38A00C3CF6B /* BaseCell */,
+				9BBBA64A2176D37000C3CF6B /* BaseViewController */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -334,6 +349,41 @@
 				9BBBA60C21760C8000C3CF6B /* HZTableViewController.m */,
 			);
 			path = HZEmptyView;
+			sourceTree = "<group>";
+		};
+		9BBBA64A2176D37000C3CF6B /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		9BBBA64B2176D38A00C3CF6B /* BaseCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BaseCell;
+			sourceTree = "<group>";
+		};
+		9BBBA64C2176D39800C3CF6B /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WebViewController;
+			sourceTree = "<group>";
+		};
+		9BBBA64D2176D3A700C3CF6B /* NavigatoinController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NavigatoinController;
+			sourceTree = "<group>";
+		};
+		9BBBA64E2176D3BF00C3CF6B /* TabbarController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabbarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

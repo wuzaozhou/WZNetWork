@@ -13,4 +13,12 @@
 #ifdef __OBJC__
     @import UIKit;
     @import Foundation;
+
+//全局宏
+#import "UtilsMacros.h"
+#import "URLMacros.h"
+#import "FontAndColorMacros.h"
+#import "ThirdMacros.h"
+#import "CommonMacros.h"
+
 #endif
