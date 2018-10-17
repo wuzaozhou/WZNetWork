@@ -13,7 +13,7 @@
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
-		6003F59E195388D20070C39A /* HZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* HZAppDelegate.m */; };
+		6003F59E195388D20070C39A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* AppDelegate.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -79,6 +79,8 @@
 		9BBBA6C22176EFCB00C3CF6B /* close_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBA69B2176EFCA00C3CF6B /* close_icon@3x.png */; };
 		9BBBA6C32176EFCB00C3CF6B /* close_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBA69C2176EFCA00C3CF6B /* close_icon@2x.png */; };
 		9BBBA6C42176EFCB00C3CF6B /* back_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBA69D2176EFCA00C3CF6B /* back_icon@2x.png */; };
+		9BBBA6CD2176F6D200C3CF6B /* AppDelegate+AppService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6CC2176F6D200C3CF6B /* AppDelegate+AppService.m */; };
+		9BBBA6D02176F6F600C3CF6B /* AppDelegate+PushService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6CF2176F6F600C3CF6B /* AppDelegate+PushService.m */; };
 		A02D225768E26CE887C1F0C6 /* Pods_HZFrameWork_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,8 +106,8 @@
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6003F59B195388D20070C39A /* HZFrameWork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HZFrameWork-Prefix.pch"; sourceTree = "<group>"; };
-		6003F59C195388D20070C39A /* HZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* HZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZAppDelegate.m; sourceTree = "<group>"; };
+		6003F59C195388D20070C39A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6003F59D195388D20070C39A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* HZFrameWork_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HZFrameWork_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -197,6 +199,10 @@
 		9BBBA69B2176EFCA00C3CF6B /* close_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_icon@3x.png"; sourceTree = "<group>"; };
 		9BBBA69C2176EFCA00C3CF6B /* close_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_icon@2x.png"; sourceTree = "<group>"; };
 		9BBBA69D2176EFCA00C3CF6B /* back_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_icon@2x.png"; sourceTree = "<group>"; };
+		9BBBA6CB2176F6D200C3CF6B /* AppDelegate+AppService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+AppService.h"; sourceTree = "<group>"; };
+		9BBBA6CC2176F6D200C3CF6B /* AppDelegate+AppService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+AppService.m"; sourceTree = "<group>"; };
+		9BBBA6CE2176F6F600C3CF6B /* AppDelegate+PushService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+PushService.h"; sourceTree = "<group>"; };
+		9BBBA6CF2176F6F600C3CF6B /* AppDelegate+PushService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+PushService.m"; sourceTree = "<group>"; };
 		9C6F7DCE904757C767F632EF /* Pods_HZFrameWork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1EBF636EC74659689E1890 /* Pods-HZFrameWork_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -277,8 +283,6 @@
 				9B7517072175F7D500E8ED3A /* Define */,
 				9B7517062175F7CD00E8ED3A /* Resource */,
 				9B7517042175F7BE00E8ED3A /* Tool */,
-				6003F59C195388D20070C39A /* HZAppDelegate.h */,
-				6003F59D195388D20070C39A /* HZAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				9BBBA60721760BF400C3CF6B /* HZViewController.h */,
 				9BBBA60621760BF400C3CF6B /* HZViewController.m */,
@@ -426,6 +430,12 @@
 		9B75170D2175F80100E8ED3A /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				6003F59C195388D20070C39A /* AppDelegate.h */,
+				6003F59D195388D20070C39A /* AppDelegate.m */,
+				9BBBA6CB2176F6D200C3CF6B /* AppDelegate+AppService.h */,
+				9BBBA6CC2176F6D200C3CF6B /* AppDelegate+AppService.m */,
+				9BBBA6CE2176F6F600C3CF6B /* AppDelegate+PushService.h */,
+				9BBBA6CF2176F6F600C3CF6B /* AppDelegate+PushService.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -869,9 +879,11 @@
 				9BBBA6742176E7A300C3CF6B /* BaseNavigationController.m in Sources */,
 				9BBBA61121760DC400C3CF6B /* UIView+Frame.m in Sources */,
 				9BBBA643217637B900C3CF6B /* HZURLRequest.m in Sources */,
-				6003F59E195388D20070C39A /* HZAppDelegate.m in Sources */,
+				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
 				9BBBA6712176E6AC00C3CF6B /* HZMineViewController.m in Sources */,
 				9BBBA60D21760C8100C3CF6B /* HZCollectionViewController.m in Sources */,
+				9BBBA6D02176F6F600C3CF6B /* AppDelegate+PushService.m in Sources */,
+				9BBBA6CD2176F6D200C3CF6B /* AppDelegate+AppService.m in Sources */,
 				9BBBA60E21760C8100C3CF6B /* HZTableViewController.m in Sources */,
 				9BBBA63F2176366F00C3CF6B /* HZRequestEngine.m in Sources */,
 				9BBBA66E2176E6A200C3CF6B /* HZMessageViewController.m in Sources */,

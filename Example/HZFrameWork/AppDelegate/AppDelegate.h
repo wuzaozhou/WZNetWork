@@ -7,9 +7,11 @@
 //
 
 @import UIKit;
+#import "BaseTabBarController.h"
 
-@interface HZAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) BaseTabBarController *mainTabBar;
 @end

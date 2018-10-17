@@ -6,13 +6,15 @@
 //  Copyright (c) 2018 Runyalsj. All rights reserved.
 //
 
-#import "HZAppDelegate.h"
+#import "AppDelegate.h"
 
-@implementation HZAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self initWindow];
+    [self initUserManager];
     return YES;
 }
 
