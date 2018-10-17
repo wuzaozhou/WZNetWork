@@ -31,6 +31,7 @@
 		9BBBA643217637B900C3CF6B /* HZURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA642217637B900C3CF6B /* HZURLRequest.m */; };
 		9BBBA64621763A2D00C3CF6B /* NSString+HZUTF8Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA64521763A2D00C3CF6B /* NSString+HZUTF8Encoding.m */; };
 		9BBBA64921763AF600C3CF6B /* HZCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA64821763AF600C3CF6B /* HZCacheManager.m */; };
+		9BBBA6572176DBA900C3CF6B /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6562176DBA900C3CF6B /* BaseViewController.m */; };
 		A02D225768E26CE887C1F0C6 /* Pods_HZFrameWork_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,8 @@
 		9BBBA6512176D44100C3CF6B /* CommonMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacros.h; sourceTree = "<group>"; };
 		9BBBA6522176D45100C3CF6B /* URLMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLMacros.h; sourceTree = "<group>"; };
 		9BBBA6542176D46A00C3CF6B /* UtilsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsMacros.h; sourceTree = "<group>"; };
+		9BBBA6552176DBA900C3CF6B /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		9BBBA6562176DBA900C3CF6B /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		9C6F7DCE904757C767F632EF /* Pods_HZFrameWork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1EBF636EC74659689E1890 /* Pods-HZFrameWork_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -354,6 +357,8 @@
 		9BBBA64A2176D37000C3CF6B /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9BBBA6552176DBA900C3CF6B /* BaseViewController.h */,
+				9BBBA6562176DBA900C3CF6B /* BaseViewController.m */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
@@ -606,6 +611,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BBBA6372176323700C3CF6B /* HZRequestManager.m in Sources */,
+				9BBBA6572176DBA900C3CF6B /* BaseViewController.m in Sources */,
 				9BBBA64921763AF600C3CF6B /* HZCacheManager.m in Sources */,
 				9BBBA61121760DC400C3CF6B /* UIView+Frame.m in Sources */,
 				9BBBA643217637B900C3CF6B /* HZURLRequest.m in Sources */,
