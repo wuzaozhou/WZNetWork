@@ -41,7 +41,7 @@ NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp
 - (void)btnClicked:(UIButton *)sender{
     switch (sender.tag) {
         case 1000:
-            //[self request];
+            [self request];
             break;
         case 1001:
             //[self UploadRequest];
@@ -53,7 +53,7 @@ NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp
             //[self downLoadBatchRequest];
             break;
         case 1004:
-           // [self cancelRequest];
+            [self cancelRequest];
             break;
         case 1005:
            // [self URLStringTheTimeStamp];
@@ -66,34 +66,34 @@ NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp
     }
 }
 
-//- (void)request{
-//    /*
-//     //
-//     GET/POST/PUT/PATCH/DELETE 请求 都有缓存功能
-//     POST请求 是给服务器传参的 一般是没有缓存的。也有特例 所有列表数据请求都是post的，所以request.apiType也可以用，如：request.apiType=HZRequestTypeCache
-//     默认缓存路径/Library/Caches/HZKit/AppCache
-//     */
-//
-//    [HZRequestManager requestWithConfig:^(HZURLRequest *request){
-//        request.URLString=@"";
-//        request.methodType=HZMethodTypePOST;//HZMethodTypePUT//HZMethodTypePATCH//HZMethodTypeDELETE// 默认为GET
-//        request.requestSerializer=HZHTTPRequestSerializer;//默认HZHTTPRequestSerializer 上传参数默认为二进制 格式
-//        request.responseSerializer=HZJSONResponseSerializer;//默认HZJSONResponseSerializer  返回的数据默认为json格式
-//        request.apiType=HZRequestTypeCache;//默认为HZRequestTypeRefresh
-//        request.timeoutInterval=10;//默认30
-//        request.parameters=@{@"1": @"one", @"2": @"two"};
-//        //   [request setValue:@"1234567890" forHeaderField:@"apitype"];
-//    }  success:^(id responseObject,apiType type,BOOL isCache){
-//
-//        if (isCache) {
-//            NSLog(@"使用了缓存");
-//        }else{
-//            NSLog(@"重新请求");
-//        }
-//    } failure:^(NSError *error){
-//        NSLog(@"error: %@", error);
-//    }];
-//}
+- (void)request{
+    /*
+     //
+     GET/POST/PUT/PATCH/DELETE 请求 都有缓存功能
+     POST请求 是给服务器传参的 一般是没有缓存的。也有特例 所有列表数据请求都是post的，所以request.apiType也可以用，如：request.apiType=HZRequestTypeCache
+     默认缓存路径/Library/Caches/HZKit/AppCache
+     */
+    [HZRequestManager requestWithConfig:^(HZURLRequest *request){
+        request.URLString=@"";
+        request.methodType=HZMethodTypePOST;//HZMethodTypePUT//HZMethodTypePATCH//HZMethodTypeDELETE// 默认为GET
+        request.requestSerializer=HZHTTPRequestSerializer;//默认HZHTTPRequestSerializer 上传参数默认为二进制 格式
+        request.responseSerializer=HZJSONResponseSerializer;//默认HZJSONResponseSerializer  返回的数据默认为json格式
+        request.apiType=HZRequestTypeCache;//默认为HZRequestTypeRefresh
+        request.timeoutInterval=10;//默认30
+        request.parameters=@{@"1": @"one", @"2": @"two"};
+        //   [request setValue:@"1234567890" forHeaderField:@"apitype"];
+    }  success:^(id responseObject,apiType type,BOOL isCache){
+
+        if (isCache) {
+            NSLog(@"使用了缓存");
+        }else{
+            NSLog(@"重新请求");
+        }
+    } failure:^(NSError *error){
+        NSLog(@"error: %@", error);
+    }];
+}
+
 //- (void)UploadRequest{
 //
 //    UIImage *image = [UIImage imageNamed:@"testImage"];
@@ -195,23 +195,25 @@ NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp
 //
 //}
 
-//- (void)cancelRequest{
-//
-//    [HZRequestManager cancelRequest:mp4url completion:^(BOOL results, NSString *urlString) {
-//        if (results==YES) {
-//            NSLog(@"取消下载请求:%d URL:%@",results,urlString);
-//        }else{
-//            NSLog(@"已经请求完毕无法取消");
-//        }
-//    }];
-//    [self.batchRequest cancelbatchRequestWithCompletion:^(BOOL results, NSString *urlString) {
-//        if (results==YES) {
-//            NSLog(@"按顺序批量取消下载请求:%d URL:%@",results,urlString);
-//        }else{
-//            NSLog(@"已经请求完毕无法取消");
-//        }
-//    }];
-//}
+- (void)cancelRequest{
+
+    [HZRequestManager cancelRequest:mp4url completion:^(BOOL results, NSString *urlString) {
+        if (results==YES) {
+            NSLog(@"取消下载请求:%d URL:%@",results,urlString);
+        }else{
+            NSLog(@"已经请求完毕无法取消");
+        }
+    }];
+    
+    [self.batchRequest cancelbatchRequestWithCompletion:^(BOOL results, NSString *urlString) {
+        if (results==YES) {
+            NSLog(@"按顺序批量取消下载请求:%d URL:%@",results,urlString);
+        }else{
+            NSLog(@"已经请求完毕无法取消");
+        }
+    }];
+}
+
 //- (void)URLStringTheTimeStamp{
 //
 //    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];

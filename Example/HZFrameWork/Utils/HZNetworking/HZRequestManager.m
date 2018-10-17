@@ -119,5 +119,9 @@
     }
 }
 
++ (void)cancelRequest:(NSString *)URLString completion:(cancelCompletedBlock)completion{
+    if([URLString isEqualToString:@""]||URLString==nil)return;
+    [[HZRequestEngine defaultEngine] cancelRequest:URLString completion:completion];
+}
 
 @end
