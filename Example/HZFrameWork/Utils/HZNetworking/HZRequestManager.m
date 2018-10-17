@@ -30,7 +30,6 @@
 + (void)sendRequest:(HZURLRequest *)request progress:(progressBlock)progress success:(requestSuccess)success failure:(requestFailure)failure{
     
     if([request.URLString isEqualToString:@""]||request.URLString==nil)return;
-    
     if (request.methodType==HZMethodTypeUpload) {
         //[self sendUploadRequest:request progress:progress success:success failure:failure];
     }else if (request.methodType==HZMethodTypeDownLoad){

@@ -13,7 +13,7 @@
 #import "HZTableViewController.h"
 #import "HZCollectionViewController.h"
 #import "HZNetworkViewController.h"
-
+#import "HZNetWorkDownLoadViewController.h"
 
 #define list_URL @"http://api.dotaly.com/lol/api/v1/authors?iap=0"
 
@@ -53,7 +53,7 @@
         //三、手动关闭
         [self.tableView hz_hideEmptyView];
         //self.dataArray = [NSMutableArray arrayWithObjects:@"手动显示",@"自动显示（Tableview）",@"自动显隐（Collection）",nil];
-        self.dataArray = [NSMutableArray arrayWithObjects:@"网络请求",@"自动显示（Tableview）",@"自动显隐（Collection）",nil];
+        self.dataArray = [NSMutableArray arrayWithObjects:@"网络请求",@"网络下载例子",@"自动显隐（Collection）",nil];
         [self.tableView reloadData];
     }];
     
@@ -88,7 +88,7 @@
 }
 
 - (void)cellDidAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *vc = nil;
+    BaseViewController *vc = nil;
     switch (indexPath.row) {
         case 0:{
             //[self.tableView hz_showEmptyView];
@@ -97,7 +97,7 @@
         }
             break;
         case 1:
-            vc = [[HZTableViewController alloc] init];
+            vc = [[HZNetWorkDownLoadViewController alloc] init];
             break;
         case 2:
             vc = [[HZCollectionViewController alloc] init];

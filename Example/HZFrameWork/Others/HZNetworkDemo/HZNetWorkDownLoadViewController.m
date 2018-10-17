@@ -136,7 +136,7 @@ NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp
 
         sleep(3);
         //删除下载的文件
-        [[HZCacheManager sharedInstance]clearDiskWithpath:[[HZCacheManager sharedInstance] tmpPath]completion:^{
+        [[HZCacheManager sharedInstance]clearDiskWithpath:[[HZCacheManager sharedInstance] tmpPath] completion:^{
             NSLog(@"删除下载的文件");
             [self downLoadPathSize:[[HZCacheManager sharedInstance] tmpPath]];
         }];
@@ -242,7 +242,7 @@ NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp
 //}
 
 - (void)downLoadPathSize:(NSString *)path{
-    CGFloat downLoadPathSize=[[HZCacheManager sharedInstance]getFileSizeWithpath:path];
+    CGFloat downLoadPathSize=[[HZCacheManager sharedInstance] getFileSizeWithpath:path];
     downLoadPathSize=downLoadPathSize/1000.0/1000.0;
     NSLog(@"downLoadPathSize: %.2fM", downLoadPathSize);
 }

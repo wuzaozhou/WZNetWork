@@ -6,8 +6,8 @@
 //  Copyright © 2018年 tutu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface HZCollectionViewController : UIViewController
+@interface HZCollectionViewController : BaseViewController
 
 @end

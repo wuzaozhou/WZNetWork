@@ -208,5 +208,75 @@ static const CGFloat unit = 1000.0;
     });
 }
 
+#pragma  mark - 计算大小与个数
+- (NSUInteger)getCacheSize {
+    return [self getFileSizeWithpath:self.diskCachePath];
+}
+
+- (NSUInteger)getCacheCount {
+    return [self getFileCountWithpath:self.diskCachePath];
+}
+
+- (NSUInteger)getFileSizeWithpath:(NSString *)path {
+    __block NSUInteger size = 0;
+    //sync
+    dispatch_sync(self.operationQueue, ^{
+        NSDirectoryEnumerator *fileEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:path];
+        for (NSString *fileName in fileEnumerator) {
+            NSString *filePath = [path stringByAppendingPathComponent:fileName];
+            NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+            size += [attrs fileSize];
+        }
+    });
+    return size;
+}
+
+
+#pragma  mark - 清除默认路径缓存
+- (void)clearCache{
+    [self clearCacheOnCompletion:nil];
+}
+
+- (void)clearCacheOnCompletion:(HZCacheCompletedBlock)completion{
+    
+    dispatch_async(self.operationQueue, ^{
+        //[self clearDiskWithpath:self.diskCachePath];
+        [[NSFileManager defaultManager] removeItemAtPath:self.diskCachePath error:nil];
+        [self createDirectoryAtPath:self.diskCachePath];
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(),^{
+                completion();
+            });
+        }
+    });
+}
+
+
+
+#pragma  mark - 清除自定义路径缓存
+- (void)clearDiskWithpath:(NSString *)path{
+    [self clearDiskWithpath:path completion:nil];
+}
+
+- (void)clearDiskWithpath:(NSString *)path completion:(HZCacheCompletedBlock)completion {
+    if (!path)return;
+    dispatch_async(self.operationQueue, ^{
+        
+        NSDirectoryEnumerator *fileEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:path];
+        for (NSString *fileName in fileEnumerator)
+        {
+            NSString *filePath = [path stringByAppendingPathComponent:fileName];
+            
+            [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+        }
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(),^{
+                completion();
+            });
+        }
+    });
+}
+
+
 
 @end
