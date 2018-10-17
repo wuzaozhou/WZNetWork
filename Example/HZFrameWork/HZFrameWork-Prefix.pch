@@ -22,6 +22,10 @@
 #import "CommonMacros.h"
 
 
+//工具类
+#import "HZNetworking.h"
+#import "UIImage+Category.h"
+
 //基础类
 #import "AppDelegate.h"
 #import "AppDelegate+AppService.h"

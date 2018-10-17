@@ -130,6 +130,16 @@
     return buttonArray;
 }
 
+
+- (void)alertTitle:(NSString *)title andMessage:(NSString *)message {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:@"确定"
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
+}
+
 /*
 #pragma mark - Navigation
 

@@ -17,6 +17,11 @@
 @property (nonatomic, assign) UIStatusBarStyle StatusBarStyle;
 
 /**
+ 是否隐藏导航栏
+ */
+@property (nonatomic, assign) BOOL isHidenNaviBar;
+
+/**
  导航栏添加文本按钮
  
  @param titles 文本数组
@@ -37,5 +42,9 @@
  @param tags tags数组 回调区分用
  */
 - (void)addNavigationItemWithImageNames:(NSArray *)imageNames isLeft:(BOOL)isLeft target:(id)target action:(SEL)action tags:(NSArray *)tags;
+
+
+//title提示框的标题; andMessage提示框的描述
+- (void)alertTitle:(NSString *)title andMessage:(NSString *)message;
 
 @end

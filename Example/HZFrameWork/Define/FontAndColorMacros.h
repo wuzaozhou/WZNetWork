@@ -22,10 +22,12 @@
 
 //主题色 导航栏颜色
 #define CNavBgColor   UIColorFromHexString(0x00AE68)
+#define CNavBgFontColor  UIColorFromHexString(0xffffff)
 
-#define RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 
 //传入具体颜色值设置颜色
+#define RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
 #define UIColorFromHexString(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
