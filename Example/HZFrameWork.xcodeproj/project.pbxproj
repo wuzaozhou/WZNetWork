@@ -28,11 +28,6 @@
 		9BBBA60D21760C8100C3CF6B /* HZCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA60921760C8000C3CF6B /* HZCollectionViewController.m */; };
 		9BBBA60E21760C8100C3CF6B /* HZTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA60C21760C8000C3CF6B /* HZTableViewController.m */; };
 		9BBBA61121760DC400C3CF6B /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA61021760DC400C3CF6B /* UIView+Frame.m */; };
-		9BBBA6372176323700C3CF6B /* HZRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6362176323700C3CF6B /* HZRequestManager.m */; };
-		9BBBA63F2176366F00C3CF6B /* HZRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA63E2176366F00C3CF6B /* HZRequestEngine.m */; };
-		9BBBA643217637B900C3CF6B /* HZURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA642217637B900C3CF6B /* HZURLRequest.m */; };
-		9BBBA64621763A2D00C3CF6B /* NSString+HZUTF8Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA64521763A2D00C3CF6B /* NSString+HZUTF8Encoding.m */; };
-		9BBBA64921763AF600C3CF6B /* HZCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA64821763AF600C3CF6B /* HZCacheManager.m */; };
 		9BBBA6572176DBA900C3CF6B /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6562176DBA900C3CF6B /* BaseViewController.m */; };
 		9BBBA65B2176DE3B00C3CF6B /* BaseTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA65A2176DE3B00C3CF6B /* BaseTabBar.m */; };
 		9BBBA65E2176DF9000C3CF6B /* UITabBar+CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA65D2176DF9000C3CF6B /* UITabBar+CustomBadge.m */; };
@@ -137,18 +132,6 @@
 		9BBBA60C21760C8000C3CF6B /* HZTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZTableViewController.m; sourceTree = "<group>"; };
 		9BBBA60F21760DC400C3CF6B /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		9BBBA61021760DC400C3CF6B /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		9BBBA6352176323700C3CF6B /* HZRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZRequestManager.h; sourceTree = "<group>"; };
-		9BBBA6362176323700C3CF6B /* HZRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZRequestManager.m; sourceTree = "<group>"; };
-		9BBBA6382176328E00C3CF6B /* HZRequestConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZRequestConst.h; sourceTree = "<group>"; };
-		9BBBA6392176331300C3CF6B /* HZNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZNetworking.h; sourceTree = "<group>"; };
-		9BBBA63D2176366F00C3CF6B /* HZRequestEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZRequestEngine.h; sourceTree = "<group>"; };
-		9BBBA63E2176366F00C3CF6B /* HZRequestEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZRequestEngine.m; sourceTree = "<group>"; };
-		9BBBA641217637B900C3CF6B /* HZURLRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZURLRequest.h; sourceTree = "<group>"; };
-		9BBBA642217637B900C3CF6B /* HZURLRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZURLRequest.m; sourceTree = "<group>"; };
-		9BBBA64421763A2D00C3CF6B /* NSString+HZUTF8Encoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HZUTF8Encoding.h"; sourceTree = "<group>"; };
-		9BBBA64521763A2D00C3CF6B /* NSString+HZUTF8Encoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HZUTF8Encoding.m"; sourceTree = "<group>"; };
-		9BBBA64721763AF600C3CF6B /* HZCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZCacheManager.h; sourceTree = "<group>"; };
-		9BBBA64821763AF600C3CF6B /* HZCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZCacheManager.m; sourceTree = "<group>"; };
 		9BBBA64F2176D42700C3CF6B /* ThirdMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdMacros.h; sourceTree = "<group>"; };
 		9BBBA6502176D43500C3CF6B /* FontAndColorMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontAndColorMacros.h; sourceTree = "<group>"; };
 		9BBBA6512176D44100C3CF6B /* CommonMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacros.h; sourceTree = "<group>"; };
@@ -427,7 +410,6 @@
 			isa = PBXGroup;
 			children = (
 				9BBBA6402176371D00C3CF6B /* HZEmptyView */,
-				9BBBA634217631FA00C3CF6B /* HZNetworking */,
 				9BBBA6022176073600C3CF6B /* Categroy */,
 			);
 			path = Utils;
@@ -475,25 +457,6 @@
 				9BBBA6DE2177140800C3CF6B /* UIView+Category.m */,
 			);
 			path = Categroy;
-			sourceTree = "<group>";
-		};
-		9BBBA634217631FA00C3CF6B /* HZNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				9BBBA6392176331300C3CF6B /* HZNetworking.h */,
-				9BBBA6352176323700C3CF6B /* HZRequestManager.h */,
-				9BBBA6362176323700C3CF6B /* HZRequestManager.m */,
-				9BBBA641217637B900C3CF6B /* HZURLRequest.h */,
-				9BBBA642217637B900C3CF6B /* HZURLRequest.m */,
-				9BBBA64721763AF600C3CF6B /* HZCacheManager.h */,
-				9BBBA64821763AF600C3CF6B /* HZCacheManager.m */,
-				9BBBA6382176328E00C3CF6B /* HZRequestConst.h */,
-				9BBBA63D2176366F00C3CF6B /* HZRequestEngine.h */,
-				9BBBA63E2176366F00C3CF6B /* HZRequestEngine.m */,
-				9BBBA64421763A2D00C3CF6B /* NSString+HZUTF8Encoding.h */,
-				9BBBA64521763A2D00C3CF6B /* NSString+HZUTF8Encoding.m */,
-			);
-			path = HZNetworking;
 			sourceTree = "<group>";
 		};
 		9BBBA6402176371D00C3CF6B /* HZEmptyView */ = {
@@ -933,16 +896,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BBBA6D72177089F00C3CF6B /* HZNetworkModel.m in Sources */,
-				9BBBA6372176323700C3CF6B /* HZRequestManager.m in Sources */,
 				9BBBA6572176DBA900C3CF6B /* BaseViewController.m in Sources */,
 				9B2CCDCC2178306700A3AAC8 /* HZNetWorkSettingViewController.m in Sources */,
 				9BBBA6E9217724EE00C3CF6B /* HZNetWorkDownLoadViewController.m in Sources */,
 				9BBBA66B2176E69500C3CF6B /* HZDiscoverViewController.m in Sources */,
-				9BBBA64921763AF600C3CF6B /* HZCacheManager.m in Sources */,
 				9BBBA6742176E7A300C3CF6B /* BaseNavigationController.m in Sources */,
 				9BBBA61121760DC400C3CF6B /* UIView+Frame.m in Sources */,
 				9BBBA6D42177073000C3CF6B /* HZNetworkViewController.m in Sources */,
-				9BBBA643217637B900C3CF6B /* HZURLRequest.m in Sources */,
 				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
 				9BBBA6712176E6AC00C3CF6B /* HZMineViewController.m in Sources */,
 				9BBBA60D21760C8100C3CF6B /* HZCollectionViewController.m in Sources */,
@@ -950,7 +910,6 @@
 				9BBBA6CD2176F6D200C3CF6B /* AppDelegate+AppService.m in Sources */,
 				9B2CCDCF2178349300A3AAC8 /* HZoffLineDownLoadViewController.m in Sources */,
 				9BBBA60E21760C8100C3CF6B /* HZTableViewController.m in Sources */,
-				9BBBA63F2176366F00C3CF6B /* HZRequestEngine.m in Sources */,
 				9BBBA66E2176E6A200C3CF6B /* HZMessageViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				9BBBA6DF2177140800C3CF6B /* UIView+Category.m in Sources */,
@@ -958,7 +917,6 @@
 				9BBBA6682176E68200C3CF6B /* HZHomeViewController.m in Sources */,
 				9BBBA65E2176DF9000C3CF6B /* UITabBar+CustomBadge.m in Sources */,
 				9BBBA65B2176DE3B00C3CF6B /* BaseTabBar.m in Sources */,
-				9BBBA64621763A2D00C3CF6B /* NSString+HZUTF8Encoding.m in Sources */,
 				9B2CCDD2217866F900A3AAC8 /* HZDetailViewController.m in Sources */,
 				9BBBA6DA21770BC600C3CF6B /* UIImage+Category.m in Sources */,
 			);
