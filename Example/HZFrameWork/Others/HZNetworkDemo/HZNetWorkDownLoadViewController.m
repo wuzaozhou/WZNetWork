@@ -7,7 +7,7 @@
 //
 
 #import "HZNetWorkDownLoadViewController.h"
-
+#import "HZoffLineDownLoadViewController.h"
 /** 视频链接 */
 //NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp4";
 NSString *const mp4url =@"http://down.sandai.net/mac/thunder_3.2.7.3764.dmg";
@@ -21,7 +21,6 @@ NSString *const mp4url =@"http://down.sandai.net/mac/thunder_3.2.7.3764.dmg";
     [super viewDidLoad];
     self.title=@"使用例子";
     NSArray *titleArray=[NSArray arrayWithObjects:@"POST/PUT/PATCH/DELETE/Request",@"UploadRequest",@"downLoadRequest",@"downLoadBatchRequest",@"取消请求",@"url过滤动态参数",@"parameters过滤动态参数", nil];
-    
     for (int i=0; i<titleArray.count; i++) {
         
         UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
@@ -59,7 +58,7 @@ NSString *const mp4url =@"http://down.sandai.net/mac/thunder_3.2.7.3764.dmg";
             [self URLStringTheTimeStamp];
             break;
         case 1006:
-           // [self parametersTheTimeStamp];
+            [self parametersTheTimeStamp];
             break;
         default:
             break;
@@ -175,7 +174,6 @@ NSString *const mp4url =@"http://down.sandai.net/mac/thunder_3.2.7.3764.dmg";
         NSLog(@"onProgress: %.2f", 100.f * progress.completedUnitCount/progress.totalUnitCount);
     } success:^(id  _Nullable responseObject, apiType type,BOOL isCache) {
         NSLog(@"此时会返回存储路径文件: %@", responseObject);
-
         [self downLoadPathSize:[[HZCacheManager sharedInstance] tmpPath]];//返回下载路径的大小
         [self downLoadPathSize:[[HZCacheManager sharedInstance] documentPath]];//返回下载路径的大小
         sleep(5);
@@ -218,8 +216,7 @@ NSString *const mp4url =@"http://down.sandai.net/mac/thunder_3.2.7.3764.dmg";
 
     NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
     NSString *timeString = [NSString stringWithFormat:@"&time=%f", timeInterval];
-
-    //作者遇到到请求 是在get请求后加一个时间戳的参数，因为URLString 是默认为缓存key的 加上时间戳，key 一直变动 无法拿到缓存。所以定义了一个customCacheKey
+    //遇到到请求 是在get请求后加一个时间戳的参数，因为URLString 是默认为缓存key的 加上时间戳，key 一直变动 无法拿到缓存。所以定义了一个customCacheKey
     [HZRequestManager requestWithConfig:^(HZURLRequest *request){
         request.URLString=[list_URL stringByAppendingString:timeString];
         request.customCacheKey=list_URL;//去掉timeString
@@ -230,21 +227,20 @@ NSString *const mp4url =@"http://down.sandai.net/mac/thunder_3.2.7.3764.dmg";
 }
 
 
+- (void)parametersTheTimeStamp{
+    //POST等 使用了parameters 的请求 缓存key会是URLString+parameters，parameters里有是时间戳或者其他动态参数,key一直变动 无法拿到缓存。所以定义一个parametersfiltrationCacheKey 过滤掉parameters 缓存key里的 变动参数比如 时间戳
+    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
+    NSString *timeString = [NSString stringWithFormat:@"%f",timeInterval];
 
-//- (void)parametersTheTimeStamp{
-//    //POST等 使用了parameters 的请求 缓存key会是URLString+parameters，parameters里有是时间戳或者其他动态参数,key一直变动 无法拿到缓存。所以定义一个parametersfiltrationCacheKey 过滤掉parameters 缓存key里的 变动参数比如 时间戳
-//
-//    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
-//    NSString *timeString = [NSString stringWithFormat:@"%f",timeInterval];
-//
-//    [HZRequestManager requestWithConfig:^(HZURLRequest *request){
-//        request.URLString=@"http://URL";
-//        request.methodType=HZMethodTypePOST;//默认为GET
-//        request.apiType=HZRequestTypeCache;//默认为HZRequestTypeRefresh
-//        request.parameters=@{@"1": @"one", @"2": @"two", @"time":timeString};
-//        request.parametersfiltrationCacheKey=@[@"time"];//过滤掉parameters 缓存key里变动参数比如 时间戳
-//    }success:nil failure:nil];
-//}
+    [HZRequestManager requestWithConfig:^(HZURLRequest *request){
+        request.URLString=@"http://URL";
+        request.methodType = HZMethodTypePOST;//默认为GET
+        request.apiType = HZRequestTypeCache;//默认为HZRequestTypeRefresh
+        request.parameters=@{@"1": @"one", @"2": @"two", @"time":timeString};
+        request.parametersfiltrationCacheKey = @[@"time"];//过滤掉parameters 缓存key里变动参数比如 时间戳
+    }success:nil failure:nil];
+}
+
 
 - (void)downLoadPathSize:(NSString *)path{
     CGFloat downLoadPathSize=[[HZCacheManager sharedInstance] getFileSizeWithpath:path];

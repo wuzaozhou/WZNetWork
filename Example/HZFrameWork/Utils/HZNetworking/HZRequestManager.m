@@ -11,7 +11,6 @@
 #import "NSString+HZUTF8Encoding.h"
 #import "HZCacheManager.h"
 #import "HZRequestEngine.h"
-
 @implementation HZRequestManager
 
 #pragma mark - 配置请求
@@ -74,7 +73,7 @@
 
 + (void)sendHTTPRequest:(HZURLRequest *)request progress:(progressBlock)progress success:(requestSuccess)success failure:(requestFailure)failure{
     NSString *key = [self keyWithParameters:request];
-    if ([[HZCacheManager sharedInstance] diskCacheExistsWithKey:key]&&request.apiType!=HZRequestTypeRefresh&&request.apiType!=HZRequestTypeRefreshMore){
+    if ([[HZCacheManager sharedInstance] diskCacheExistsWithKey:key] && request.apiType != HZRequestTypeRefresh && request.apiType!=HZRequestTypeRefreshMore){
         [[HZCacheManager sharedInstance] getCacheDataForKey:key value:^(NSData *data,NSString *filePath) {
             id result=[self responsetSerializerConfig:request responseObject:data];
             success ? success(result ,request.apiType,YES) : nil;
@@ -89,7 +88,7 @@
     [[HZRequestEngine defaultEngine] dataTaskWithMethod:request hz_progress:^(NSProgress * _Nonnull hz_progress) {
         progress ? progress(hz_progress) : nil;
     } success:^(NSURLSessionDataTask *task, id responseObject) {
-        
+    
         [self storeObject:responseObject request:request];
         id result=[self responsetSerializerConfig:request responseObject:responseObject];
         success ? success(result,request.apiType,NO) : nil;
@@ -131,8 +130,6 @@
     }else{
         NSError *serializationError = nil;
         NSData *data = (NSData *)responseObject;
-        // Workaround for behavior of Rails to return a single space for `head :ok` (a workaround for a bug in Safari), which is not interpreted as valid input by NSJSONSerialization.
-        // See https://github.com/rails/rails/issues/1742
         BOOL isSpace = [data isEqualToData:[NSData dataWithBytes:" " length:1]];
         if (data.length > 0 && !isSpace) {
             id result=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializationError];

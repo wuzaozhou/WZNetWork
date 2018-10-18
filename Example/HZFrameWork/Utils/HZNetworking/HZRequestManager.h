@@ -11,8 +11,6 @@
 
 @interface HZRequestManager : NSObject
 
-+ (instancetype)defaultEngine;
-
 /**
  *  请求方法 GET/POST/PUT/PATCH/DELETE
  *

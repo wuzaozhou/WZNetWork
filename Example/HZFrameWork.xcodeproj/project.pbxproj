@@ -22,6 +22,9 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		9B2CCDCC2178306700A3AAC8 /* HZNetWorkSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CCDCB2178306700A3AAC8 /* HZNetWorkSettingViewController.m */; };
+		9B2CCDCF2178349300A3AAC8 /* HZoffLineDownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CCDCE2178349300A3AAC8 /* HZoffLineDownLoadViewController.m */; };
+		9B2CCDD2217866F900A3AAC8 /* HZDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CCDD1217866F900A3AAC8 /* HZDetailViewController.m */; };
 		9BBBA60D21760C8100C3CF6B /* HZCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA60921760C8000C3CF6B /* HZCollectionViewController.m */; };
 		9BBBA60E21760C8100C3CF6B /* HZTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA60C21760C8000C3CF6B /* HZTableViewController.m */; };
 		9BBBA61121760DC400C3CF6B /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA61021760DC400C3CF6B /* UIView+Frame.m */; };
@@ -122,6 +125,12 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9B2CCDCA2178306700A3AAC8 /* HZNetWorkSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZNetWorkSettingViewController.h; sourceTree = "<group>"; };
+		9B2CCDCB2178306700A3AAC8 /* HZNetWorkSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZNetWorkSettingViewController.m; sourceTree = "<group>"; };
+		9B2CCDCD2178349300A3AAC8 /* HZoffLineDownLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZoffLineDownLoadViewController.h; sourceTree = "<group>"; };
+		9B2CCDCE2178349300A3AAC8 /* HZoffLineDownLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZoffLineDownLoadViewController.m; sourceTree = "<group>"; };
+		9B2CCDD0217866F900A3AAC8 /* HZDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZDetailViewController.h; sourceTree = "<group>"; };
+		9B2CCDD1217866F900A3AAC8 /* HZDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZDetailViewController.m; sourceTree = "<group>"; };
 		9BBBA60921760C8000C3CF6B /* HZCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZCollectionViewController.m; sourceTree = "<group>"; };
 		9BBBA60A21760C8000C3CF6B /* HZCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZCollectionViewController.h; sourceTree = "<group>"; };
 		9BBBA60B21760C8000C3CF6B /* HZTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZTableViewController.h; sourceTree = "<group>"; };
@@ -649,6 +658,12 @@
 				9BBBA6D32177073000C3CF6B /* HZNetworkViewController.m */,
 				9BBBA6E7217724EE00C3CF6B /* HZNetWorkDownLoadViewController.h */,
 				9BBBA6E8217724EE00C3CF6B /* HZNetWorkDownLoadViewController.m */,
+				9B2CCDCA2178306700A3AAC8 /* HZNetWorkSettingViewController.h */,
+				9B2CCDCB2178306700A3AAC8 /* HZNetWorkSettingViewController.m */,
+				9B2CCDCD2178349300A3AAC8 /* HZoffLineDownLoadViewController.h */,
+				9B2CCDCE2178349300A3AAC8 /* HZoffLineDownLoadViewController.m */,
+				9B2CCDD0217866F900A3AAC8 /* HZDetailViewController.h */,
+				9B2CCDD1217866F900A3AAC8 /* HZDetailViewController.m */,
 				9BBBA6D52177089F00C3CF6B /* HZNetworkModel.h */,
 				9BBBA6D62177089F00C3CF6B /* HZNetworkModel.m */,
 			);
@@ -920,6 +935,7 @@
 				9BBBA6D72177089F00C3CF6B /* HZNetworkModel.m in Sources */,
 				9BBBA6372176323700C3CF6B /* HZRequestManager.m in Sources */,
 				9BBBA6572176DBA900C3CF6B /* BaseViewController.m in Sources */,
+				9B2CCDCC2178306700A3AAC8 /* HZNetWorkSettingViewController.m in Sources */,
 				9BBBA6E9217724EE00C3CF6B /* HZNetWorkDownLoadViewController.m in Sources */,
 				9BBBA66B2176E69500C3CF6B /* HZDiscoverViewController.m in Sources */,
 				9BBBA64921763AF600C3CF6B /* HZCacheManager.m in Sources */,
@@ -932,6 +948,7 @@
 				9BBBA60D21760C8100C3CF6B /* HZCollectionViewController.m in Sources */,
 				9BBBA6D02176F6F600C3CF6B /* AppDelegate+PushService.m in Sources */,
 				9BBBA6CD2176F6D200C3CF6B /* AppDelegate+AppService.m in Sources */,
+				9B2CCDCF2178349300A3AAC8 /* HZoffLineDownLoadViewController.m in Sources */,
 				9BBBA60E21760C8100C3CF6B /* HZTableViewController.m in Sources */,
 				9BBBA63F2176366F00C3CF6B /* HZRequestEngine.m in Sources */,
 				9BBBA66E2176E6A200C3CF6B /* HZMessageViewController.m in Sources */,
@@ -942,6 +959,7 @@
 				9BBBA65E2176DF9000C3CF6B /* UITabBar+CustomBadge.m in Sources */,
 				9BBBA65B2176DE3B00C3CF6B /* BaseTabBar.m in Sources */,
 				9BBBA64621763A2D00C3CF6B /* NSString+HZUTF8Encoding.m in Sources */,
+				9B2CCDD2217866F900A3AAC8 /* HZDetailViewController.m in Sources */,
 				9BBBA6DA21770BC600C3CF6B /* UIImage+Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

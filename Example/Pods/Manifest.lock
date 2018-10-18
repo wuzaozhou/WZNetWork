@@ -19,12 +19,14 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - HZFrameWork (1.0.1):
-    - HZFrameWork/HZEmptyView (= 1.0.1)
-    - HZFrameWork/HZNetworking (= 1.0.1)
-  - HZFrameWork/HZEmptyView (1.0.1):
+  - HZFrameWork (1.0.2):
+    - HZFrameWork/HZEmptyView (= 1.0.2)
+    - HZFrameWork/HZNetworking (= 1.0.2)
+    - SDWebImage
+  - HZFrameWork/HZEmptyView (1.0.2):
     - Masonry
-  - HZFrameWork/HZNetworking (1.0.1):
+    - SDWebImage
+  - HZFrameWork/HZNetworking (1.0.2):
     - AFNetworking
     - SDWebImage
   - Masonry (1.1.0)
@@ -43,7 +45,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HZFrameWork: b0c83d2f93327d8655efb45e3ed9816de67528a3
+  HZFrameWork: 8001c36630b9dc5dd19d11b9ad496f01c99eb1c8
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 

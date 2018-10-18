@@ -208,6 +208,32 @@ static const CGFloat unit = 1000.0;
     });
 }
 
+- (NSArray *)getDiskCacheFileWithPath:(NSString *)path{
+    NSMutableArray *array=[[NSMutableArray alloc]init];
+    
+    dispatch_sync(self.operationQueue, ^{
+        
+        NSDirectoryEnumerator *fileEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:path];
+        for (NSString *fileName in fileEnumerator){
+            if (fileName.length==32) {
+                NSString *filePath = [path stringByAppendingPathComponent:fileName];
+                [array addObject:filePath];
+            }
+        }
+    });
+    return array;
+}
+
+
+-(NSDictionary* )getDiskFileAttributes:(NSString *)key path:(NSString *)path{
+    
+    NSString *filePath=[[self getDiskCacheWithCodingForKey:key path:path]stringByDeletingPathExtension];
+    
+    NSDictionary *info = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+    return info;
+}
+
+
 #pragma  mark - 计算大小与个数
 - (NSUInteger)getCacheSize {
     return [self getFileSizeWithpath:self.diskCachePath];
@@ -230,6 +256,61 @@ static const CGFloat unit = 1000.0;
     });
     return size;
 }
+
+- (NSUInteger)getFileCountWithpath:(NSString *)path{
+    __block NSUInteger count = 0;
+    //sync
+    dispatch_sync(self.operationQueue, ^{
+        NSDirectoryEnumerator *fileEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:path];
+        count = [[fileEnumerator allObjects] count];
+    });
+    return count;
+}
+
+- (NSString *)fileUnitWithSize:(float)size{
+    if (size >= unit * unit * unit) { // >= 1GB
+        return [NSString stringWithFormat:@"%.2fGB", size / unit / unit / unit];
+    } else if (size >= unit * unit) { // >= 1MB
+        return [NSString stringWithFormat:@"%.2fMB", size / unit / unit];
+    } else { // >= 1KB
+        return [NSString stringWithFormat:@"%.2fKB", size / unit];
+    }
+}
+
+- (NSUInteger)diskSystemSpace{
+    
+    __block NSUInteger size = 0.0;
+    dispatch_sync(self.operationQueue, ^{
+        NSError *error=nil;
+        NSDictionary *dic = [[NSFileManager defaultManager] attributesOfFileSystemForPath:[self homePath] error:&error];
+        if (error) {
+            NSLog(@"error: %@", error.localizedDescription);
+        }else{
+            NSNumber *systemNumber = [dic objectForKey:NSFileSystemSize];
+            size = [systemNumber floatValue];
+        }
+    });
+    return size;
+    
+}
+
+- (NSUInteger)diskFreeSystemSpace{
+    
+    __block NSUInteger size = 0.0;
+    dispatch_sync(self.operationQueue, ^{
+        NSError *error=nil;
+        NSDictionary *dic = [[NSFileManager defaultManager] attributesOfFileSystemForPath:[self homePath] error:&error];
+        if (error) {
+            NSLog(@"error: %@", error.localizedDescription);
+        }else{
+            NSNumber *freeSystemNumber = [dic objectForKey:NSFileSystemFreeSize];
+            size = [freeSystemNumber floatValue];
+        }
+    });
+    return size;
+}
+
+
 
 
 #pragma  mark - 清除默认路径缓存
@@ -275,6 +356,129 @@ static const CGFloat unit = 1000.0;
             });
         }
     });
+}
+
+
+- (void)backgroundCleanCache {
+    [self backgroundCleanCacheWithPath:self.diskCachePath];
+}
+
+
+#pragma  mark - 清除单个缓存文件
+- (void)clearCacheForkey:(NSString *)key{
+    
+    [self clearCacheForkey:key completion:nil];
+}
+
+- (void)clearCacheForkey:(NSString *)key completion:(HZCacheCompletedBlock)completion{
+    
+    [self clearCacheForkey:key path:self.diskCachePath completion:completion];
+}
+
+- (void)clearCacheForkey:(NSString *)key path:(NSString *)path completion:(HZCacheCompletedBlock)completion{
+    if (!key||!path)return;
+    dispatch_async(self.operationQueue,^{
+        
+        NSString *filePath=[[self getDiskCacheWithCodingForKey:key path:path]stringByDeletingPathExtension];
+        
+        [[NSFileManager defaultManager]removeItemAtPath:filePath error:nil];
+        
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(),^{
+                completion();
+            });
+        }
+    });
+}
+
+#pragma  mark - 设置过期时间 清除单个缓存文件
+- (void)clearCacheForkey:(NSString *)key time:(NSTimeInterval)time{
+    [self clearCacheForkey:key time:time completion:nil];
+}
+
+- (void)clearCacheForkey:(NSString *)key time:(NSTimeInterval)time completion:(HZCacheCompletedBlock)completion{
+    [self clearCacheForkey:key time:time path:self.diskCachePath completion:completion];
+}
+
+
+- (void)clearCacheForkey:(NSString *)key time:(NSTimeInterval)time path:(NSString *)path completion:(HZCacheCompletedBlock)completion{
+    if (!time||!key||!path)return;
+    dispatch_async(self.operationQueue,^{
+        // “-” time
+        NSDate *expirationDate = [NSDate dateWithTimeIntervalSinceNow:-time];
+        
+        NSString *filePath=[[self getDiskCacheWithCodingForKey:key path:path]stringByDeletingPathExtension];
+        
+        NSDictionary *info = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+        NSDate *current = [info objectForKey:NSFileModificationDate];
+        
+        if ([[current laterDate:expirationDate] isEqualToDate:expirationDate]){
+            [[NSFileManager defaultManager]removeItemAtPath:filePath error:nil];
+        }
+        
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
+        }
+    });
+}
+
+
+#pragma  mark - 设置过期时间 清除某路径缓存文件
+//双击home键终止应用程序调用  点击进入桌面终止不会执行此通知
+- (void)automaticCleanCache{
+    [self clearCacheWithTime:defaultCacheMaxCacheAge completion:nil];
+}
+
+- (void)clearCacheWithTime:(NSTimeInterval)time completion:(HZCacheCompletedBlock)completion{
+    [self clearCacheWithTime:time path:self.diskCachePath completion:completion];
+}
+
+- (void)clearCacheWithTime:(NSTimeInterval)time path:(NSString *)path completion:(HZCacheCompletedBlock)completion{
+    if (!time||!path)return;
+    dispatch_async(self.operationQueue,^{
+        // “-” time
+        NSDate *expirationDate = [NSDate dateWithTimeIntervalSinceNow:-time];
+        
+        NSDirectoryEnumerator *fileEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:path];
+        
+        for (NSString *fileName in fileEnumerator){
+            NSString *filePath = [path stringByAppendingPathComponent:fileName];
+            
+            NSDictionary *info = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+            NSDate *current = [info objectForKey:NSFileModificationDate];
+            
+            if ([[current laterDate:expirationDate] isEqualToDate:expirationDate]){
+                [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+            }
+        }
+        if (completion) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion();
+            });
+        }
+    });
+}
+
+//进入后台调用
+- (void)backgroundCleanCacheWithPath:(NSString *)path{
+    Class UIApplicationClass = NSClassFromString(@"UIApplication");
+    if(!UIApplicationClass || ![UIApplicationClass respondsToSelector:@selector(sharedApplication)]) {
+        return;
+    }
+    UIApplication *application = [UIApplication performSelector:@selector(sharedApplication)];
+    __block UIBackgroundTaskIdentifier bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
+        // Clean up any unfinished task business by marking where you
+        // stopped or ending the task outright.
+        [application endBackgroundTask:bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+    }];
+    // Start the long-running task and return immediately.
+    [self clearCacheWithTime:defaultCacheMaxCacheAge path:path completion:^{
+        [application endBackgroundTask:bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+    }];
 }
 
 

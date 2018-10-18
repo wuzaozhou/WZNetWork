@@ -10,6 +10,7 @@
 
 #import "HZNetworkViewController.h"
 #import "HZNetworkModel.h"
+#import "HZDetailViewController.h"
 @interface HZNetworkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *dataArray;
@@ -99,6 +100,15 @@
     cell.textLabel.text=model.name;
     cell.detailTextLabel.text=[NSString stringWithFormat:@"更新时间:%@",model.detail];
     return cell;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    HZNetworkModel *model=[self.dataArray objectAtIndex:indexPath.row];
+    HZDetailViewController *detailsVC = [[HZDetailViewController alloc]init];
+    NSString *url=[NSString stringWithFormat:details_URL,model.wid];
+    detailsVC.urlString=url;
+    [self.navigationController pushViewController:detailsVC animated:YES];
     
 }
 
