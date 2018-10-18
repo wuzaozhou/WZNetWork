@@ -11,7 +11,9 @@
 
 @class HZURLRequest,HZBatchRequest;
 
-#if(HHZUG_LOG == 1)
+#define HZBUG_LOG 1
+
+#if(HZBUG_LOG == 1)
 # define HZLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
 #else
 # define HZLog(...);

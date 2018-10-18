@@ -25,18 +25,42 @@
     [self sendRequest:request progress:progress success:success failure:failure];
 }
 
++ (HZBatchRequest *)sendBatchRequest:(batchRequestConfig)config success:(requestSuccess)success failure:(requestFailure)failure{
+    return [self sendBatchRequest:config progress:nil success:success failure:failure];
+}
+
++ (HZBatchRequest *)sendBatchRequest:(batchRequestConfig)config progress:(progressBlock)progress success:(requestSuccess)success failure:(requestFailure)failure{
+    HZBatchRequest *batchRequest=[[HZBatchRequest alloc]init];
+    config ? config(batchRequest) : nil;
+    
+    if (batchRequest.urlArray.count==0)return nil;
+    [batchRequest.urlArray enumerateObjectsUsingBlock:^(HZURLRequest *request , NSUInteger idx, BOOL *stop) {
+        [self sendRequest:request progress:progress success:success failure:failure];
+    }];
+    return batchRequest;
+}
+
 
 #pragma mark - 发起请求
 + (void)sendRequest:(HZURLRequest *)request progress:(progressBlock)progress success:(requestSuccess)success failure:(requestFailure)failure{
     
     if([request.URLString isEqualToString:@""]||request.URLString==nil)return;
     if (request.methodType==HZMethodTypeUpload) {
-        //[self sendUploadRequest:request progress:progress success:success failure:failure];
+        [self sendUploadRequest:request progress:progress success:success failure:failure];
     }else if (request.methodType==HZMethodTypeDownLoad){
         [self sendDownLoadRequest:request progress:progress success:success failure:failure];
     }else{
         [self sendHTTPRequest:request progress:progress success:success failure:failure];
     }
+}
+
+
++ (void)sendUploadRequest:(HZURLRequest *)request progress:(progressBlock)progress success:(requestSuccess)success failure:(requestFailure)failure{
+    [[HZRequestEngine defaultEngine] uploadWithRequest:request hz_progress:progress success:^(NSURLSessionDataTask *task, id responseObject) {
+        success ? success(responseObject,0,NO) : nil;
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure ? failure(error) : nil;
+    }];
 }
 
 

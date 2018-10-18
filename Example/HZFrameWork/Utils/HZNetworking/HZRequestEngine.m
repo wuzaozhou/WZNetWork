@@ -32,10 +32,8 @@
         self.securityPolicy.validatesDomainName = NO;
         /*因为与缓存互通 服务器返回的数据 必须是二进制*/
         self.responseSerializer = [AFHTTPResponseSerializer serializer];
-        
         self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",@"text/json", @"text/plain",@"text/javascript",nil];
         [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-        
     }
     return self;
 }
@@ -68,6 +66,44 @@
         return [self GET:URLString parameters:request.parameters progress:hz_progress success:success failure:failure];
     }
 }
+
+
+
+#pragma mark - upload
+- (NSURLSessionDataTask *)uploadWithRequest:(HZURLRequest *)request
+                                hz_progress:(void (^)(NSProgress * _Nonnull))hz_progress
+                                    success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                                    failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure{
+    
+    NSURLSessionDataTask *uploadTask = [self POST:[NSString hz_stringUTF8Encoding:request.URLString] parameters:request.parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        [request.uploadDatas enumerateObjectsUsingBlock:^(HZUploadData *obj, NSUInteger idx, BOOL *stop) {
+            if (obj.fileData) {
+                if (obj.fileName && obj.mimeType) {
+                    [formData appendPartWithFileData:obj.fileData name:obj.name fileName:obj.fileName mimeType:obj.mimeType];
+                } else {
+                    [formData appendPartWithFormData:obj.fileData name:obj.name];
+                }
+            } else if (obj.fileURL) {
+                
+                if (obj.fileName && obj.mimeType) {
+                    [formData appendPartWithFileURL:obj.fileURL name:obj.name fileName:obj.fileName mimeType:obj.mimeType error:nil];
+                } else {
+                    [formData appendPartWithFileURL:obj.fileURL name:obj.name error:nil];
+                }
+                
+            }
+        }];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            hz_progress ? hz_progress(uploadProgress) : nil;
+        });
+    } success:success failure:failure];
+    return uploadTask;
+}
+
+
 
 
 #pragma mark - DownLoad

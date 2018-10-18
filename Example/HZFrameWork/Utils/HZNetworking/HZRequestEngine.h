@@ -32,20 +32,20 @@
                                      success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                                      failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
-///**
-// 上传文件
-//
-// @param request HZURLRequest
-// @param hz_progress 进度
-// @param success 成功回调
-// @param failure 失败回调
-// @return task
-// */
-//- (NSURLSessionDataTask *)uploadWithRequest:(HZURLRequest *)request
-//                                hz_progress:(void (^)(NSProgress * _Nonnull))hz_progress
-//                                    success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-//                                    failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-//
+/**
+ 上传文件
+
+ @param request HZURLRequest
+ @param hz_progress 进度
+ @param success 成功回调
+ @param failure 失败回调
+ @return task
+ */
+- (NSURLSessionDataTask *)uploadWithRequest:(HZURLRequest *)request
+                                hz_progress:(void (^)(NSProgress * _Nonnull))hz_progress
+                                    success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                                    failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 /**
  下载文件
 

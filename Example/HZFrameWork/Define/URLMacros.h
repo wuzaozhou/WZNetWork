@@ -9,5 +9,7 @@
 #ifndef URLMacros_h
 #define URLMacros_h
 
+#define list_URL @"http://api.dotaly.com/lol/api/v1/authors?iap=0"
+
 
 #endif /* URLMacros_h */

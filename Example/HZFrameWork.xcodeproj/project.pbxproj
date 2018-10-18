@@ -85,6 +85,7 @@
 		9BBBA6DA21770BC600C3CF6B /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6D921770BC600C3CF6B /* UIImage+Category.m */; };
 		9BBBA6DF2177140800C3CF6B /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6DE2177140800C3CF6B /* UIView+Category.m */; };
 		9BBBA6E9217724EE00C3CF6B /* HZNetWorkDownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA6E8217724EE00C3CF6B /* HZNetWorkDownLoadViewController.m */; };
+		9BBBA6EB21772E3D00C3CF6B /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBA6EA21772E3C00C3CF6B /* testImage.jpg */; };
 		A02D225768E26CE887C1F0C6 /* Pods_HZFrameWork_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -216,6 +217,7 @@
 		9BBBA6DE2177140800C3CF6B /* UIView+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Category.m"; sourceTree = "<group>"; };
 		9BBBA6E7217724EE00C3CF6B /* HZNetWorkDownLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZNetWorkDownLoadViewController.h; sourceTree = "<group>"; };
 		9BBBA6E8217724EE00C3CF6B /* HZNetWorkDownLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZNetWorkDownLoadViewController.m; sourceTree = "<group>"; };
+		9BBBA6EA21772E3C00C3CF6B /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImage.jpg; sourceTree = "<group>"; };
 		9C6F7DCE904757C767F632EF /* Pods_HZFrameWork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1EBF636EC74659689E1890 /* Pods-HZFrameWork_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 		9B7517062175F7CD00E8ED3A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				9BBBA6EA21772E3C00C3CF6B /* testImage.jpg */,
 				9BBBA69D2176EFCA00C3CF6B /* back_icon@2x.png */,
 				9BBBA6912176EFCA00C3CF6B /* back_icon@3x.png */,
 				9BBBA69C2176EFCA00C3CF6B /* close_icon@2x.png */,
@@ -706,6 +709,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Runyalsj;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 52293RKLWK;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -740,6 +746,7 @@
 				9BBBA6A52176EFCB00C3CF6B /* icon_tabbar_discovery_selected.png in Resources */,
 				9BBBA6C42176EFCB00C3CF6B /* back_icon@2x.png in Resources */,
 				9BBBA6BE2176EFCB00C3CF6B /* MBHUD_Error@2x.png in Resources */,
+				9BBBA6EB21772E3D00C3CF6B /* testImage.jpg in Resources */,
 				9BBBA6AF2176EFCB00C3CF6B /* icon_tabbar_nearby.png in Resources */,
 				9BBBA6A12176EFCA00C3CF6B /* icon_tabbar_onsite_new@2x.png in Resources */,
 				9BBBA6A42176EFCA00C3CF6B /* icon_tabbar_homepage_selected.png in Resources */,
@@ -1063,6 +1070,7 @@
 			baseConfigurationReference = 1E6FB97D4800A461106B5A87 /* Pods-HZFrameWork_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 52293RKLWK;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HZFrameWork/HZFrameWork-Prefix.pch";
 				INFOPLIST_FILE = "HZFrameWork/HZFrameWork-Info.plist";
@@ -1070,6 +1078,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1079,6 +1088,7 @@
 			baseConfigurationReference = DA1EBF636EC74659689E1890 /* Pods-HZFrameWork_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 52293RKLWK;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HZFrameWork/HZFrameWork-Prefix.pch";
 				INFOPLIST_FILE = "HZFrameWork/HZFrameWork-Info.plist";
@@ -1086,6 +1096,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

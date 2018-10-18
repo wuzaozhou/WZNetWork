@@ -32,24 +32,24 @@
  */
 + (void)requestWithConfig:(requestConfig)config  progress:(progressBlock)progress success:(requestSuccess)success failure:(requestFailure)failure;
 
-///**
-// *  批量请求方法 GET/POST/PUT/PATCH/DELETE
-// *
-// *  @param config           请求配置  Block
-// *  @param success          请求成功的 Block
-// *  @param failure          请求失败的 Block
-// */
-//+ (ZBBatchRequest *)sendBatchRequest:(batchRequestConfig)config success:(requestSuccess)success failure:(requestFailure)failure;
-//
-///**
-// *  批量请求方法 GET/POST/PUT/PATCH/DELETE/Upload/DownLoad
-// *
-// *  @param config           请求配置  Block
-// *  @param progress         请求进度  Block
-// *  @param success          请求成功的 Block
-// *  @param failure          请求失败的 Block
-// */
-//+ (ZBBatchRequest *)sendBatchRequest:(batchRequestConfig)config progress:(progressBlock)progress success:(requestSuccess)success failure:(requestFailure)failure;
+/**
+ *  批量请求方法 GET/POST/PUT/PATCH/DELETE
+ *
+ *  @param config           请求配置  Block
+ *  @param success          请求成功的 Block
+ *  @param failure          请求失败的 Block
+ */
++ (HZBatchRequest *)sendBatchRequest:(batchRequestConfig)config success:(requestSuccess)success failure:(requestFailure)failure;
+
+/**
+ *  批量请求方法 GET/POST/PUT/PATCH/DELETE/Upload/DownLoad
+ *
+ *  @param config           请求配置  Block
+ *  @param progress         请求进度  Block
+ *  @param success          请求成功的 Block
+ *  @param failure          请求失败的 Block
+ */
++ (HZBatchRequest *)sendBatchRequest:(batchRequestConfig)config progress:(progressBlock)progress success:(requestSuccess)success failure:(requestFailure)failure;
 
 /**
  取消请求任务

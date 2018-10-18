@@ -9,8 +9,8 @@
 #import "HZNetWorkDownLoadViewController.h"
 
 /** 视频链接 */
-NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp4";
-
+//NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp4";
+NSString *const mp4url =@"http://down.sandai.net/mac/thunder_3.2.7.3764.dmg";
 @interface HZNetWorkDownLoadViewController ()
 @property (nonatomic,strong)HZBatchRequest *batchRequest;
 @end
@@ -44,19 +44,19 @@ NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp
             [self request];
             break;
         case 1001:
-            //[self UploadRequest];
+            [self UploadRequest];
             break;
         case 1002:
             [self downLoadRequest];
             break;
         case 1003:
-            //[self downLoadBatchRequest];
+            [self downLoadBatchRequest];
             break;
         case 1004:
             [self cancelRequest];
             break;
         case 1005:
-           // [self URLStringTheTimeStamp];
+            [self URLStringTheTimeStamp];
             break;
         case 1006:
            // [self parametersTheTimeStamp];
@@ -94,31 +94,31 @@ NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp
     }];
 }
 
-//- (void)UploadRequest{
-//
-//    UIImage *image = [UIImage imageNamed:@"testImage"];
-//    NSData *fileData = UIImageJPEGRepresentation(image, 1.0);
-//
-//    NSString *path = [NSHomeDirectory() stringByAppendingString:@"/Documents/testImage.png"];
-//    NSURL *fileURL = [NSURL fileURLWithPath:path isDirectory:NO];
-//
-//    [HZRequestManager requestWithConfig:^(HZURLRequest * request) {
-//        request.URLString=@"";
-//        request.methodType=HZMethodTypeUpload;
-//
-//        [request addFormDataWithName:@"image[]" fileData:fileData];
-//
-//        [request addFormDataWithName:@"image[]" fileURL:fileURL];
-//
-//    } progress:^(NSProgress * _Nullable progress) {
-//        NSLog(@"onProgress: %.2f", 100.f * progress.completedUnitCount/progress.totalUnitCount);
-//
-//    } success:^(id  responseObject, apiType type,BOOL isCache) {
-//        NSLog(@"responseObject: %@", responseObject);
-//    } failure:^(NSError * _Nullable error) {
-//        NSLog(@"error: %@", error);
-//    }];
-//}
+- (void)UploadRequest{
+
+    UIImage *image = [UIImage imageNamed:@"testImage"];
+    NSData *fileData = UIImageJPEGRepresentation(image, 1.0);
+
+    NSString *path = [NSHomeDirectory() stringByAppendingString:@"/Documents/testImage.png"];
+    NSURL *fileURL = [NSURL fileURLWithPath:path isDirectory:NO];
+
+    [HZRequestManager requestWithConfig:^(HZURLRequest * request) {
+        request.URLString=@"http://192.168.0.254:1010/";
+        request.methodType=HZMethodTypeUpload;
+
+        [request addFormDataWithName:@"image[]" fileData:fileData];
+
+        //[request addFormDataWithName:@"image[]" fileURL:fileURL];
+
+    } progress:^(NSProgress * _Nullable progress) {
+        NSLog(@"onProgress: %.2f", 100.f * progress.completedUnitCount/progress.totalUnitCount);
+
+    } success:^(id  responseObject, apiType type,BOOL isCache) {
+        NSLog(@"responseObject: %@", responseObject);
+    } failure:^(NSError * _Nullable error) {
+        NSLog(@"error: %@", error);
+    }];
+}
 
 - (void)downLoadRequest{
 
@@ -147,53 +147,53 @@ NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp
     }];
 }
 
-//- (void)downLoadBatchRequest{
-//
-//    self.batchRequest=[HZRequestManager sendBatchRequest:^(HZBatchRequest * batchRequest) {
-//
-//        /*
-//         for (int i=0; i<=10; i++) {
-//         HZURLRequest *request=[[HZURLRequest alloc]init];
-//         request.urlString=url;
-//         request.methodType=HZMethodTypeDownLoad;
-//         request.downloadSavePath = [[HZCacheManager sharedInstance] tmpPath];
-//         [batchRequest.urlArray addObject:request];
-//         }
-//         */
-//        HZURLRequest *request1=[[HZURLRequest alloc]init];
-//        request1.URLString=mp4url;
-//        request1.methodType=HZMethodTypeDownLoad;
-//        request1.downloadSavePath = [[HZCacheManager sharedInstance] tmpPath];
-//        [batchRequest.urlArray addObject:request1];
-//
-//        HZURLRequest *request2=[[HZURLRequest alloc]init];
-//        request2.URLString=mp4url;
-//        request2.methodType=HZMethodTypeDownLoad;
-//        request2.downloadSavePath = [[HZCacheManager sharedInstance] documentPath];
-//        [batchRequest.urlArray addObject:request2];
-//    } progress:^(NSProgress * _Nullable progress) {
-//        NSLog(@"onProgress: %.2f", 100.f * progress.completedUnitCount/progress.totalUnitCount);
-//    } success:^(id  _Nullable responseObject, apiType type,BOOL isCache) {
-//        NSLog(@"此时会返回存储路径文件: %@", responseObject);
-//
-//        [self downLoadPathSize:[[HZCacheManager sharedInstance] tmpPath]];//返回下载路径的大小
-//        [self downLoadPathSize:[[HZCacheManager sharedInstance] documentPath]];//返回下载路径的大小
-//        sleep(5);
-//        //删除下载的文件
-//        [[HZCacheManager sharedInstance]clearDiskWithpath:[[HZCacheManager sharedInstance] tmpPath]completion:^{
-//            NSLog(@"删除下载的文件");
-//            [self downLoadPathSize:[[HZCacheManager sharedInstance] tmpPath]];
-//        }];
-//        //删除下载的文件
-//        [[HZCacheManager sharedInstance]clearDiskWithpath:[[HZCacheManager sharedInstance] documentPath]completion:^{
-//            NSLog(@"删除下载的文件");
-//            [self downLoadPathSize:[[HZCacheManager sharedInstance] documentPath]];
-//        }];
-//    } failure:^(NSError * _Nullable error) {
-//        NSLog(@"error: %@", error);
-//    }];
-//
-//}
+- (void)downLoadBatchRequest{
+
+    self.batchRequest = [HZRequestManager sendBatchRequest:^(HZBatchRequest * batchRequest) {
+
+        /*
+         for (int i=0; i<=10; i++) {
+         HZURLRequest *request=[[HZURLRequest alloc]init];
+         request.urlString=url;
+         request.methodType=HZMethodTypeDownLoad;
+         request.downloadSavePath = [[HZCacheManager sharedInstance] tmpPath];
+         [batchRequest.urlArray addObject:request];
+         }
+         */
+        HZURLRequest *request1=[[HZURLRequest alloc]init];
+        request1.URLString=mp4url;
+        request1.methodType=HZMethodTypeDownLoad;
+        request1.downloadSavePath = [[HZCacheManager sharedInstance] tmpPath];
+        [batchRequest.urlArray addObject:request1];
+
+        HZURLRequest *request2=[[HZURLRequest alloc]init];
+        request2.URLString=mp4url;
+        request2.methodType=HZMethodTypeDownLoad;
+        request2.downloadSavePath = [[HZCacheManager sharedInstance] documentPath];
+        [batchRequest.urlArray addObject:request2];
+    } progress:^(NSProgress * _Nullable progress) {
+        NSLog(@"onProgress: %.2f", 100.f * progress.completedUnitCount/progress.totalUnitCount);
+    } success:^(id  _Nullable responseObject, apiType type,BOOL isCache) {
+        NSLog(@"此时会返回存储路径文件: %@", responseObject);
+
+        [self downLoadPathSize:[[HZCacheManager sharedInstance] tmpPath]];//返回下载路径的大小
+        [self downLoadPathSize:[[HZCacheManager sharedInstance] documentPath]];//返回下载路径的大小
+        sleep(5);
+        //删除下载的文件
+        [[HZCacheManager sharedInstance]clearDiskWithpath:[[HZCacheManager sharedInstance] tmpPath]completion:^{
+            NSLog(@"删除下载的文件");
+            [self downLoadPathSize:[[HZCacheManager sharedInstance] tmpPath]];
+        }];
+        //删除下载的文件
+        [[HZCacheManager sharedInstance]clearDiskWithpath:[[HZCacheManager sharedInstance] documentPath]completion:^{
+            NSLog(@"删除下载的文件");
+            [self downLoadPathSize:[[HZCacheManager sharedInstance] documentPath]];
+        }];
+    } failure:^(NSError * _Nullable error) {
+        NSLog(@"error: %@", error);
+    }];
+
+}
 
 - (void)cancelRequest{
 
@@ -214,20 +214,23 @@ NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp
     }];
 }
 
-//- (void)URLStringTheTimeStamp{
-//
-//    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
-//    NSString *timeString = [NSString stringWithFormat:@"&time=%f", timeInterval];
-//
-//    //作者遇到到请求 是在get请求后加一个时间戳的参数，因为URLString 是默认为缓存key的 加上时间戳，key 一直变动 无法拿到缓存。所以定义了一个customCacheKey
-//    [HZRequestManager requestWithConfig:^(HZURLRequest *request){
-//        request.URLString=[list_URL stringByAppendingString:timeString];
-//        request.customCacheKey=list_URL;//去掉timeString
-//        request.methodType=HZMethodTypeGET;
-//        request.apiType=HZRequestTypeCache;//默认为HZRequestTypeRefresh
-//    }  success:nil  failure:nil];
-//
-//}
+- (void)URLStringTheTimeStamp{
+
+    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
+    NSString *timeString = [NSString stringWithFormat:@"&time=%f", timeInterval];
+
+    //作者遇到到请求 是在get请求后加一个时间戳的参数，因为URLString 是默认为缓存key的 加上时间戳，key 一直变动 无法拿到缓存。所以定义了一个customCacheKey
+    [HZRequestManager requestWithConfig:^(HZURLRequest *request){
+        request.URLString=[list_URL stringByAppendingString:timeString];
+        request.customCacheKey=list_URL;//去掉timeString
+        request.methodType=HZMethodTypeGET;
+        request.apiType=HZRequestTypeCache;//默认为HZRequestTypeRefresh
+    }  success:nil  failure:nil];
+
+}
+
+
+
 //- (void)parametersTheTimeStamp{
 //    //POST等 使用了parameters 的请求 缓存key会是URLString+parameters，parameters里有是时间戳或者其他动态参数,key一直变动 无法拿到缓存。所以定义一个parametersfiltrationCacheKey 过滤掉parameters 缓存key里的 变动参数比如 时间戳
 //
