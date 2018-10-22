@@ -41,10 +41,10 @@ typedef NS_ENUM(NSInteger,apiType) {
  HTTP 请求类型.
  */
 typedef NS_ENUM(NSInteger,MethodType) {
-    /**GET请求*/
-    HZMethodTypeGET,
     /**POST请求*/
     HZMethodTypePOST,
+    /**GET请求*/
+    HZMethodTypeGET,
     /**Upload请求*/
     HZMethodTypeUpload,
     /**DownLoad请求*/
