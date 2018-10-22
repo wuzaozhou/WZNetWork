@@ -17,6 +17,7 @@
 @end
 
 
+
 @interface DetailsModel : NSObject
 @property (nonatomic,copy)NSString *author;
 @property (nonatomic,copy)NSString *date;
