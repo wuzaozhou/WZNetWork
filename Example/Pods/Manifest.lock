@@ -42,16 +42,9 @@ DEPENDENCIES:
   - FBSnapshotTestCase
   - HZFrameWork (from `../`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AFNetworking
-    - FBSnapshotTestCase
-    - Masonry
-    - SDWebImage
-
 EXTERNAL SOURCES:
   HZFrameWork:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -62,4 +55,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 88511265e4b4847e5d5053b67ca57d5f670fd56a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0
