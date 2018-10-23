@@ -8,10 +8,15 @@
 
 #import "HZPageTitleView.h"
 #import "HZPageTitleItemView.h"
+#import <Masonry/Masonry.h>
 
 #define HZPageTitleViewWidth self.frame.size.width
 #define HZPageTitleViewHeight self.frame.size.height
 #define HZSize CGSizeMake(HZPageTitleViewWidth, HZPageTitleViewHeight)
+
+#define weak_Self __weak typeof(self) weakSelf = self
+#define strong_Self __strong typeof((weakSelf)) strongSelf = (weakSelf)
+
 
 @interface HZPageTitleView()
 
@@ -123,7 +128,9 @@
         if (self.viewModel.customTitleItemViewWidth) {
             btnW = self.viewModel.titleItemViewWidth;
             if (index == 0) {
-                self.indicatorView.x = (self.viewModel.titleItemViewWidth - tempSize.width) /2;
+                CGRect frame = self.indicatorView.frame;
+                frame.origin.x = (self.viewModel.titleItemViewWidth - tempSize.width) /2;
+                self.indicatorView.frame = frame;
                 self.scrollView.bounces = NO;
             }
         } else {
@@ -210,7 +217,11 @@
 
     [UIView animateWithDuration:0.1 animations:^{
         //设置指示器frame
-        self.indicatorView.width = self.viewModel.indicatorViewWidth?self.viewModel.indicatorViewWidth: titleSize.width;
+        CGRect frame = self.indicatorView.frame;
+        frame.size.width = self.viewModel.indicatorViewWidth?self.viewModel.indicatorViewWidth: titleSize.width;
+        
+        self.indicatorView.frame = frame;
+        
         self.indicatorView.center = CGPointMake(item.center.x, self.indicatorView.center.y);
     }];
 }
@@ -220,7 +231,7 @@
  */
 - (void)selectedCenterWithButton:(HZPageTitleItemView *)item {
     //内容没有超出一屏时不做居中处理
-    if (self.allBtnWidth <= self.width) {
+    if (self.allBtnWidth <= self.frame.size.width) {
         return ;
     }
     //计算偏移量
@@ -287,10 +298,8 @@
         _indicatorView = [[UIView alloc] init];
         _indicatorView.backgroundColor = self.viewModel.indicatorViewColor;
         CGSize tempSize = [self sizeWithString:self.titleArray.firstObject font:self.viewModel.titleFontNormal];
-        _indicatorView.size = CGSizeMake(self.viewModel.indicatorViewWidth?self.viewModel.indicatorViewWidth: tempSize.width, self.viewModel.indicatorViewHeight);
-        _indicatorView.x = self.viewModel.titleAdditionalWidth / 2;
-        _indicatorView.y = self.height - self.viewModel.indicatorViewHeight;
-//        _indicatorView.layer.cornerRadius = self.viewModel.inde
+        CGRect frame = CGRectMake(self.viewModel.titleAdditionalWidth / 2, self.frame.size.height - self.viewModel.indicatorViewHeight, self.viewModel.indicatorViewWidth?self.viewModel.indicatorViewWidth: tempSize.width, self.viewModel.indicatorViewHeight);
+        _indicatorView.frame = frame;
     }
     return _indicatorView;
 }

@@ -8,6 +8,7 @@
 
 #import "HZPageTitleItemView.h"
 #import "HZPageTitleViewModel.h"
+#import <Masonry/Masonry.h>
 
 @interface HZPageTitleItemView()
 

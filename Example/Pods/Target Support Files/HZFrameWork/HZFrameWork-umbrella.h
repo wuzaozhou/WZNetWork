@@ -19,6 +19,11 @@
 #import "HZRequestManager.h"
 #import "HZURLRequest.h"
 #import "NSString+HZUTF8Encoding.h"
+#import "HZPageContentView.h"
+#import "HZPageTitleItemView.h"
+#import "HZPageTitleView.h"
+#import "HZPageTitleViewModel.h"
+#import "HZPageView.h"
 
 FOUNDATION_EXPORT double HZFrameWorkVersionNumber;
 FOUNDATION_EXPORT const unsigned char HZFrameWorkVersionString[];

@@ -645,7 +645,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				75F7B50AD841F6D4BAD33108 /* [CP] Embed Pods Frameworks */,
-				13A129CE18AEF9D0D746F341 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -665,7 +664,6 @@
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
 				055CD0FCDE375F0E8EE8118D /* [CP] Embed Pods Frameworks */,
-				00FBD51025205A1BE2723108 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -777,21 +775,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		00FBD51025205A1BE2723108 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HZFrameWork_Tests/Pods-HZFrameWork_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		055CD0FCDE375F0E8EE8118D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -808,24 +791,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HZFrameWork_Tests/Pods-HZFrameWork_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		13A129CE18AEF9D0D746F341 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/HZFrameWork/HZFrameWork.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HZFrameWork.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		75F7B50AD841F6D4BAD33108 /* [CP] Embed Pods Frameworks */ = {

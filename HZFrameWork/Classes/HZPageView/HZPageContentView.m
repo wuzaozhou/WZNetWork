@@ -7,6 +7,7 @@
 //
 
 #import "HZPageContentView.h"
+#import <Masonry/Masonry.h>
 #define HZCollectionViewCellID @"HZCollectionViewCellID"
 
 @interface HZPageContentView()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -33,7 +34,7 @@
 
 - (void)setPageContentViewWithTargetIndex:(NSUInteger)index{
     CGFloat targetIndex = index < self.childViewControllerArray.count? index: self.childViewControllerArray.count;
-    [self.mainCollectionView setContentOffset:CGPointMake(targetIndex * self.width, 0) animated:YES];
+    [self.mainCollectionView setContentOffset:CGPointMake(targetIndex * self.frame.size.width, 0) animated:YES];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -114,14 +115,14 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(self.width, self.height);
+    return CGSizeMake(self.frame.size.width, self.frame.size.height);
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{    if (_delegate && [_delegate respondsToSelector:@selector(pageContentView:index:)]) {
-        [_delegate pageContentView:self index:scrollView.contentOffset.x / self.width];
+        [_delegate pageContentView:self index:scrollView.contentOffset.x / self.frame.size.width];
     }
 }
 
