@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZFrameWork'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = '花镇封装私有库'
 
 # This description is used to generate tags and improve search results.
@@ -40,6 +40,12 @@ Pod::Spec.new do |s|
     n.dependency  'AFNetworking'
   end
 
+  #标题滚动相关 
+  s.subspec 'HZNetworking' do |p|
+    p.source_files = 'HZFrameWork/Classes/HZPageView/**/*'
+    p.dependency 'Masonry'
+  end
+
   #s.source_files = 'HZFrameWork/Classes/**/*'
   
    s.resource_bundles = {
@@ -50,4 +56,5 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
    s.dependency 'SDWebImage'
+
 end
