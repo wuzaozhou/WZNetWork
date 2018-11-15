@@ -73,13 +73,25 @@
 
 + (void)sendHTTPRequest:(HZURLRequest *)request progress:(progressBlock)progress success:(requestSuccess)success failure:(requestFailure)failure{
     NSString *key = [self keyWithParameters:request];
-    if ([[HZCacheManager sharedInstance] diskCacheExistsWithKey:key] && request.apiType != HZRequestTypeRefresh && request.apiType!=HZRequestTypeRefreshMore){
+    if ([[HZCacheManager sharedInstance] diskCacheExistsWithKey:key] && request.apiType != HZRequestTypeRefresh && request.apiType!=HZRequestTypeRefreshMore && request.apiType != HZRequestTypeRefreshAndCache){
         [[HZCacheManager sharedInstance] getCacheDataForKey:key value:^(NSData *data,NSString *filePath) {
             id result=[self responsetSerializerConfig:request responseObject:data];
             success ? success(result ,request.apiType,YES) : nil;
         }];
-    }else{
-        [self dataTaskWithHTTPRequest:request progress:progress success:success failure:failure];
+    }else {
+        if (request.apiType == HZRequestTypeRefreshAndCache){
+            if ([[HZCacheManager sharedInstance] diskCacheExistsWithKey:key]) {
+                [[HZCacheManager sharedInstance] getCacheDataForKey:key value:^(NSData *data,NSString *filePath) {
+                    id result = [self responsetSerializerConfig:request responseObject:data];
+                    success ? success(result ,request.apiType,YES) : nil;
+                }];
+            }
+            if ([[HZCacheManager sharedInstance] diskCacheExistsWithKey:key]) {
+                [self dataTaskWithHTTPRequest:request progress:progress success:nil failure:nil];
+            }else {
+                [self dataTaskWithHTTPRequest:request progress:progress success:success failure:failure];
+            }
+        }
     }
 }
 
@@ -88,9 +100,8 @@
     [[HZRequestEngine defaultEngine] dataTaskWithMethod:request hz_progress:^(NSProgress * _Nonnull hz_progress) {
         progress ? progress(hz_progress) : nil;
     } success:^(NSURLSessionDataTask *task, id responseObject) {
-    
         [self storeObject:responseObject request:request];
-        id result=[self responsetSerializerConfig:request responseObject:responseObject];
+        id result = [self responsetSerializerConfig:request responseObject:responseObject];
         success ? success(result,request.apiType,NO) : nil;
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure ? failure(error) : nil;

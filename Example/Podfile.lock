@@ -14,23 +14,18 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - HZFrameWork (1.0.5):
-    - HZFrameWork/HZEmptyView (= 1.0.5)
-    - HZFrameWork/HZNetworking (= 1.0.5)
-    - HZFrameWork/HZPageView (= 1.0.5)
+  - HZFrameWork (1.0.6):
+    - HZFrameWork/HZEmptyView (= 1.0.6)
+    - HZFrameWork/HZNetworking (= 1.0.6)
+    - HZFrameWork/HZPageView (= 1.0.6)
     - SDWebImage
-  - HZFrameWork/HZEmptyView (1.0.5):
+  - HZFrameWork/HZEmptyView (1.0.6):
     - Masonry
     - SDWebImage
-  - HZFrameWork/HZNetworking (1.0.5):
+  - HZFrameWork/HZNetworking (1.0.6):
     - AFNetworking
     - SDWebImage
-  - HZFrameWork/HZPageView (1.0.5):
+  - HZFrameWork/HZPageView (1.0.6):
     - Masonry
     - SDWebImage
   - Masonry (1.1.0)
@@ -39,20 +34,24 @@ PODS:
   - SDWebImage/Core (4.4.2)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
   - HZFrameWork (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - Masonry
+    - SDWebImage
 
 EXTERNAL SOURCES:
   HZFrameWork:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HZFrameWork: 26ba10c1701c227b2d6d8873c0ec0c1572c8e45e
+  HZFrameWork: c22da235620bdbddadb553c0272910772c32d04a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 88511265e4b4847e5d5053b67ca57d5f670fd56a
+PODFILE CHECKSUM: b7e37cdd0694271416df58c9336f9ab2b9ed369d
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.0.beta.2

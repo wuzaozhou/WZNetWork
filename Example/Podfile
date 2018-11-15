@@ -6,6 +6,6 @@ target 'HZFrameWork_Example' do
   target 'HZFrameWork_Tests' do
     inherit! :search_paths
 
-    pod 'FBSnapshotTestCase'
+    #pod 'FBSnapshotTestCase'
   end
 end
