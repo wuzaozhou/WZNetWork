@@ -19,24 +19,36 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - HZFrameWork (1.0.6):
-    - HZFrameWork/HZEmptyView (= 1.0.6)
-    - HZFrameWork/HZNetworking (= 1.0.6)
-    - HZFrameWork/HZPageView (= 1.0.6)
+  - HZFrameWork (1.1.0):
+    - HZFrameWork/HZEmptyView (= 1.1.0)
+    - HZFrameWork/HZNetworking (= 1.1.0)
+    - HZFrameWork/HZPageView (= 1.1.0)
+    - HZFrameWork/HZPhotoBrowser (= 1.1.0)
     - SDWebImage
-  - HZFrameWork/HZEmptyView (1.0.6):
+    - YYKit
+  - HZFrameWork/HZEmptyView (1.1.0):
     - Masonry
     - SDWebImage
-  - HZFrameWork/HZNetworking (1.0.6):
+    - YYKit
+  - HZFrameWork/HZNetworking (1.1.0):
     - AFNetworking
     - SDWebImage
-  - HZFrameWork/HZPageView (1.0.6):
+    - YYKit
+  - HZFrameWork/HZPageView (1.1.0):
     - Masonry
     - SDWebImage
+    - YYKit
+  - HZFrameWork/HZPhotoBrowser (1.1.0):
+    - Masonry
+    - SDWebImage
+    - YYKit
   - Masonry (1.1.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -48,6 +60,7 @@ SPEC REPOS:
     - FBSnapshotTestCase
     - Masonry
     - SDWebImage
+    - YYKit
 
 EXTERNAL SOURCES:
   HZFrameWork:
@@ -56,9 +69,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HZFrameWork: eedc7b6aa1e6c98e87a4ce6abdd695494550a24b
+  HZFrameWork: f1b20ddbf3d4f24e21d00e5d71d8b234da28c8a8
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
 PODFILE CHECKSUM: 88511265e4b4847e5d5053b67ca57d5f670fd56a
 

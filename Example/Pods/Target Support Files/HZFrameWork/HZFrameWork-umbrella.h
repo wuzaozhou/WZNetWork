@@ -24,6 +24,9 @@
 #import "HZPageTitleView.h"
 #import "HZPageTitleViewModel.h"
 #import "HZPageView.h"
+#import "HZ_LoadingView.h"
+#import "HZ_PhotoBrowser.h"
+#import "HZ_PhotoBrowserView.h"
 
 FOUNDATION_EXPORT double HZFrameWorkVersionNumber;
 FOUNDATION_EXPORT const unsigned char HZFrameWorkVersionString[];
