@@ -14,24 +14,36 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - HZFrameWork (1.0.6):
-    - HZFrameWork/HZEmptyView (= 1.0.6)
-    - HZFrameWork/HZNetworking (= 1.0.6)
-    - HZFrameWork/HZPageView (= 1.0.6)
+  - HZFrameWork (1.0.8):
+    - HZFrameWork/HZEmptyView (= 1.0.8)
+    - HZFrameWork/HZNetworking (= 1.0.8)
+    - HZFrameWork/HZPageView (= 1.0.8)
+    - HZFrameWork/HZPhotoBrowser (= 1.0.8)
     - SDWebImage
-  - HZFrameWork/HZEmptyView (1.0.6):
+    - YYKit
+  - HZFrameWork/HZEmptyView (1.0.8):
     - Masonry
     - SDWebImage
-  - HZFrameWork/HZNetworking (1.0.6):
+    - YYKit
+  - HZFrameWork/HZNetworking (1.0.8):
     - AFNetworking
     - SDWebImage
-  - HZFrameWork/HZPageView (1.0.6):
+    - YYKit
+  - HZFrameWork/HZPageView (1.0.8):
     - Masonry
     - SDWebImage
+    - YYKit
+  - HZFrameWork/HZPhotoBrowser (1.0.8):
+    - Masonry
+    - SDWebImage
+    - YYKit
   - Masonry (1.1.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - HZFrameWork (from `../`)
@@ -41,6 +53,7 @@ SPEC REPOS:
     - AFNetworking
     - Masonry
     - SDWebImage
+    - YYKit
 
 EXTERNAL SOURCES:
   HZFrameWork:
@@ -48,10 +61,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  HZFrameWork: c22da235620bdbddadb553c0272910772c32d04a
+  HZFrameWork: f92164036be418f9e22fa297494a0e07689ffa83
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
 PODFILE CHECKSUM: b7e37cdd0694271416df58c9336f9ab2b9ed369d
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.5.3
