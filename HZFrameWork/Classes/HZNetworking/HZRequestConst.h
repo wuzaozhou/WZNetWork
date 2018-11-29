@@ -34,8 +34,6 @@ typedef NS_ENUM(NSInteger,apiType) {
     HZRequestTypeCacheMore,
     /** 详情页面:   有缓存,读取缓存--无缓存，重新请求*/
     HZRequestTypeDetailCache,
-    /** 读取缓存:   有缓存,读取缓存--重新请求 --最新数据覆盖缓存*/
-    HZRequestTypeRefreshAndCache,
     /** 自定义项:   有缓存,读取缓存--无缓存，重新请求*/
     HZRequestTypeCustomCache
 };

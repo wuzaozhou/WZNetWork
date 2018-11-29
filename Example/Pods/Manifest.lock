@@ -14,58 +14,45 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - HZFrameWork (1.0.8):
-    - HZFrameWork/HZEmptyView (= 1.0.8)
-    - HZFrameWork/HZNetworking (= 1.0.8)
-    - HZFrameWork/HZPageView (= 1.0.8)
-    - HZFrameWork/HZPhotoBrowser (= 1.0.8)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - HZFrameWork (1.0.5):
+    - HZFrameWork/HZEmptyView (= 1.0.5)
+    - HZFrameWork/HZNetworking (= 1.0.5)
+    - HZFrameWork/HZPageView (= 1.0.5)
     - SDWebImage
-    - YYKit
-  - HZFrameWork/HZEmptyView (1.0.8):
+  - HZFrameWork/HZEmptyView (1.0.5):
     - Masonry
     - SDWebImage
-    - YYKit
-  - HZFrameWork/HZNetworking (1.0.8):
+  - HZFrameWork/HZNetworking (1.0.5):
     - AFNetworking
     - SDWebImage
-    - YYKit
-  - HZFrameWork/HZPageView (1.0.8):
+  - HZFrameWork/HZPageView (1.0.5):
     - Masonry
     - SDWebImage
-    - YYKit
-  - HZFrameWork/HZPhotoBrowser (1.0.8):
-    - Masonry
-    - SDWebImage
-    - YYKit
   - Masonry (1.1.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
-  - YYKit (1.0.9):
-    - YYKit/no-arc (= 1.0.9)
-  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
+  - FBSnapshotTestCase
   - HZFrameWork (from `../`)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AFNetworking
-    - Masonry
-    - SDWebImage
-    - YYKit
 
 EXTERNAL SOURCES:
   HZFrameWork:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  HZFrameWork: f92164036be418f9e22fa297494a0e07689ffa83
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  HZFrameWork: 26ba10c1701c227b2d6d8873c0ec0c1572c8e45e
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
-  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: b7e37cdd0694271416df58c9336f9ab2b9ed369d
+PODFILE CHECKSUM: 88511265e4b4847e5d5053b67ca57d5f670fd56a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0

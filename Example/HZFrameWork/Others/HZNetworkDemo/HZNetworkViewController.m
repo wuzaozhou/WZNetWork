@@ -38,16 +38,17 @@
 //apiType 是请求类型 在HZRequestConst 里
 - (void)getDataWithApiType:(apiType)requestType{
     [HZRequestManager requestWithConfig:^(HZURLRequest *request){
-        request.URLString=list_URL;
-        request.methodType = HZMethodTypeGET;//默认为GET
-        request.apiType = HZRequestTypeRefreshAndCache;//默认为HZRequestTypeRefresh
+        request.URLString=@"http://www.baidu.com";
+        request.methodType=HZMethodTypeGET;//默认为GET
+        request.apiType=requestType;//默认为HZRequestTypeRefresh
         // request.requestSerializer=HZHTTPRequestSerializer;//默认HZHTTPRequestSerializer 上传参数默认为二进制 格式
         // request.responseSerializer=HZJSONResponseSerializer;//默认HZJSONResponseSerializer  返回的数据默认为json格式
         // request.timeoutInterval=10;//默认30
     }  success:^(id responseObject,apiType type,BOOL isCache){
         //如果是刷新的数据
-        if (type==HZRequestTypeRefreshAndCache) {
+        if (type==HZRequestTypeRefresh) {
             [self.dataArray removeAllObjects];
+            
         }
         //上拉加载 要添加 apiType 类型 HZRequestTypeCacheMore(读缓存)或HZRequestTypeRefreshMore(重新请求)， 也可以不遵守此枚举
         if (type==HZRequestTypeRefreshMore) {
