@@ -8,6 +8,8 @@
 
 #import "HZ_PhotoBrowserView.h"
 #import "HZ_LoadingView.h"
+#import <YYKit/YYKit.h>
+#import <Masonry/Masonry.h>
 
 CGFloat const kMinZoomScale = 0.6f;
 CGFloat const kMaxZoomScale = 2.0f;

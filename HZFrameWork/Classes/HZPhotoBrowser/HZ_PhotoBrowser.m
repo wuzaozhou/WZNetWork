@@ -7,9 +7,10 @@
 //
 
 #import "HZ_PhotoBrowser.h"
-#import <Masonry.h>
+#import <Masonry/Masonry.h>
 #import "HZ_PhotoBrowserView.h"
 #import <AssetsLibrary/ALAssetsLibrary.h>
+#import <YYKit/YYKit.h>
 
 
 CGFloat const HZPhotoBrowserImageViewMargin = 10;
