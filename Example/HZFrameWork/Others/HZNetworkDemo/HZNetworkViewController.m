@@ -38,7 +38,7 @@
 //apiType 是请求类型 在HZRequestConst 里
 - (void)getDataWithApiType:(apiType)requestType{
     [HZRequestManager requestWithConfig:^(HZURLRequest *request){
-        request.URLString=@"http://www.baidu.com";
+        request.URLString=list_URL;
         request.methodType=HZMethodTypeGET;//默认为GET
         request.apiType=requestType;//默认为HZRequestTypeRefresh
         // request.requestSerializer=HZHTTPRequestSerializer;//默认HZHTTPRequestSerializer 上传参数默认为二进制 格式
