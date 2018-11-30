@@ -214,7 +214,7 @@
 		BAF9472C2635CB548E61EB1F /* Pods_HZFrameWork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZFrameWork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1EBF636EC74659689E1890 /* Pods-HZFrameWork_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Example/Pods-HZFrameWork_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E184D5776DABF7270F2BF6D1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		F90B915D9B1818E408424D1E /* HZFrameWork.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HZFrameWork.podspec; path = ../HZFrameWork.podspec; sourceTree = "<group>"; };
+		F90B915D9B1818E408424D1E /* HZFrameWork.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HZFrameWork.podspec; path = ../HZFrameWork.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FD0B6604191701F2AB66AA3D /* Pods-HZFrameWork_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZFrameWork_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HZFrameWork_Tests/Pods-HZFrameWork_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
