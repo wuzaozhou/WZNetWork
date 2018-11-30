@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZFrameWork'
-  s.version          = '1.1.1'
+  s.version          = '1.1.2'
   s.summary          = '花镇封装私有库'
 
 # This description is used to generate tags and improve search results.
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 花镇封装私有库  共有部分组件化管理
                        DESC
 
-  s.homepage         = 'https://git.dev.tencent.com/paoxue/HZFrameWork.git'
+  s.homepage         = 'https://git.dev.tencent.com'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Runyalsj' => 'Runya_lsj@163.com' }
@@ -31,25 +31,25 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.subspec 'HZEmptyView' do |c|
-    c.source_files = 'HZFrameWork/Classes/HZEmptyView/**/*'
-    c.dependency  'Masonry'
+    c.source_files = 'HZFrameWork/HZEmptyView/**/*'
+    
   end
 #网络相关 SDWebimage  AFNetworking
   s.subspec 'HZNetworking' do |n|
-    n.source_files = 'HZFrameWork/Classes/HZNetworking/**/*'
+    n.source_files = 'HZFrameWork/HZNetworking/**/*'
     n.dependency  'AFNetworking'
   end
 
   #标题滚动相关 
   s.subspec 'HZPageView' do |p|
-    p.source_files = 'HZFrameWork/Classes/HZPageView/**/*'
-    p.dependency 'Masonry'
+    p.source_files = 'HZFrameWork/HZPageView/**/*'
+    
   end
 
     #图片浏览器相关
     s.subspec 'HZPhotoBrowser' do |p|
-    p.source_files = 'HZFrameWork/Classes/HZPhotoBrowser/**/*'
-    p.dependency 'Masonry'
+    p.source_files = 'HZFrameWork/HZPhotoBrowser/**/*'
+    
     end
 
   #s.source_files = 'HZFrameWork/Classes/**/*'
@@ -63,5 +63,5 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
     s.dependency 'SDWebImage'
     s.dependency 'YYKit'
-
+    s.dependency 'Masonry'
 end
