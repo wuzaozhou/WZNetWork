@@ -8,6 +8,8 @@
 
 #import "HZoffLineDownLoadViewController.h"
 #import "HZNetworkModel.h"
+#import "HZURLRequest.h"
+#import "HZRequestManager.h"
 
 @interface HZoffLineDownLoadViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableView;

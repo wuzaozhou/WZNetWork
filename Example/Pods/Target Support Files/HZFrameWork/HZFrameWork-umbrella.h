@@ -14,6 +14,7 @@
 #import "UIView+HZKit.h"
 #import "HZFPS.h"
 #import "HZ_FontFile.h"
+#import "HZHUD.h"
 #import "HZCacheManager.h"
 #import "HZNetworking.h"
 #import "HZRequestConst.h"

@@ -458,7 +458,9 @@ static HZ_PhotoBrowser *photoBrowser;
     
     // 2.保存按钮
     UIButton *saveButton = [[UIButton alloc] init];
-    [saveButton setImage:[UIImage imageNamed:@"download"] forState:UIControlStateNormal];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *filePath = [bundle pathForResource:@"download@2x.png" ofType:nil inDirectory:@"HZFrameWork.bundle"];
+    [saveButton setImage:[UIImage imageWithContentsOfFile:filePath] forState:UIControlStateNormal];
     saveButton.imageView.contentMode = UIViewContentModeRedraw;
     [saveButton addTarget:self action:@selector(saveImage) forControlEvents:UIControlEventTouchUpInside];
     _saveButton = saveButton;

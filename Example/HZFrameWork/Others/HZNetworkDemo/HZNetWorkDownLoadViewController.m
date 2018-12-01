@@ -8,6 +8,10 @@
 
 #import "HZNetWorkDownLoadViewController.h"
 #import "HZoffLineDownLoadViewController.h"
+#import "HZCacheManager.h"
+#import "HZRequestManager.h"
+#import "HZURLRequest.h"
+
 /** 视频链接 */
 //NSString *const mp4url =@"http://yun.it7090.com/video/XHLaunchAd/video_test01.mp4";
 NSString *const mp4url =@"http://down.sandai.net/mac/thunder_3.2.7.3764.dmg";
@@ -20,6 +24,7 @@ NSString *const mp4url =@"http://down.sandai.net/mac/thunder_3.2.7.3764.dmg";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"使用例子";
+    
     NSArray *titleArray=[NSArray arrayWithObjects:@"POST/PUT/PATCH/DELETE/Request",@"UploadRequest",@"downLoadRequest",@"downLoadBatchRequest",@"取消请求",@"url过滤动态参数",@"parameters过滤动态参数", nil];
     for (int i=0; i<titleArray.count; i++) {
         
@@ -66,6 +71,7 @@ NSString *const mp4url =@"http://down.sandai.net/mac/thunder_3.2.7.3764.dmg";
 }
 
 - (void)request{
+//    [MBProgressHUD hz_showLoadingWithView:self.view];
     /*
      //
      GET/POST/PUT/PATCH/DELETE 请求 都有缓存功能
@@ -82,7 +88,7 @@ NSString *const mp4url =@"http://down.sandai.net/mac/thunder_3.2.7.3764.dmg";
         request.parameters=@{@"1": @"one", @"2": @"two"};
         //   [request setValue:@"1234567890" forHeaderField:@"apitype"];
     }  success:^(id responseObject,apiType type,BOOL isCache){
-
+//        [MBProgressHUD hideHUD];
         if (isCache) {
             NSLog(@"使用了缓存");
         }else{

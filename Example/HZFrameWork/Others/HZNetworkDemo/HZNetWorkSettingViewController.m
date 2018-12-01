@@ -11,6 +11,9 @@
 #import <SDWebImage/SDImageCache.h>
 #import "HZoffLineDownLoadViewController.h"
 #import "HZNetworkModel.h"
+#import "HZCacheManager.h"
+#import "HZURLRequest.h"
+#import "HZRequestManager.h"
 
 static const NSInteger cacheTime = 30;
 

@@ -9,6 +9,10 @@
 #import "HZDetailViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "HZNetworkModel.h"
+#import "HZRequestManager.h"
+#import "HZURLRequest.h"
+#import "HZHUD.h"
+
 @interface HZDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong)NSMutableArray *dataArray;
 @property (nonatomic,strong)UITableView *tableView;
@@ -40,14 +44,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
-    
+//    [HZHUD hz_showLoadingWithView:self.view];
+    [HZHUD hz_showLoadingWithView:self.view];
     
     /**
      *  如果页面不想使用缓存 要添加 apiType 类型 ZBRequestTypeRefresh  每次就会重新请求url
      */
     // NSLog(@"_urlString:%@",_urlString);
     [HZRequestManager requestWithConfig:^(HZURLRequest *request){
-        request.URLString=_urlString;
+        request.URLString=@"https://api.douban.com/v2/movie/in_theaters?city=%E5%B9%BF%E5%B7%9E&start=0&count=10";
         request.apiType = HZRequestTypeDetailCache;
         // request.requestSerializer=ZBHTTPRequestSerializer;//默认ZBHTTPRequestSerializer 上传参数默认为二进制 格式
         // request.responseSerializer=ZBJSONResponseSerializer;//默认ZBJSONResponseSerializer  返回的数据默认为json格式
@@ -90,7 +95,7 @@
     
     if (cell==nil) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:iden];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+//        cell.selectionStyle=UITableViewCellSelectionStyleNone;
     }
     
     DetailsModel *model=[self.dataArray objectAtIndex:indexPath.row];
@@ -122,6 +127,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"点击了");
 }
 
 /*

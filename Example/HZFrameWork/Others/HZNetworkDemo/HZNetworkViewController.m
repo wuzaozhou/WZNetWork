@@ -11,6 +11,8 @@
 #import "HZNetworkViewController.h"
 #import "HZNetworkModel.h"
 #import "HZDetailViewController.h"
+#import "HZURLRequest.h"
+#import "HZRequestManager.h"
 @interface HZNetworkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *dataArray;
