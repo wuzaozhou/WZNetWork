@@ -28,5 +28,8 @@
  @param index 下标
  */
 - (void)setPageContentViewWithTargetIndex:(NSUInteger)index;
+
+- (UIViewController *)getChildViewControllerWithIndex:(NSInteger )index;
+
 @end
 

@@ -11,5 +11,4 @@
 
 #import "HZPageTitleView.h"
 #import "HZPageContentView.h"
-
 #endif /* HZPageView_h */

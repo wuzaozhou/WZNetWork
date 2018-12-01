@@ -6,7 +6,7 @@
 //  Copyright © 2018年 leejtom. All rights reserved.
 //自定义配置
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 /**
  badge类型
