@@ -12,6 +12,8 @@
 
 #import "HZEmptyView.h"
 #import "UIView+HZKit.h"
+#import "HZFPS.h"
+#import "HZ_FontFile.h"
 #import "HZCacheManager.h"
 #import "HZNetworking.h"
 #import "HZRequestConst.h"
@@ -27,6 +29,7 @@
 #import "HZ_LoadingView.h"
 #import "HZ_PhotoBrowser.h"
 #import "HZ_PhotoBrowserView.h"
+#import "HZTool.h"
 
 FOUNDATION_EXPORT double HZFrameWorkVersionNumber;
 FOUNDATION_EXPORT const unsigned char HZFrameWorkVersionString[];

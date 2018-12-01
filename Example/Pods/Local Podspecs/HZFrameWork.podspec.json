@@ -1,9 +1,9 @@
 {
   "name": "HZFrameWork",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "summary": "花镇封装私有库",
   "description": "花镇封装私有库  共有部分组件化管理",
-  "homepage": "https://git.coding.net/Runya_lsj/HZFrameWork.git",
+  "homepage": "https://git.dev.tencent.com",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,8 +12,8 @@
     "Runyalsj": "Runya_lsj@163.com"
   },
   "source": {
-    "git": "https://git.coding.net/Runya_lsj/HZFrameWork.git",
-    "tag": "1.1.0"
+    "git": "https://git.dev.tencent.com/paoxue/HZFrameWork.git",
+    "tag": "1.1.2"
   },
   "platforms": {
     "ios": "8.0"
@@ -29,21 +29,19 @@
     ],
     "YYKit": [
 
+    ],
+    "Masonry": [
+
     ]
   },
   "subspecs": [
     {
       "name": "HZEmptyView",
-      "source_files": "HZFrameWork/Classes/HZEmptyView/**/*",
-      "dependencies": {
-        "Masonry": [
-
-        ]
-      }
+      "source_files": "HZFrameWork/HZEmptyView/**/*"
     },
     {
       "name": "HZNetworking",
-      "source_files": "HZFrameWork/Classes/HZNetworking/**/*",
+      "source_files": "HZFrameWork/HZNetworking/**/*",
       "dependencies": {
         "AFNetworking": [
 
@@ -52,21 +50,23 @@
     },
     {
       "name": "HZPageView",
-      "source_files": "HZFrameWork/Classes/HZPageView/**/*",
-      "dependencies": {
-        "Masonry": [
-
-        ]
-      }
+      "source_files": "HZFrameWork/HZPageView/**/*"
     },
     {
       "name": "HZPhotoBrowser",
-      "source_files": "HZFrameWork/Classes/HZPhotoBrowser/**/*",
-      "dependencies": {
-        "Masonry": [
-
-        ]
-      }
+      "source_files": "HZFrameWork/HZPhotoBrowser/**/*"
+    },
+    {
+      "name": "HZTool",
+      "source_files": "HZFrameWork/HZTool/**/*"
+    },
+    {
+      "name": "HZFPS",
+      "source_files": "HZFrameWork/HZFPS/**/*"
+    },
+    {
+      "name": "HZFontFile",
+      "source_files": "HZFrameWork/HZFontFile/**/*"
     }
   ]
 }

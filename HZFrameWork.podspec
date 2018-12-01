@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZFrameWork'
-  s.version          = '1.1.2'
+  s.version          = '1.2.0'
   s.summary          = '花镇封装私有库'
 
 # This description is used to generate tags and improve search results.
@@ -46,22 +46,39 @@ Pod::Spec.new do |s|
     
   end
 
-    #图片浏览器相关
-    s.subspec 'HZPhotoBrowser' do |p|
+  #图片浏览器相关
+  s.subspec 'HZPhotoBrowser' do |p|
     p.source_files = 'HZFrameWork/HZPhotoBrowser/**/*'
     
-    end
-
+  end
+  
+  #工具相关
+  s.subspec 'HZTool' do |p|
+      p.source_files = 'HZFrameWork/HZTool/**/*'
+      
+  end
+  
+  #FPS相关
+  s.subspec 'HZFPS' do |p|
+      p.source_files = 'HZFrameWork/HZFPS/**/*'
+      
+  end
+  
+  #字体设置相关
+  s.subspec 'HZFontFile' do |p|
+      p.source_files = 'HZFrameWork/HZFontFile/**/*'
+  end
+  
   #s.source_files = 'HZFrameWork/Classes/**/*'
   
-   s.resource_bundles = {
-     'HZFrameWork' => ['HZFrameWork/Assets/*.png']
-   }
+  s.resource_bundles = {
+    'HZFrameWork' => ['HZFrameWork/Assets/*.png']
+  }
   
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-    s.dependency 'SDWebImage'
-    s.dependency 'YYKit'
-    s.dependency 'Masonry'
+  s.dependency 'SDWebImage'
+  s.dependency 'YYKit'
+  s.dependency 'Masonry'
 end

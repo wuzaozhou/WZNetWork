@@ -19,26 +19,43 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - HZFrameWork (1.1.0):
-    - HZFrameWork/HZEmptyView (= 1.1.0)
-    - HZFrameWork/HZNetworking (= 1.1.0)
-    - HZFrameWork/HZPageView (= 1.1.0)
-    - HZFrameWork/HZPhotoBrowser (= 1.1.0)
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZEmptyView (1.1.0):
+  - HZFrameWork (1.1.2):
+    - HZFrameWork/HZEmptyView (= 1.1.2)
+    - HZFrameWork/HZFontFile (= 1.1.2)
+    - HZFrameWork/HZFPS (= 1.1.2)
+    - HZFrameWork/HZNetworking (= 1.1.2)
+    - HZFrameWork/HZPageView (= 1.1.2)
+    - HZFrameWork/HZPhotoBrowser (= 1.1.2)
+    - HZFrameWork/HZTool (= 1.1.2)
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZNetworking (1.1.0):
+  - HZFrameWork/HZEmptyView (1.1.2):
+    - Masonry
+    - SDWebImage
+    - YYKit
+  - HZFrameWork/HZFontFile (1.1.2):
+    - Masonry
+    - SDWebImage
+    - YYKit
+  - HZFrameWork/HZFPS (1.1.2):
+    - Masonry
+    - SDWebImage
+    - YYKit
+  - HZFrameWork/HZNetworking (1.1.2):
     - AFNetworking
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZPageView (1.1.0):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZPhotoBrowser (1.1.0):
+  - HZFrameWork/HZPageView (1.1.2):
+    - Masonry
+    - SDWebImage
+    - YYKit
+  - HZFrameWork/HZPhotoBrowser (1.1.2):
+    - Masonry
+    - SDWebImage
+    - YYKit
+  - HZFrameWork/HZTool (1.1.2):
     - Masonry
     - SDWebImage
     - YYKit
@@ -69,7 +86,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HZFrameWork: f1b20ddbf3d4f24e21d00e5d71d8b234da28c8a8
+  HZFrameWork: ada2fdd453aa670de4e3bd7ee686be7e19a5fac8
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
