@@ -12,7 +12,7 @@
 
 /**
  显示花镇loading图标到指定view上，隐藏方法则直接点用[HZHUD hideHUDForView:]
-
+ 
  @param view 指定view，如果view为nil，则直接添加到window
  @return MBProgressHUD
  */
@@ -21,7 +21,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.bezelView.backgroundColor = [UIColor clearColor];
-    hud.defaultMotionEffectsEnabled = YES;
+    //    hud.defaultMotionEffectsEnabled = YES;
     UIImageView *imageView = [[UIImageView alloc] init];
     NSMutableArray<UIImage *> *array = [NSMutableArray array];
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
@@ -35,7 +35,7 @@
     [imageView startAnimating];
     hud.customView = imageView;
     hud.mode = MBProgressHUDModeCustomView;
-    hud.removeFromSuperViewOnHide = YES;
+    //    hud.removeFromSuperViewOnHide = YES;
     return hud;
 }
 
@@ -69,7 +69,7 @@
 
 /**
  window上显示菊花转loading
-
+ 
  @param message 信息内容
  @return MBProgressHUD
  */
@@ -79,7 +79,7 @@
 
 /**
  简单文字提示。tost
-
+ 
  @param text 信息内容
  */
 + (void)showWithText:(NSString *)text {
@@ -89,12 +89,12 @@
     hud.label.text = text;
     hud.mode = MBProgressHUDModeCustomView;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hideAnimated:YES afterDelay:1.0];
+    [hud hideAnimated:YES afterDelay:4.0];
 }
 
 /**
  文字提示加上图标，tost到指定view
-
+ 
  @param text 文字
  @param icon 图标
  @param view 指定view
@@ -107,12 +107,12 @@
     hud.customView = [[UIImageView alloc] initWithImage:icon];
     hud.mode = MBProgressHUDModeCustomView;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hideAnimated:YES afterDelay:1.0];
+    [hud hideAnimated:YES afterDelay:4.0];
 }
 
 /**
  提示错误信息导置顶指定view
-
+ 
  @param error 信息内容
  @param view 指定view
  */
@@ -135,7 +135,7 @@
 
 /**
  提示成功信息
-
+ 
  @param success 信息内容
  @param view 要显示的view
  */
@@ -149,7 +149,7 @@
 
 /**
  window上提示成功信息
-
+ 
  @param success 成功信息
  */
 + (void)showSuccess:(NSString *)success {
@@ -159,14 +159,15 @@
 
 /**
  隐藏制定view上的hud
-
+ 
  @param view 指定的view
  */
 + (void)hideHUDForView:(UIView *)view {
     if (view == nil) {
         view = [UIApplication sharedApplication].keyWindow;
     }
-    [self hideHUDForView:view animated:YES];
+    //    [self hideHUDForView:view];
+    [MBProgressHUD hideHUDForView:view animated:YES];
 }
 
 /**

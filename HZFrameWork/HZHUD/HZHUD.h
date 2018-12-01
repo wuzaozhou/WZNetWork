@@ -8,7 +8,7 @@
 
 #import <MBProgressHUD/MBProgressHUD.h>
 
-@interface HZHUD : MBProgressHUD
+@interface HZHUD :  NSObject
 /**
  显示花镇loading图标到指定view上，隐藏方法则直接点用[HZHUD hideHUDForView:]
  
