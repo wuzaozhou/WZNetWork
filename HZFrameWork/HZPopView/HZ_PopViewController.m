@@ -57,6 +57,9 @@
         self.popoverPresentationController.sourceRect = sourceView.bounds;
         //代理
         self.popoverPresentationController.delegate = self;
+        UIView *backgroupView = [[UIView alloc] init];
+        backgroupView.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5/1.0];
+        [[UIApplication sharedApplication].keyWindow addSubview:backgroupView];
     }
     return self;
 }
