@@ -30,6 +30,7 @@
 #import "HZ_LoadingView.h"
 #import "HZ_PhotoBrowser.h"
 #import "HZ_PhotoBrowserView.h"
+#import "HZ_PopViewController.h"
 #import "HZTool.h"
 
 FOUNDATION_EXPORT double HZFrameWorkVersionNumber;

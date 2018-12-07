@@ -76,6 +76,10 @@
     {
       "name": "HZFontFile",
       "source_files": "HZFrameWork/HZFontFile/**/*"
+    },
+    {
+      "name": "HZPopView",
+      "source_files": "HZFrameWork/HZPopView/**/*"
     }
   ]
 }
