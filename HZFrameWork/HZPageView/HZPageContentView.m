@@ -97,7 +97,7 @@
         _mainCollectionView.showsVerticalScrollIndicator = NO;
         _mainCollectionView.showsHorizontalScrollIndicator = NO;
         [_mainCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:HZCollectionViewCellID];
-        _mainCollectionView.bounds = NO;
+        _mainCollectionView.bounces = NO;
     }
     return _mainCollectionView;
 }
