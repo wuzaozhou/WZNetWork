@@ -54,6 +54,7 @@
     [super layoutSubviews];
     [self setupSubViews];
     [self setupLayoutSubviews];
+    
 }
 
 - (void)setupSubViews {
@@ -64,6 +65,7 @@
     [self.mainCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
+    [self.mainCollectionView reloadData];
 }
 
 
@@ -95,6 +97,7 @@
         _mainCollectionView.showsVerticalScrollIndicator = NO;
         _mainCollectionView.showsHorizontalScrollIndicator = NO;
         [_mainCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:HZCollectionViewCellID];
+        _mainCollectionView.bounds = NO;
     }
     return _mainCollectionView;
 }

@@ -19,54 +19,54 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - HZFrameWork (1.3.3):
-    - HZFrameWork/HZEmptyView (= 1.3.3)
-    - HZFrameWork/HZFontFile (= 1.3.3)
-    - HZFrameWork/HZFPS (= 1.3.3)
-    - HZFrameWork/HZHUD (= 1.3.3)
-    - HZFrameWork/HZNetworking (= 1.3.3)
-    - HZFrameWork/HZPageView (= 1.3.3)
-    - HZFrameWork/HZPhotoBrowser (= 1.3.3)
-    - HZFrameWork/HZPopView (= 1.3.3)
-    - HZFrameWork/HZTool (= 1.3.3)
+  - HZFrameWork (1.3.5):
+    - HZFrameWork/HZEmptyView (= 1.3.5)
+    - HZFrameWork/HZFontFile (= 1.3.5)
+    - HZFrameWork/HZFPS (= 1.3.5)
+    - HZFrameWork/HZHUD (= 1.3.5)
+    - HZFrameWork/HZNetworking (= 1.3.5)
+    - HZFrameWork/HZPageView (= 1.3.5)
+    - HZFrameWork/HZPhotoBrowser (= 1.3.5)
+    - HZFrameWork/HZPopView (= 1.3.5)
+    - HZFrameWork/HZTool (= 1.3.5)
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZEmptyView (1.3.3):
+  - HZFrameWork/HZEmptyView (1.3.5):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZFontFile (1.3.3):
+  - HZFrameWork/HZFontFile (1.3.5):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZFPS (1.3.3):
+  - HZFrameWork/HZFPS (1.3.5):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZHUD (1.3.3):
+  - HZFrameWork/HZHUD (1.3.5):
     - Masonry
     - MBProgressHUD
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZNetworking (1.3.3):
+  - HZFrameWork/HZNetworking (1.3.5):
     - AFNetworking
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZPageView (1.3.3):
+  - HZFrameWork/HZPageView (1.3.5):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZPhotoBrowser (1.3.3):
+  - HZFrameWork/HZPhotoBrowser (1.3.5):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZPopView (1.3.3):
+  - HZFrameWork/HZPopView (1.3.5):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZTool (1.3.3):
+  - HZFrameWork/HZTool (1.3.5):
     - Masonry
     - SDWebImage
     - YYKit
@@ -99,7 +99,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HZFrameWork: 1ad5724975cb24f419846fa5f39cc24adf17f2d0
+  HZFrameWork: 19f48803dcdb9b198fc8211e197a5672b2e10a5a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681

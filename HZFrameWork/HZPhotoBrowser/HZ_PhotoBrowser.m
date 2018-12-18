@@ -69,6 +69,10 @@ static HZ_PhotoBrowser *photoBrowser;
     return [[UICollectionViewCell alloc] init];
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return self.bounds.size;
+}
+
 - (void)showFirstImage {
     self.userInteractionEnabled = NO;
     if (_photoBrowserStyle == HZ_PhotoBrowserStyleNine) {
@@ -477,7 +481,7 @@ static HZ_PhotoBrowser *photoBrowser;
 
 - (void)setupScrollView {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = [UIScreen mainScreen].bounds.size;
+    //    layout.itemSize = [UIScreen mainScreen].bounds.size;
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
