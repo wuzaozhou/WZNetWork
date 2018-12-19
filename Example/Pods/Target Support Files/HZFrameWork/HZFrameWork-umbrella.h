@@ -32,6 +32,10 @@
 #import "HZ_PhotoBrowserView.h"
 #import "HZ_PopViewController.h"
 #import "HZTool.h"
+#import "CALayer+HZ_WebImage.h"
+#import "HZ_WebImageManager.h"
+#import "UIImage+HZ_Add.h"
+#import "UIImageView+HZ_WebImage.h"
 
 FOUNDATION_EXPORT double HZFrameWorkVersionNumber;
 FOUNDATION_EXPORT const unsigned char HZFrameWorkVersionString[];
