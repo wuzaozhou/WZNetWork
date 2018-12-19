@@ -7,13 +7,14 @@
 //
 
 #import "UIImage+HZ_Add.h"
-#import <YYKit/NSString+YYAdd.h>
-#import <YYKit/YYKitMacro.h>
-#import <YYKit/YYCGUtilities.h>
+#import "NSString+YYAdd.h"
+#import "YYKitMacro.h"
+#import "YYCGUtilities.h"
 #import <ImageIO/ImageIO.h>
 #import <Accelerate/Accelerate.h>
 #import <CoreText/CoreText.h>
 #import <objc/runtime.h>
+#import "YYCGUtilities.h"
 
 YYSYNTH_DUMMY_CLASS(UIImage_HZ_Add)
 
@@ -347,25 +348,25 @@ static NSTimeInterval _yy_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     return image;
 }
 
-- (UIImage *)imageByRoundCornerRadius:(CGFloat)radius {
+- (UIImage *)hz_imageByRoundCornerRadius:(CGFloat)radius {
     return [self hz_imageByRoundCornerRadius:radius borderWidth:0 borderColor:nil];
 }
 
-- (UIImage *)imageByRoundCornerRadius:(CGFloat)radius
-                          borderWidth:(CGFloat)borderWidth
-                          borderColor:(UIColor *)borderColor {
+- (UIImage *)hz_imageByRoundCornerRadius:(CGFloat)radius
+                             borderWidth:(CGFloat)borderWidth
+                             borderColor:(UIColor *)borderColor {
     return [self hz_imageByRoundCornerRadius:radius
-                                  corners:UIRectCornerAllCorners
-                              borderWidth:borderWidth
-                              borderColor:borderColor
-                           borderLineJoin:kCGLineJoinMiter];
+                                     corners:UIRectCornerAllCorners
+                                 borderWidth:borderWidth
+                                 borderColor:borderColor
+                              borderLineJoin:kCGLineJoinMiter];
 }
 
 - (UIImage *)hz_imageByRoundCornerRadius:(CGFloat)radius
-                              corners:(UIRectCorner)corners
-                          borderWidth:(CGFloat)borderWidth
-                          borderColor:(UIColor *)borderColor
-                       borderLineJoin:(CGLineJoin)borderLineJoin {
+                                 corners:(UIRectCorner)corners
+                             borderWidth:(CGFloat)borderWidth
+                             borderColor:(UIColor *)borderColor
+                          borderLineJoin:(CGLineJoin)borderLineJoin {
     
     if (corners != UIRectCornerAllCorners) {
         UIRectCorner tmp = 0;
@@ -517,11 +518,11 @@ static NSTimeInterval _yy_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     return [self hz_imageByBlurRadius:60 tintColor:[UIColor colorWithWhite:1.0 alpha:0.3] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
 }
 
-- (UIImage *)imageByBlurExtraLight {
+- (UIImage *)hz_imageByBlurExtraLight {
     return [self hz_imageByBlurRadius:40 tintColor:[UIColor colorWithWhite:0.97 alpha:0.82] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
 }
 
-- (UIImage *)imageByBlurDark {
+- (UIImage *)hz_imageByBlurDark {
     return [self hz_imageByBlurRadius:40 tintColor:[UIColor colorWithWhite:0.11 alpha:0.73] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
 }
 
@@ -544,10 +545,10 @@ static NSTimeInterval _yy_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
 }
 
 - (UIImage *)hz_imageByBlurRadius:(CGFloat)blurRadius
-                     tintColor:(UIColor *)tintColor
-                      tintMode:(CGBlendMode)tintBlendMode
-                    saturation:(CGFloat)saturation
-                     maskImage:(UIImage *)maskImage {
+                        tintColor:(UIColor *)tintColor
+                         tintMode:(CGBlendMode)tintBlendMode
+                       saturation:(CGFloat)saturation
+                        maskImage:(UIImage *)maskImage {
     if (self.size.width < 1 || self.size.height < 1) {
         NSLog(@"UIImage+YYAdd error: invalid size: (%.2f x %.2f). Both dimensions must be >= 1: %@", self.size.width, self.size.height, self);
         return nil;
