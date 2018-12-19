@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZFrameWork'
-  s.version          = '1.3.9'
+  s.version          = '1.4.1'
   s.summary          = '花镇封装私有库'
 
 # This description is used to generate tags and improve search results.
@@ -31,49 +31,54 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.subspec 'HZEmptyView' do |c|
-    c.source_files = 'HZFrameWork/HZEmptyView/**/*'
+    c.source_files = 'HZFrameWork/HZEmptyView/*'
     
   end
 #网络相关 SDWebimage  AFNetworking
   s.subspec 'HZNetworking' do |p|
-    p.source_files = 'HZFrameWork/HZNetworking/**/*'
+    p.source_files = 'HZFrameWork/HZNetworking/*'
     p.dependency  'AFNetworking'
   end
 
   #标题滚动相关 
   s.subspec 'HZPageView' do |p|
-    p.source_files = 'HZFrameWork/HZPageView/**/*'
+    p.source_files = 'HZFrameWork/HZPageView/*'
   end
 
   #图片浏览器相关
   s.subspec 'HZPhotoBrowser' do |p|
-    p.source_files = 'HZFrameWork/HZPhotoBrowser/**/*'
+    p.source_files = 'HZFrameWork/HZPhotoBrowser/*'
   end
   
   #工具相关
   s.subspec 'HZTool' do |p|
-      p.source_files = 'HZFrameWork/HZTool/**/*'
+      p.source_files = 'HZFrameWork/HZTool/*'
   end
   
   #FPS相关
   s.subspec 'HZFPS' do |p|
-      p.source_files = 'HZFrameWork/HZFPS/**/*'
+      p.source_files = 'HZFrameWork/HZFPS/*'
   end
   
   #loading相关
   s.subspec 'HZHUD' do |p|
-    p.source_files = 'HZFrameWork/HZHUD/**/*'
+    p.source_files = 'HZFrameWork/HZHUD/*'
     p.dependency  'MBProgressHUD'
   end
   
   #字体设置相关
   s.subspec 'HZFontFile' do |p|
-      p.source_files = 'HZFrameWork/HZFontFile/**/*'
+      p.source_files = 'HZFrameWork/HZFontFile/**'
   end
 
   #字体设置相关
   s.subspec 'HZPopView' do |p|
-  p.source_files = 'HZFrameWork/HZPopView/**/*'
+  p.source_files = 'HZFrameWork/HZPopView/*'
+  end
+  
+  #字体设置相关
+  s.subspec 'HZWebImage' do |p|
+      p.source_files = 'HZFrameWork/HZWebImage/*'
   end
 
 
