@@ -69,5 +69,7 @@ typedef NS_ENUM(NSInteger, HZPageTitleBadgeType) {
 //自定义item的宽度
 @property (nonatomic, assign) CGFloat titleItemViewWidth;
 
+///默认选中第几个
+@property (nonatomic, assign) NSUInteger defaultSelectIndex;
 
 @end

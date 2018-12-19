@@ -60,6 +60,9 @@
 }
 
 - (void)setPageTileViewWithTargetIndex:(NSInteger)targetIndex{
+    if (!self.buttonArray || self.buttonArray.count <=0) {
+        return;
+    }
     targetIndex = targetIndex < self.buttonArray.count? targetIndex: self.buttonArray.count;
     
     HZPageTitleItemView *targetItem = self.buttonArray[targetIndex];
@@ -153,7 +156,8 @@
     CGFloat scrollViewWidth = CGRectGetMaxX(self.scrollView.subviews.lastObject.frame);
     self.scrollView.contentSize = CGSizeMake(scrollViewWidth, HZPageTitleViewHeight);
     //保存第一个按钮，默认选中第一个
-    self.currentSelectItem = self.buttonArray.firstObject;
+    NSUInteger index = self.buttonArray.count > self.viewModel.defaultSelectIndex?self.viewModel.defaultSelectIndex: 0;
+    self.currentSelectItem = self.buttonArray[index];
     [self changeButtonSelectedWithButton:self.currentSelectItem];
     [self changeIndicatorViewWithButton:self.currentSelectItem];
 }
