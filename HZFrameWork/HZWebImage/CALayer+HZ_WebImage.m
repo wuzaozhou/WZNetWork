@@ -41,17 +41,16 @@
  @param completed 完成回调
  */
 - (void)hz_setImageWithUrl:(NSString *)urlStr placeholderImage:(nullable UIImage *)placeholderImage size:(CGSize)size radius:(CGFloat)radius suffix:(NSString *)suffix completed:(void(^)(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL))completed {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (placeholderImage != nil) {
-            self.contents = (__bridge id)placeholderImage.CGImage;
-        }
-    });
     [HZ_WebImageManager hz_setImageWithUrl:urlStr size:size radius:radius suffix:suffix completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
         if (image) {
             self.contents = (__bridge id)image.CGImage;
             completed ? completed(image, data, error, cacheType, finished, imageURL) : nil;
         }else {
-            self.contents = nil;
+            if (placeholderImage != nil) {
+                self.contents = (__bridge id)placeholderImage.CGImage;
+            }else {
+                self.contents = nil;
+            }
         }
         
     }];
@@ -70,17 +69,16 @@
  @param completed 完成回调
  */
 - (void)hz_setImageWithUrl:(NSString *)urlStr placeholderImage:(UIImage * _Nullable)placeholderImage size:(CGSize)size radius:(CGFloat)radius corners:(UIRectCorner)corners borderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor borderLineJoin:(CGLineJoin)borderLineJoin completed:(void(^)(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL))completed {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (placeholderImage != nil) {
-            self.contents = (__bridge id)placeholderImage.CGImage;
-        }
-    });
     [self hz_setImageWithUrl:urlStr placeholderImage:placeholderImage size:size radius:radius corners:corners borderWidth:borderWidth borderColor:borderColor borderLineJoin:borderLineJoin completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
         if (image) {
             self.contents = (__bridge id)image.CGImage;
             completed ? completed(image, data, error, cacheType, finished, imageURL) : nil;
         }else {
-            self.contents = nil;
+            if (placeholderImage != nil) {
+                self.contents = (__bridge id)placeholderImage.CGImage;
+            }else {
+                self.contents = nil;
+            }
         }
     }];
 }
@@ -99,17 +97,16 @@
  @param completed 完成回调
  */
 - (void)hz_setImageWithUrl:(NSString *)urlStr placeholderImage:(UIImage * _Nullable)placeholderImage size:(CGSize)size radius:(CGFloat)radius corners:(UIRectCorner)corners borderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor borderLineJoin:(CGLineJoin)borderLineJoin suffix:(NSString *)suffix completed:(void(^)(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL))completed {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (placeholderImage != nil) {
-            self.contents = (__bridge id)placeholderImage.CGImage;
-        }
-    });
     [HZ_WebImageManager hz_setImageWithUrl:urlStr size:size radius:radius corners:corners borderWidth:borderWidth borderColor:borderColor borderLineJoin:borderLineJoin suffix:suffix completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
         if (image) {
             self.contents = (__bridge id)image.CGImage;
             completed ? completed(image, data, error, cacheType, finished, imageURL) : nil;
         }else {
-            self.contents = nil;
+            if (placeholderImage != nil) {
+                self.contents = (__bridge id)placeholderImage.CGImage;
+            }else {
+                self.contents = nil;
+            }
         }
     }];
 }
