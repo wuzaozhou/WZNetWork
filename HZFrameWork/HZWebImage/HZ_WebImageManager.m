@@ -13,7 +13,7 @@
 
 /**
  下载图片，生成指定大小、圆角
-
+ 
  @param urlStr 链接
  @param size 指定大小
  @param radius 圆角大小
@@ -37,7 +37,7 @@
                 completed ? completed(cacheImage, data, nil, 0, YES, url) : nil;
             });
         }else {
-            [[SDWebImageManager sharedManager] loadImageWithURL:url options:0 progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+            [[SDWebImageManager sharedManager] loadImageWithURL:url options:SDWebImageLowPriority progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
                 if (!error) {
                     dispatch_async(dispatch_get_global_queue(0, 0), ^{
                         UIImage *radiusImage = [[image hz_imageByResizeToSize:size contentMode:UIViewContentModeScaleAspectFill] hz_imageByRoundCornerRadius:radius];
@@ -57,7 +57,7 @@
 
 /**
  下载图片，生成指定大小、圆角、边框
-
+ 
  @param urlStr 链接
  @param size 指定大小
  @param radius 圆角大小
@@ -85,7 +85,7 @@
                 completed ? completed(cacheImage, data, nil, 0, YES, url) : nil;
             });
         }else {
-            [[SDWebImageManager sharedManager] loadImageWithURL:url options:0 progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+            [[SDWebImageManager sharedManager] loadImageWithURL:url options:SDWebImageLowPriority progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
                 if (!error) {
                     dispatch_async(dispatch_get_global_queue(0, 0), ^{
                         UIImage *radiusImage = [[image hz_imageByResizeToSize:size contentMode:UIViewContentModeScaleAspectFill] hz_imageByRoundCornerRadius:radius corners:corners borderWidth:borderWidth borderColor:borderColor borderLineJoin:borderLineJoin];
@@ -101,5 +101,6 @@
         }
     });
 }
+
 
 @end

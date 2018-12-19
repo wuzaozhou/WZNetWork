@@ -7,14 +7,13 @@
 //
 
 #import "UIImage+HZ_Add.h"
-#import "NSString+YYAdd.h"
-#import "YYKitMacro.h"
-#import "YYCGUtilities.h"
+#import <YYKit/NSString+YYAdd.h>
+#import <YYKit/YYKitMacro.h>
+#import <YYKit/YYCGUtilities.h>
 #import <ImageIO/ImageIO.h>
 #import <Accelerate/Accelerate.h>
 #import <CoreText/CoreText.h>
 #import <objc/runtime.h>
-#import "YYCGUtilities.h"
 
 YYSYNTH_DUMMY_CLASS(UIImage_HZ_Add)
 
