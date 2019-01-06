@@ -32,11 +32,15 @@
         }
         UIImage *cacheImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:cacheurlStr];
         if (cacheImage) {
-            NSData *data = UIImagePNGRepresentation(cacheImage);
+//            NSData *data = UIImagePNGRepresentation(cacheImage);
             dispatch_async(dispatch_get_main_queue(), ^{
-                completed ? completed(cacheImage, data, nil, 0, YES, url) : nil;
+                completed ? completed(cacheImage, nil, nil, 0, YES, url) : nil;
             });
         }else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSError *error = [[NSError alloc] init];
+                completed ? completed(nil, nil, error, 0, NO, url) : nil;
+            });
             [[SDWebImageManager sharedManager] loadImageWithURL:url options:SDWebImageLowPriority progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
                 if (!error) {
                     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -45,7 +49,7 @@
                         //清除原有非圆角图片缓存
                         [[SDImageCache sharedImageCache] removeImageForKey:urlStr withCompletion:nil];
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            completed ? completed(image, data, error, cacheType, finished, imageURL) : nil;
+                            completed ? completed(radiusImage, data, error, cacheType, finished, imageURL) : nil;
                         });
                     });
                 }
@@ -78,13 +82,17 @@
         }else {
             cacheurlStr = [urlStr stringByAppendingString:suffix];
         }
-        UIImage *cacheImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:cacheurlStr];
+        UIImage *cacheImage = [[SDImageCache sharedImageCache] imageFromCacheForKey:cacheurlStr];
         if (cacheImage) {
-            NSData *data = UIImagePNGRepresentation(cacheImage);
+//            NSData *data = UIImagePNGRepresentation(cacheImage);
             dispatch_async(dispatch_get_main_queue(), ^{
-                completed ? completed(cacheImage, data, nil, 0, YES, url) : nil;
+                completed ? completed(cacheImage, nil, nil, 0, YES, url) : nil;
             });
         }else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSError *error = [[NSError alloc] init];
+                completed ? completed(nil, nil, error, 0, NO, url) : nil;
+            });
             [[SDWebImageManager sharedManager] loadImageWithURL:url options:SDWebImageLowPriority progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
                 if (!error) {
                     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -93,7 +101,7 @@
                         //清除原有非圆角图片缓存
                         [[SDImageCache sharedImageCache] removeImageForKey:urlStr withCompletion:nil];
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            completed ? completed(image, data, error, cacheType, finished, imageURL) : nil;
+                            completed ? completed(radiusImage, data, error, cacheType, finished, imageURL) : nil;
                         });
                     });
                 }

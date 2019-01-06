@@ -1,20 +1,24 @@
 //
-//  UIImageView+HZ_WebImage.m
+//  CALayer+HZ_WebImage.m
 //  FlowerTown
 //
-//  Created by 吴灶洲 on 2018/12/19.
+//  Created by 吴灶洲 on 2018/12/18.
 //  Copyright © 2018年 HuaZhen. All rights reserved.
 //
 
-#import "UIImageView+HZ_WebImage.h"
-#import "SDWebImageManager.h"
-#import "SDImageCache.h"
-#import "UIImage+YYAdd.h"
+#import "CALayer+HZ_WebImage.h"
+
 #import "HZ_WebImageManager.h"
 
-@implementation UIImageView (HZ_WebImage)
+@interface CALayer (HZ_WebImage)
+//@property (nonatomic, strong) NSURL *url;
+@end
+
+@implementation CALayer (HZ_WebImage)
+
+
 /**
- UIImageView 显示网络图片
+ layer 显示网络图片
  
  @param urlStr 链接
  @param placeholderImage 占位图
@@ -31,7 +35,7 @@
 
 
 /**
- UIImageView 显示网络图片
+ layer 显示网络图片
  
  @param urlStr 链接
  @param placeholderImage 占位图
@@ -41,15 +45,18 @@
  @param completed 完成回调
  */
 - (void)hz_setImageWithUrl:(NSString *)urlStr placeholderImage:(nullable UIImage *)placeholderImage size:(CGSize)size radius:(CGFloat)radius suffix:(NSString *)suffix completed:(void(^)(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL))completed {
+    self.contents = (__bridge id)placeholderImage.CGImage;
     [HZ_WebImageManager hz_setImageWithUrl:urlStr size:size radius:radius suffix:suffix completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
-        self.image = image;
-        completed ? completed(image, data, error, cacheType, finished, imageURL) : nil;
+        if (image) {
+            self.contents = (__bridge id)image.CGImage;
+            completed ? completed(image, data, error, cacheType, finished, imageURL) : nil;
+        }
+        
     }];
 }
 
-
 /**
- UIImageView 显示图片，生成指定大小、圆角、边框
+ layer显示图片，生成指定大小、圆角、边框
  
  @param urlStr 链接
  @param size 指定大小
@@ -61,22 +68,23 @@
  @param completed 完成回调
  */
 - (void)hz_setImageWithUrl:(NSString *)urlStr placeholderImage:(UIImage * _Nullable)placeholderImage size:(CGSize)size radius:(CGFloat)radius corners:(UIRectCorner)corners borderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor borderLineJoin:(CGLineJoin)borderLineJoin completed:(void(^)(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL))completed {
+    self.contents = (__bridge id)placeholderImage.CGImage;
     [self hz_setImageWithUrl:urlStr placeholderImage:placeholderImage size:size radius:radius corners:corners borderWidth:borderWidth borderColor:borderColor borderLineJoin:borderLineJoin completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
         if (image) {
-            self.image = image;
+            self.contents = (__bridge id)image.CGImage;
             completed ? completed(image, data, error, cacheType, finished, imageURL) : nil;
         }else {
             if (placeholderImage != nil) {
-                self.image = placeholderImage;
+                self.contents = (__bridge id)placeholderImage.CGImage;
             }else {
-                self.image = nil;
+                self.contents = nil;
             }
         }
     }];
 }
 
 /**
- UIImageView 显示图片，生成指定大小、圆角、边框
+ layer显示图片，生成指定大小、圆角、边框
  
  @param urlStr 链接
  @param size 指定大小
@@ -89,18 +97,12 @@
  @param completed 完成回调
  */
 - (void)hz_setImageWithUrl:(NSString *)urlStr placeholderImage:(UIImage * _Nullable)placeholderImage size:(CGSize)size radius:(CGFloat)radius corners:(UIRectCorner)corners borderWidth:(CGFloat)borderWidth borderColor:(nullable UIColor *)borderColor borderLineJoin:(CGLineJoin)borderLineJoin suffix:(NSString *)suffix completed:(void(^)(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL))completed {
+    self.contents = (__bridge id)placeholderImage.CGImage;
     [HZ_WebImageManager hz_setImageWithUrl:urlStr size:size radius:radius corners:corners borderWidth:borderWidth borderColor:borderColor borderLineJoin:borderLineJoin suffix:suffix completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
         if (image) {
-            self.image = image;
+            self.contents = (__bridge id)image.CGImage;
             completed ? completed(image, data, error, cacheType, finished, imageURL) : nil;
-        }else {
-            if (placeholderImage != nil) {
-                self.image = placeholderImage;
-            }else {
-                self.image = nil;
-            }
         }
     }];
 }
-
 @end

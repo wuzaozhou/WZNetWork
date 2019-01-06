@@ -10,6 +10,11 @@
 #endif
 #endif
 
+#import "HZ_BaseCollectionViewCellProtocol.h"
+#import "HZ_BaseTableViewCellProtocol.h"
+#import "HZ_BaseViewModelHeader.h"
+#import "HZ_BaseViewModelProtocol.h"
+#import "HZ_BaseViewProtocol.h"
 #import "HZEmptyView.h"
 #import "UIView+HZKit.h"
 #import "HZFPS.h"
@@ -32,10 +37,6 @@
 #import "HZ_PhotoBrowserView.h"
 #import "HZ_PopViewController.h"
 #import "HZTool.h"
-#import "CALayer+HZ_WebImage.h"
-#import "HZ_WebImageManager.h"
-#import "UIImage+HZ_Add.h"
-#import "UIImageView+HZ_WebImage.h"
 
 FOUNDATION_EXPORT double HZFrameWorkVersionNumber;
 FOUNDATION_EXPORT const unsigned char HZFrameWorkVersionString[];

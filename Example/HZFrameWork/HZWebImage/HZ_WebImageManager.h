@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param suffix 保存的地址加上后缀区分其他地方的图片的大小
  @param completed 完成回调
  */
-+ (void)hz_setImageWithUrl:(NSString *)urlStr size:(CGSize)size radius:(CGFloat)radius suffix:(NSString *)suffix completed:(void(^)(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL))completed;
++ (void)hz_setImageWithUrl:(NSString *)urlStr size:(CGSize)size radius:(CGFloat)radius suffix:(nullable NSString *)suffix completed:(void(^)(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL))completed;
 
 
 /**

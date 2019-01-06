@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZFrameWork'
-  s.version          = '1.4.3.2'
+  s.version          = '1.4.3.3'
   s.summary          = '花镇封装私有库'
 
 # This description is used to generate tags and improve search results.
@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
     c.source_files = 'HZFrameWork/HZEmptyView/**/*'
     
   end
-#网络相关 SDWebimage  AFNetworking
+  #网络相关 SDWebimage  AFNetworking
   s.subspec 'HZNetworking' do |p|
     p.source_files = 'HZFrameWork/HZNetworking/**/*'
     p.dependency  'AFNetworking'
@@ -71,11 +71,15 @@ Pod::Spec.new do |s|
       p.source_files = 'HZFrameWork/HZFontFile/**/*'
   end
 
-  #字体设置相关
+  #popview
   s.subspec 'HZPopView' do |p|
       p.source_files = 'HZFrameWork/HZPopView/**/*'
   end
   
+  #头部协议
+  s.subspec 'HZBaseHeader' do |p|
+      p.source_files = 'HZFrameWork/HZBaseHeader/**/*'
+  end
   
   #s.subspec 'HZWebImage' do |p|
   #   p.source_files = 'HZFrameWork/HZWebImage/**/*'

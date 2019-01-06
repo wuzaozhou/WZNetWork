@@ -154,10 +154,12 @@
 + (NSString *)countWNum:(NSInteger)num {
     if (num < 10000) {
         return [NSString stringWithFormat:@"%ld", num];
-    }else if (num == 10000) {
-        return @"1W";
     }else {
-        return [NSString stringWithFormat:@"%.1fw", num/10000.0];
+        NSString *numText = [NSString stringWithFormat:@"%.1f w", num/10000.0];
+        if ([numText hasSuffix:@"0 w"]) {
+            return [NSString stringWithFormat:@"%.0f w", num/10000.0];
+        }
+        return numText;
     }
 }
 
