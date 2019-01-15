@@ -66,7 +66,7 @@ typedef NS_ENUM(NSInteger, HZPageTitleBadgeType) {
  如若开启此设置，必须设置titleItemViewWidth。
  */
 @property (nonatomic, assign) BOOL customTitleItemViewWidth;
-//自定义item的宽度
+///自定义item的宽度
 @property (nonatomic, assign) CGFloat titleItemViewWidth;
 
 ///默认选中第几个

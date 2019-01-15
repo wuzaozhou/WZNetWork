@@ -22,6 +22,8 @@
 
 - (instancetype)initWithChildArray:(NSArray<UIViewController *> *)childArray  parentViewController:(UIViewController *) parentVC frame:(CGRect)frame;
 
+@property(nonatomic,assign,readonly) NSUInteger selectorIndex;
+
 /**
  手动设置当前页面
 
