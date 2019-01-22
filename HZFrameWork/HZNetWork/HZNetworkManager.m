@@ -8,8 +8,6 @@
 
 #import "HZNetworkManager.h"
 
-
-
 @interface HZNetworkManager ()<NSCopying>
 /** 是AFURLSessionManager的子类，为HTTP的一些请求提供了便利方法，当提供baseURL时，请求只需要给出请求的路径即可 */
 @property (nonatomic, strong) AFHTTPSessionManager *requestManager;

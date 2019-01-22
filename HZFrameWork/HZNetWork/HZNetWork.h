@@ -9,18 +9,10 @@
 #ifndef HZNetWork_h
 #define HZNetWork_h
 
-#if __has_include(<HZFrameWork/HZNetWork.h>)
 
 #import <HZFrameWork/HZNetWorkCache.h>
 #import <HZFrameWork/HZNetworkConfig.h>
 #import <HZFrameWork/HZNetworkManager.h>
 
-#else
-
-#import "HZNetWorkCache.h"
-#import "HZNetworkConfig.h"
-#import "HZNetworkManager.h"
-
-#endif
 
 #endif /* HZNetWork_h */
