@@ -48,6 +48,13 @@
 + (void)showWithText:(NSString *)text;
 
 /**
+ 简单文字提示。tost，需要手动调用消息
+ 
+ @param text 信息内容
+ */
++ (void)showWithHUDText:(NSString *)text;
+
+/**
  文字提示加上图标，tost到指定view
  
  @param text 文字

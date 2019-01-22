@@ -13,6 +13,7 @@
 #import "HZDetailViewController.h"
 #import "HZURLRequest.h"
 #import "HZRequestManager.h"
+
 @interface HZNetworkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *dataArray;
@@ -33,6 +34,7 @@
     [self.view addSubview:self.tableView];
     
     // Do any additional setup after loading the view.
+    
 }
 
 

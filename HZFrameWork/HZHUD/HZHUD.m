@@ -78,18 +78,35 @@
 }
 
 /**
- 简单文字提示。tost
+ 简单文字提示。tost，自动消失
  
  @param text 信息内容
  */
 + (void)showWithText:(NSString *)text {
-    UIView *view = [[UIApplication sharedApplication].windows lastObject];
+    UIView *view = [UIApplication sharedApplication].keyWindow;
     view.hidden = NO;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.label.text = text;
     hud.mode = MBProgressHUDModeCustomView;
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:4.0];
+}
+
+/**
+ 简单文字提示。tost，需要手动调用消息
+ 
+ @param text 信息内容
+ */
++ (void)showWithHUDText:(NSString *)text {
+    UIView *view = [UIApplication sharedApplication].keyWindow;
+    view.hidden = NO;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.label.text = text;
+    hud.label.numberOfLines = 0;
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    hud.contentColor = [UIColor whiteColor];
+    hud.mode = MBProgressHUDModeCustomView;
 }
 
 /**
@@ -100,7 +117,7 @@
  @param view 指定view
  */
 + (void)show:(NSString *)text icon:(UIImage *)icon view:(UIView *)view {
-    if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
+    if (view == nil) view = [UIApplication sharedApplication].keyWindow;
     view.hidden = NO;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.label.text = text;
@@ -166,7 +183,6 @@
     if (view == nil) {
         view = [UIApplication sharedApplication].keyWindow;
     }
-    //    [self hideHUDForView:view];
     [MBProgressHUD hideHUDForView:view animated:YES];
 }
 

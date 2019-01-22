@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *mainFlowLayout;
 @property (nonatomic, strong) NSArray *childViewControllerArray;
 @property (nonatomic, strong) UIViewController *parentViewController;
+
 @end
 
 @implementation HZPageContentView
@@ -132,7 +133,8 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if (_delegate && [_delegate respondsToSelector:@selector(pageContentView:index:)]) {
-        [_delegate pageContentView:self index:scrollView.contentOffset.x / self.frame.size.width];
+        _selectorIndex = scrollView.contentOffset.x / self.frame.size.width;
+        [_delegate pageContentView:self index:_selectorIndex];
     }
 }
 
