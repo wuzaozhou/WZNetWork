@@ -15,6 +15,9 @@
 #import "HZFPS.h"
 #import "HZ_FontFile.h"
 #import "HZHUD.h"
+#import "HZNetWorkCache.h"
+#import "HZNetworkConfig.h"
+#import "HZNetworkManager.h"
 #import "HZCacheManager.h"
 #import "HZNetworking.h"
 #import "HZRequestConst.h"
@@ -30,12 +33,7 @@
 #import "HZ_LoadingView.h"
 #import "HZ_PhotoBrowser.h"
 #import "HZ_PhotoBrowserView.h"
-#import "HZ_PopViewController.h"
 #import "HZTool.h"
-#import "CALayer+HZ_WebImage.h"
-#import "HZ_WebImageManager.h"
-#import "UIImage+HZ_Add.h"
-#import "UIImageView+HZ_WebImage.h"
 
 FOUNDATION_EXPORT double HZFrameWorkVersionNumber;
 FOUNDATION_EXPORT const unsigned char HZFrameWorkVersionString[];

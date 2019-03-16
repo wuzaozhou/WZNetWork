@@ -19,59 +19,55 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - HZFrameWork (1.4.0):
-    - HZFrameWork/HZEmptyView (= 1.4.0)
-    - HZFrameWork/HZFontFile (= 1.4.0)
-    - HZFrameWork/HZFPS (= 1.4.0)
-    - HZFrameWork/HZHUD (= 1.4.0)
-    - HZFrameWork/HZNetworking (= 1.4.0)
-    - HZFrameWork/HZPageView (= 1.4.0)
-    - HZFrameWork/HZPhotoBrowser (= 1.4.0)
-    - HZFrameWork/HZPopView (= 1.4.0)
-    - HZFrameWork/HZTool (= 1.4.0)
-    - HZFrameWork/HZWebImage (= 1.4.0)
+  - HZFrameWork (1.5.1):
+    - HZFrameWork/HZEmptyView (= 1.5.1)
+    - HZFrameWork/HZFontFile (= 1.5.1)
+    - HZFrameWork/HZFPS (= 1.5.1)
+    - HZFrameWork/HZHUD (= 1.5.1)
+    - HZFrameWork/HZNetWork (= 1.5.1)
+    - HZFrameWork/HZNetworking (= 1.5.1)
+    - HZFrameWork/HZPageView (= 1.5.1)
+    - HZFrameWork/HZPhotoBrowser (= 1.5.1)
+    - HZFrameWork/HZTool (= 1.5.1)
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZEmptyView (1.4.0):
+  - HZFrameWork/HZEmptyView (1.5.1):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZFontFile (1.4.0):
+  - HZFrameWork/HZFontFile (1.5.1):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZFPS (1.4.0):
+  - HZFrameWork/HZFPS (1.5.1):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZHUD (1.4.0):
+  - HZFrameWork/HZHUD (1.5.1):
     - Masonry
     - MBProgressHUD
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZNetworking (1.4.0):
+  - HZFrameWork/HZNetWork (1.5.1):
     - AFNetworking
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZPageView (1.4.0):
+  - HZFrameWork/HZNetworking (1.5.1):
+    - AFNetworking
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZPhotoBrowser (1.4.0):
+  - HZFrameWork/HZPageView (1.5.1):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZPopView (1.4.0):
+  - HZFrameWork/HZPhotoBrowser (1.5.1):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZTool (1.4.0):
-    - Masonry
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZWebImage (1.4.0):
+  - HZFrameWork/HZTool (1.5.1):
     - Masonry
     - SDWebImage
     - YYKit
@@ -104,12 +100,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HZFrameWork: b21ad43bb84ae06e7188f3dadd40c1d3d54a7512
+  HZFrameWork: 7adbae544a3ffd83b338bde92bc39c7e8148dbab
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 88511265e4b4847e5d5053b67ca57d5f670fd56a
+PODFILE CHECKSUM: 3128ab16123ca766c0d502d885275361fbc26b32
 
 COCOAPODS: 1.5.3

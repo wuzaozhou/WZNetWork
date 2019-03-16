@@ -7,8 +7,8 @@
 //
 
 #import "HZNetWorkCache.h"
-#import <YYKit.h>
-#import <YYCache.h>
+#import <YYKit/YYKit.h>
+#import <YYKit/YYCache.h>
 
 static NSString *const HZNetworkCache = @"HZNetworkCache";
 static NSString *const HZNetworkTimeOut = @"HZNetworkTimeOut";

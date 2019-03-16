@@ -1,5 +1,6 @@
 use_frameworks!
 
+xcodeproj 'HZFrameWork.xcodeproj'
 target 'HZFrameWork_Example' do
   pod 'HZFrameWork', :path => '../'
 
