@@ -114,9 +114,9 @@
     weak_Self;
     [self.titleArray enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         strong_Self;
-        CGSize tempSize = [self sizeWithString:obj font:strongSelf.viewModel.titleFontSelected];
+        CGSize tempSize = [strongSelf sizeWithString:obj font:strongSelf.viewModel.titleFontSelected];
         CGFloat tempWidth = tempSize.width;
-        self.allBtnTextWidth += tempWidth;
+        strongSelf.allBtnTextWidth += tempWidth;
     }];
     
     self.allBtnWidth = self.allBtnTextWidth + self.viewModel.titleAdditionalWidth * titleCount;

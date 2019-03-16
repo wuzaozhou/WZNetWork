@@ -40,6 +40,12 @@ Pod::Spec.new do |s|
     p.dependency  'AFNetworking'
   end
 
+#网络请求
+  s.subspec 'HZNetWork' do |p|
+    p.source_files = 'HZFrameWork/HZNetWork/**/*'
+    p.dependency  'AFNetworking'
+  end
+
   #标题滚动相关 
   s.subspec 'HZPageView' do |p|
     p.source_files = 'HZFrameWork/HZPageView/**/*'
