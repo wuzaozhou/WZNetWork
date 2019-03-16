@@ -48,7 +48,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-//         [self setSubView];
+        //         [self setSubView];
     }
     return self;
 }
@@ -126,7 +126,7 @@
     CGFloat btnY = 0;
     CGFloat btnH = HZPageTitleViewHeight - self.viewModel.bottomSparatorHeight;
     CGFloat btnW;
-     // 1、添加按钮
+    // 1、添加按钮
     for (NSInteger index = 0; index < titleCount; index++) {
         CGSize tempSize = [self sizeWithString:self.titleArray[index] font:self.viewModel.titleFontSelected];
         
@@ -147,7 +147,7 @@
         
         HZPageTitleItemView *itemView = [[HZPageTitleItemView alloc] initWithViewModel:self.viewModel frame:CGRectMake(btnX, btnY, btnW, btnH) tilte:self.titleArray[index] tag:index];
         [itemView.button addTarget:self action:@selector(buttonAction:) forControlEvents:(UIControlEventTouchUpInside)];
-   
+        
         btnX = btnX + btnW;
         [self.buttonArray addObject:itemView];
         [self.scrollView addSubview:itemView];
@@ -176,7 +176,7 @@
 #pragma mark--自定义方法
 /**
  按钮点击事件
-
+ 
  @param button 点击的按钮
  */
 - (void)buttonAction:(UIButton *)button {
@@ -223,7 +223,7 @@
 - (void)changeIndicatorViewWithButton:(HZPageTitleItemView *) item{
     //获取当前button文字宽度,默认使用titleFontNormal字体
     CGSize titleSize = [self sizeWithString:item.button.titleLabel.text font:self.viewModel.titleFontNormal];
-
+    
     [UIView animateWithDuration:0.1 animations:^{
         //设置指示器frame
         CGRect frame = self.indicatorView.frame;
