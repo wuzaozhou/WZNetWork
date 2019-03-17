@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZFrameWork'
-  s.version          = '1.5.3'
+  s.version          = '1.5.5'
   s.summary          = '花镇封装私有库'
 
 # This description is used to generate tags and improve search results.
@@ -75,6 +75,11 @@ Pod::Spec.new do |s|
   #字体设置相关
   s.subspec 'HZFontFile' do |p|
       p.source_files = 'HZFrameWork/HZFontFile/**/*'
+  end
+  
+  #弹窗转场动画
+  s.subspec 'HZPopView' do |p|
+      p.source_files = 'HZFrameWork/HZPopView/**/*'
   end
 
 
