@@ -16,6 +16,14 @@
  @return MBProgressHUD
  */
 + (MBProgressHUD *)hz_showLoadingWithView:(UIView *)view;
+/**
+ 显示花镇loading图标到指定view上，隐藏方法则直接点用[HZHUD hideHUDForView:]
+ 
+ @param view 指定view，如果view为nil，则直接添加到window
+ @param userInteractionEnabled 蒙版是否可以点击
+ @return MBProgressHUD
+ */
++ (MBProgressHUD *)hz_showLoadingWithView:(UIView *)view userInteractionEnabled:(BOOL)userInteractionEnabled;
 
 /**
  显示花镇loading图标到window上，隐藏方法则直接点用[HZHUD hideHUDForView:]
@@ -46,6 +54,21 @@
  @param text 信息内容
  */
 + (void)showWithText:(NSString *)text;
+
+/**
+ 简单文字提示。tost，自动消失
+ 
+ @param text 信息内容
+ @param afterDelay 多久之后消失
+ */
++ (void)showWithText:(NSString *)text afterDelay:(CGFloat)afterDelay;
+
+/**
+ 简单文字提示。tost，需要手动调用消息
+ 
+ @param text 信息内容
+ */
++ (void)showWithHUDText:(NSString *)text;
 
 /**
  文字提示加上图标，tost到指定view

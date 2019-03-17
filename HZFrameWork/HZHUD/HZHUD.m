@@ -17,8 +17,20 @@
  @return MBProgressHUD
  */
 + (MBProgressHUD *)hz_showLoadingWithView:(UIView *)view {
+    return [self hz_showLoadingWithView:view userInteractionEnabled:YES];
+}
+
+/**
+ 显示花镇loading图标到指定view上，隐藏方法则直接点用[HZHUD hideHUDForView:]
+ 
+ @param view 指定view，如果view为nil，则直接添加到window
+ @param userInteractionEnabled 蒙版是否可以点击
+ @return MBProgressHUD
+ */
++ (MBProgressHUD *)hz_showLoadingWithView:(UIView *)view userInteractionEnabled:(BOOL)userInteractionEnabled {
     if (view == nil) view = [UIApplication sharedApplication].keyWindow;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.userInteractionEnabled = userInteractionEnabled;
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.bezelView.backgroundColor = [UIColor clearColor];
     //    hud.defaultMotionEffectsEnabled = YES;
@@ -78,18 +90,61 @@
 }
 
 /**
- 简单文字提示。tost
+ 简单文字提示。tost，自动消失
  
  @param text 信息内容
  */
 + (void)showWithText:(NSString *)text {
-    UIView *view = [[UIApplication sharedApplication].windows lastObject];
+    UIView *view = [UIApplication sharedApplication].keyWindow;
     view.hidden = NO;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
+    hud.label.numberOfLines = 0;
     hud.label.text = text;
+    hud.label.font = [UIFont fontWithName:@"PingFangSC-Medium" size:15];
+    hud.contentColor = [UIColor whiteColor];
     hud.mode = MBProgressHUDModeCustomView;
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:4.0];
+}
+
+/**
+ 简单文字提示。tost，自动消失
+ 
+ @param text 信息内容
+ @param afterDelay 多久之后消失
+ */
++ (void)showWithText:(NSString *)text afterDelay:(CGFloat)afterDelay {
+    UIView *view = [UIApplication sharedApplication].keyWindow;
+    view.hidden = NO;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
+    hud.label.numberOfLines = 0;
+    hud.label.text = text;
+    hud.label.font = [UIFont fontWithName:@"PingFangSC-Medium" size:15];
+    hud.contentColor = [UIColor whiteColor];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.removeFromSuperViewOnHide = YES;
+    [hud hideAnimated:YES afterDelay:afterDelay];
+}
+
+/**
+ 简单文字提示。tost，需要手动调用消息
+ 
+ @param text 信息内容
+ */
++ (void)showWithHUDText:(NSString *)text {
+    UIView *view = [UIApplication sharedApplication].keyWindow;
+    view.hidden = NO;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.label.text = text;
+    hud.label.numberOfLines = 0;
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    hud.contentColor = [UIColor whiteColor];
+    hud.mode = MBProgressHUDModeCustomView;
 }
 
 /**
@@ -100,7 +155,7 @@
  @param view 指定view
  */
 + (void)show:(NSString *)text icon:(UIImage *)icon view:(UIView *)view {
-    if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
+    if (view == nil) view = [UIApplication sharedApplication].keyWindow;
     view.hidden = NO;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.label.text = text;
@@ -166,7 +221,6 @@
     if (view == nil) {
         view = [UIApplication sharedApplication].keyWindow;
     }
-    //    [self hideHUDForView:view];
     [MBProgressHUD hideHUDForView:view animated:YES];
 }
 
