@@ -53,9 +53,10 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    [self setupSubViews];
-    [self setupLayoutSubviews];
-    
+    if (!_mainCollectionView) {
+        [self setupSubViews];
+        [self setupLayoutSubviews];
+    }
 }
 
 - (void)setupSubViews {

@@ -81,6 +81,10 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    ///隐藏导航栏时会调两次
+    if (self.buttonArray.count>0) {
+        return;
+    }
     [self setSubView];
 }
 
