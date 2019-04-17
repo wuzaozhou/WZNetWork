@@ -8,7 +8,7 @@
 
 #import "HZNetworkManager.h"
 
-
+NSString * const HZNetworkManagerCharles = @"HZNetworkManagerCharles";
 
 @interface HZNetworkManager ()<NSCopying>
 /** 是AFURLSessionManager的子类，为HTTP的一些请求提供了便利方法，当提供baseURL时，请求只需要给出请求的路径即可 */
@@ -90,14 +90,16 @@ static HZNetworkManager *instance;
 #pragma mark - 实例化
 - (AFHTTPSessionManager *)requestManager {
     if (!_requestManager) {
-#ifdef HZ_TEST_MODE_ON
-        // debug 版本的包仍然能够正常抓包
-        _requestManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://www.baidu.com"]];
-#else
-        NSURLSessionConfiguration *conf = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-        conf.connectionProxyDictionary = @{};
-        _requestManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://www.baidu.com"] sessionConfiguration:conf];
-#endif
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        NSString *key = [userDefault objectForKey:HZNetworkManagerCharles];
+        if ([key isEqualToString:@"1"]) {
+            // debug 版本的包仍然能够正常抓包
+            _requestManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://www.baidu.com"]];
+        }else {
+            NSURLSessionConfiguration *conf = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+            conf.connectionProxyDictionary = @{};
+            _requestManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://www.baidu.com"] sessionConfiguration:conf];
+        }
         AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
         securityPolicy.allowInvalidCertificates = YES;
         securityPolicy.validatesDomainName = NO;
@@ -172,10 +174,14 @@ static HZNetworkManager *instance;
                                                                            URLString:requestUrl
                                                                           parameters:parameters
                                                                                error:nil];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    dispatch_async(dispatch_get_main_queue(), ^{
+       [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    });
     __weak typeof(self) weakself = self;
     __block NSURLSessionDataTask *dataTask = [self.requestManager dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        });
         if (error) {
             if (configuration.requestCachePolicy == HZRequestLoadToCache || ((configuration.requestCachePolicy == HZRequestCacheOrLoadToCache || configuration.requestCachePolicy == HZRequestCacheAndLoadToCache)&& fetchCacheRespose() == nil)) {//如果网络请求失败，则直接取缓存数据
                 id resposeObject = [HZNetWorkCache httpCacheForURL:requestUrl parameters:parameters];

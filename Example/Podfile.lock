@@ -14,60 +14,60 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - HZFrameWork (1.5.1):
-    - HZFrameWork/HZEmptyView (= 1.5.1)
-    - HZFrameWork/HZFontFile (= 1.5.1)
-    - HZFrameWork/HZFPS (= 1.5.1)
-    - HZFrameWork/HZHUD (= 1.5.1)
-    - HZFrameWork/HZNetWork (= 1.5.1)
-    - HZFrameWork/HZNetworking (= 1.5.1)
-    - HZFrameWork/HZPageView (= 1.5.1)
-    - HZFrameWork/HZPhotoBrowser (= 1.5.1)
-    - HZFrameWork/HZTool (= 1.5.1)
+  - HZFrameWork (1.5.7):
+    - HZFrameWork/HZEmptyView (= 1.5.7)
+    - HZFrameWork/HZFontFile (= 1.5.7)
+    - HZFrameWork/HZFPS (= 1.5.7)
+    - HZFrameWork/HZHUD (= 1.5.7)
+    - HZFrameWork/HZNetWork (= 1.5.7)
+    - HZFrameWork/HZNetworking (= 1.5.7)
+    - HZFrameWork/HZPageView (= 1.5.7)
+    - HZFrameWork/HZPhotoBrowser (= 1.5.7)
+    - HZFrameWork/HZPopView (= 1.5.7)
+    - HZFrameWork/HZTool (= 1.5.7)
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZEmptyView (1.5.1):
+  - HZFrameWork/HZEmptyView (1.5.7):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZFontFile (1.5.1):
+  - HZFrameWork/HZFontFile (1.5.7):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZFPS (1.5.1):
+  - HZFrameWork/HZFPS (1.5.7):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZHUD (1.5.1):
+  - HZFrameWork/HZHUD (1.5.7):
     - Masonry
     - MBProgressHUD
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZNetWork (1.5.1):
+  - HZFrameWork/HZNetWork (1.5.7):
     - AFNetworking
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZNetworking (1.5.1):
+  - HZFrameWork/HZNetworking (1.5.7):
     - AFNetworking
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZPageView (1.5.1):
+  - HZFrameWork/HZPageView (1.5.7):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZPhotoBrowser (1.5.1):
+  - HZFrameWork/HZPhotoBrowser (1.5.7):
     - Masonry
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZTool (1.5.1):
+  - HZFrameWork/HZPopView (1.5.7):
+    - Masonry
+    - SDWebImage
+    - YYKit
+  - HZFrameWork/HZTool (1.5.7):
     - Masonry
     - SDWebImage
     - YYKit
@@ -81,13 +81,11 @@ PODS:
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
   - HZFrameWork (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
-    - FBSnapshotTestCase
     - Masonry
     - MBProgressHUD
     - SDWebImage
@@ -99,13 +97,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  HZFrameWork: 7adbae544a3ffd83b338bde92bc39c7e8148dbab
+  HZFrameWork: c5701c818216078fd4507f539bbf14cb02d53099
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 3128ab16123ca766c0d502d885275361fbc26b32
+PODFILE CHECKSUM: 8b1a1201103a8e189f69392354ebefc35504bd4a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

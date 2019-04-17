@@ -20,12 +20,14 @@ typedef NS_ENUM(NSInteger, HZRequestMethod) {
     HZRequestMethodPut,//Put方法
     HZRequestMethodDelete,//Delete 方法
 };
+UIKIT_EXTERN NSString * const HZNetworkManagerCharles;
 
 typedef void(^HZRequestManagerCompletion)(NSURLSessionTask * _Nullable httpbase, id _Nullable cacheResponse, id _Nullable response, NSError * _Nullable error);
 typedef void(^HZRequestManagerCache)(id _Nullable responseObject, NSError * _Nullable error);
 typedef void(^HZRequestManagerSuccess)(NSURLSessionTask * _Nullable task, id _Nullable responseObject);
 typedef void(^HZRequestManagerFailure)(NSURLSessionTask * _Nullable task, NSError * _Nullable error, AFNetworkReachabilityStatus netWorkStatus);
 typedef void(^HZRequestManagerProgress)(NSProgress * _Nullable progress);
+
 
 @interface HZNetworkManager : NSObject
 /** 当前的网络状态 */

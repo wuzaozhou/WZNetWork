@@ -157,7 +157,12 @@
     }else if (num == 10000) {
         return @"1W";
     }else {
-        return [NSString stringWithFormat:@"%.1fw", num/10000.0];
+        NSNumber *number = @(num/10000.0);
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setPositiveFormat:@"###0.0"];
+        formatter.roundingMode = NSNumberFormatterRoundDown;
+        formatter.maximumFractionDigits = 1;
+        return [NSString stringWithFormat:@"%@w", [formatter stringFromNumber:number]];
     }
 }
 

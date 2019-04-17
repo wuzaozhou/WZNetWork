@@ -68,6 +68,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)removeHttpCacheWithUrl:(NSString *)url parameters:(NSDictionary *)parameters;// header:(NSDictionary *)header;
 
+/**
+ 返回请求的缓存的key
+
+ @param URL URL
+ @param parameters 参数
+ @return key
+ */
++ (NSString *)cacheKeyWithURL:(NSString *)URL parameters:(NSDictionary *)parameters;
+
 /** 判断缓存是否有效，有效则返回YES */
 + (BOOL)verifyInvalidCache:(NSString *)cacheKey resultCacheDuration:(NSTimeInterval )resultCacheDuration;
 @end

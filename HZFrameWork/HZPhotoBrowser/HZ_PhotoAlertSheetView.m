@@ -41,7 +41,7 @@ static HZ_PhotoAlertSheetView *alerView;
     _tableView.sectionFooterHeight = [HZTool isBangsPhone] ? 34 : CGFLOAT_MIN;
     [self addSubview:_tableView];
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-    
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _topView = [[UIView alloc] init];
     [self addSubview:_topView];
     
@@ -72,6 +72,8 @@ static HZ_PhotoAlertSheetView *alerView;
     cell.textLabel.textColor = [UIColor colorWithHexString:@"#333333"];
     return cell;
 }
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -109,7 +111,7 @@ static HZ_PhotoAlertSheetView *alerView;
 //    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
 //        make.height.mas_equalTo(self.dataArray.count*56);
 //    }];
-    CGFloat height = _dataArray.count * self.tableView.rowHeight;
+    CGFloat height = _dataArray.count * self.tableView.rowHeight+_tableView.sectionFooterHeight;
     self.topView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)-height);
     [UIView animateWithDuration:0.5 animations:^{
         [window layoutIfNeeded];

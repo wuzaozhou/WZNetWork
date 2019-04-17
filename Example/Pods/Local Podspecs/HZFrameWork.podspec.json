@@ -1,6 +1,6 @@
 {
   "name": "HZFrameWork",
-  "version": "1.5.1",
+  "version": "1.5.7",
   "summary": "花镇封装私有库",
   "description": "花镇封装私有库  共有部分组件化管理",
   "homepage": "https://git.dev.tencent.com",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://git.dev.tencent.com/paoxue/HZFrameWork.git",
-    "tag": "1.5.1"
+    "tag": "1.5.7"
   },
   "platforms": {
     "ios": "8.0"
@@ -85,6 +85,10 @@
     {
       "name": "HZFontFile",
       "source_files": "HZFrameWork/HZFontFile/**/*"
+    },
+    {
+      "name": "HZPopView",
+      "source_files": "HZFrameWork/HZPopView/**/*"
     }
   ]
 }
