@@ -10,7 +10,8 @@
 #import <Masonry/Masonry.h>
 #import "HZ_PhotoBrowserView.h"
 #import <AssetsLibrary/ALAssetsLibrary.h>
-
+#import "HZ_PhotoAlertSheetView.h"
+#import <HZHUD.h>
 
 CGFloat const HZPhotoBrowserImageViewMargin = 10;
 CGFloat const kSpacing = 5;
@@ -144,6 +145,18 @@ static HZ_PhotoBrowser *photoBrowser;
 
 //保存图像
 - (void)saveImage {
+    
+    HZ_PhotoAlertSheetView *alertView = [[HZ_PhotoAlertSheetView alloc] init];
+    alertView.dataArray = @[@"保存图片"];
+    [alertView show];
+    alertView.onClick = ^(NSInteger index) {
+        [self save];
+    };
+    
+    return;
+}
+
+- (void)save {
     int index = _scrollView.contentOffset.x / _scrollView.bounds.size.width;
     HZ_PhotoBrowserView *currentView = (HZ_PhotoBrowserView *)[_scrollView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
     if (currentView.imageview == nil) {
@@ -169,9 +182,7 @@ static HZ_PhotoBrowser *photoBrowser;
 }
 
 - (void)saveHint:(NSString *)message {
-    UIAlertController *alertvc = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alertvc addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
-    [_contentView presentViewController:alertvc animated:YES completion:nil];
+    [HZHUD showWithText:message afterDelay:1.0];
 }
 
 - (void)hidePhotoBrowser {
@@ -182,7 +193,7 @@ static HZ_PhotoBrowser *photoBrowser;
     [self hideAnimation];
 }
 
-- (void)hideAnimation{
+- (void)hideAnimation {
     self.userInteractionEnabled = NO;
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     self.window.windowLevel = UIWindowLevelNormal;//显示状态栏
@@ -463,17 +474,17 @@ static HZ_PhotoBrowser *photoBrowser;
     // 2.保存按钮
     UIButton *saveButton = [[UIButton alloc] init];
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *filePath = [bundle pathForResource:@"download@2x.png" ofType:nil inDirectory:@"HZFrameWork.bundle"];
+    NSString *filePath = [bundle pathForResource:@"download_icon@2x.png" ofType:nil inDirectory:@"HZFrameWork.bundle"];
     [saveButton setImage:[UIImage imageWithContentsOfFile:filePath] forState:UIControlStateNormal];
     saveButton.imageView.contentMode = UIViewContentModeRedraw;
     [saveButton addTarget:self action:@selector(saveImage) forControlEvents:UIControlEventTouchUpInside];
     _saveButton = saveButton;
     [self addSubview:saveButton];
     [_saveButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self).offset(-20);
+        make.bottom.equalTo(self).offset(-15);
         make.right.equalTo(self).offset(-20);
-        make.width.mas_equalTo(32);
-        make.height.mas_equalTo(16);
+        make.width.mas_equalTo(28);
+        make.height.mas_equalTo(28);
     }];
     
 }
@@ -511,8 +522,8 @@ static HZ_PhotoBrowser *photoBrowser;
             } else {
                 make.bottom.equalTo(self).offset(-10);
             }
-            make.left.equalTo(self).offset(10);
-            make.right.equalTo(self).offset(-10);
+            make.centerX.equalTo(self);
+            make.width.mas_equalTo(150);
             make.height.mas_equalTo(40);
         }];
     }
