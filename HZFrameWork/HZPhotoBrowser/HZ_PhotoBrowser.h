@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class HZ_PhotoBrowser;
+@class HZHUD;
 
 typedef enum : NSUInteger {
     HZ_PhotoBrowserStyleDefault,//默认方式

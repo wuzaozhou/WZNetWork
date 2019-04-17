@@ -6,6 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class HZ_FontFile;
+@class HZTool;
 
 NS_ASSUME_NONNULL_BEGIN
 
