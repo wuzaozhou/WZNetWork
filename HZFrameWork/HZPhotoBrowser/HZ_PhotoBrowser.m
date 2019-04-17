@@ -11,7 +11,8 @@
 #import "HZ_PhotoBrowserView.h"
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import "HZ_PhotoAlertSheetView.h"
-#import <HZHUD.h>
+#import "HZHUD.h"
+
 
 CGFloat const HZPhotoBrowserImageViewMargin = 10;
 CGFloat const kSpacing = 5;
@@ -106,13 +107,13 @@ static HZ_PhotoBrowser *photoBrowser;
             tempView.frame = targetTemp;
         } completion:^(BOOL finished) {
             //动画完成后，删除临时imageview，让目标imageview显示
-            _hasShowedFistView = YES;
+            self.hasShowedFistView = YES;
             [tempView removeFromSuperview];
-            _scrollView.hidden = NO;
-            _indexLabel.hidden = NO;
-            _saveButton.hidden = NO;
+            self.scrollView.hidden = NO;
+            self.indexLabel.hidden = NO;
+            self.saveButton.hidden = NO;
             self.userInteractionEnabled = YES;
-            [_scrollView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentImageIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+            [self.scrollView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentImageIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
         }];
     }else {
         [_scrollView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentImageIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
@@ -120,7 +121,7 @@ static HZ_PhotoBrowser *photoBrowser;
         _contentView.view.alpha = 0;
         [UIView animateWithDuration:0.2 animations:^{
             //将点击的临时imageview动画放大到和目标imageview一样大
-            _photoBrowserView.alpha = 1;
+            self.photoBrowserView.alpha = 1;
             _contentView.view.alpha = 1;
         } completion:^(BOOL finished) {
             _hasShowedFistView = YES;
@@ -260,18 +261,18 @@ static HZ_PhotoBrowser *photoBrowser;
     
     [UIView animateWithDuration:0.35f animations:^{
         self.tempView.transform = CGAffineTransformIdentity;
-        _coverView.alpha = 1;
+        self.coverView.alpha = 1;
     } completion:^(BOOL finished) {
         self.userInteractionEnabled = YES;
-        _scrollView.hidden = NO;
-        _saveButton.hidden = NO;
-        _indexLabel.hidden = NO;
-        [_tempView removeFromSuperview];
-        [_coverView removeFromSuperview];
-        _tempView = nil;
-        _coverView = nil;
-        _photoBrowserView.hidden = NO;
-        _contentView.view.backgroundColor = [UIColor blackColor];
+        self.scrollView.hidden = NO;
+        self.saveButton.hidden = NO;
+        self.indexLabel.hidden = NO;
+        [self.tempView removeFromSuperview];
+        [self.coverView removeFromSuperview];
+        self.tempView = nil;
+        self.coverView = nil;
+        self.photoBrowserView.hidden = NO;
+        self.contentView.view.backgroundColor = [UIColor blackColor];
         UIView *view = [self getSourceView];
         view.hidden = NO;
     }];
