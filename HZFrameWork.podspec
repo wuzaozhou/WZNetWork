@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZFrameWork'
-  s.version          = '1.5.8'
+  s.version          = '1.5.9'
   s.summary          = '花镇封装私有库'
 
 # This description is used to generate tags and improve search results.
@@ -88,6 +88,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'HZFrameWork' => ['HZFrameWork/Assets/*.png']
   }
+  s.frameworks = "Foundation","UIKit"
   
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
