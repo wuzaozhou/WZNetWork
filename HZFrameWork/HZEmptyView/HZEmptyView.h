@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
+
 typedef NS_ENUM(NSInteger, HZEmptyType) {
     HZEmptyTypeNotNetwork,//无网络
     HZEmptyTypeNotContent,//无内容
