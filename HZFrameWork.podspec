@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZFrameWork'
-  s.version          = '1.5.9.5'
+  s.version          = '1.5.9.6'
   s.summary          = '花镇封装私有库'
 
 # This description is used to generate tags and improve search results.
@@ -51,13 +51,15 @@ Pod::Spec.new do |s|
     p.source_files = 'HZFrameWork/HZPageView/**/*'
   end
 
- 
+  #图片浏览器相关
+  s.subspec 'HZPhotoBrowser' do |p|
+    p.source_files = 'HZFrameWork/HZPhotoBrowser/**/*'
+  end
   
   #工具相关
   s.subspec 'HZTool' do |p|
       p.source_files = 'HZFrameWork/HZTool/**/*'
   end
-  
   
   #FPS相关
   s.subspec 'HZFPS' do |p|
@@ -86,6 +88,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'HZFrameWork' => ['HZFrameWork/Assets/*.png']
   }
+
   
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
