@@ -11,7 +11,7 @@
 #import "HZ_PhotoBrowserView.h"
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import "HZ_PhotoAlertSheetView.h"
-#import "HZHUD.h"
+//#import "HZHUD.h"
 
 
 CGFloat const HZPhotoBrowserImageViewMargin = 10;
@@ -183,7 +183,7 @@ static HZ_PhotoBrowser *photoBrowser;
 }
 
 - (void)saveHint:(NSString *)message {
-    [HZHUD showWithText:message afterDelay:1.0];
+//    [HZHUD showWithText:message afterDelay:1.0];
 }
 
 - (void)hidePhotoBrowser {

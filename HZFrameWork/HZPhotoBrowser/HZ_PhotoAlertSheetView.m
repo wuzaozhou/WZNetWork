@@ -7,8 +7,8 @@
 
 #import "HZ_PhotoAlertSheetView.h"
 #import <Masonry/Masonry.h>
-#import "HZ_FontFile.h"
-#import "HZTool.h"
+//#import "HZ_FontFile.h"
+//#import "HZTool.h"
 #import <YYKit/UIColor+YYAdd.h>
 
 static HZ_PhotoAlertSheetView *alerView;
@@ -38,7 +38,7 @@ static HZ_PhotoAlertSheetView *alerView;
     _tableView.rowHeight = 56;
     _tableView.sectionHeaderHeight = CGFLOAT_MIN;
     _tableView.scrollEnabled = NO;
-    _tableView.sectionFooterHeight = [HZTool isBangsPhone] ? 34 : CGFLOAT_MIN;
+//    _tableView.sectionFooterHeight = [HZTool isBangsPhone] ? 34 : CGFLOAT_MIN;
     [self addSubview:_tableView];
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -68,7 +68,7 @@ static HZ_PhotoAlertSheetView *alerView;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.textLabel.text = _dataArray[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.font = [HZ_FontFile font:20];
+//    cell.textLabel.font = [HZ_FontFile font:20];
     cell.textLabel.textColor = [UIColor colorWithHexString:@"#333333"];
     return cell;
 }
