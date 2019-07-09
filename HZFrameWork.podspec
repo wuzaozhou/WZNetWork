@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZFrameWork'
-  s.version          = '1.5.9.7'
+  s.version          = '1.6.2'
   s.summary          = '花镇封装私有库'
 
 # This description is used to generate tags and improve search results.
@@ -31,14 +31,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
 
-    s.subspec "Classes" do |p|
-        p.source_files = "Classes/**/*"
-    end
+#s.subspec "Classes" do |p|
+#   p.source_files = "HZFrameWork/Classes"
+# end
 
 
 
 
-  #s.source_files = 'HZFrameWork/Classes/**/*'
+  s.source_files = 'HZFrameWork/Classes/**/*'
   
   s.resource_bundles = {
     'HZFrameWork' => ['HZFrameWork/Assets/*.png']
@@ -51,4 +51,6 @@ Pod::Spec.new do |s|
   s.dependency 'SDWebImage'
   s.dependency 'YYKit'
   s.dependency 'Masonry'
+  s.dependency 'AFNetworking'
+  s.dependency 'MBProgressHUD'
 end
