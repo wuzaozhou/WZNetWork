@@ -30,57 +30,12 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.subspec 'HZEmptyView' do |c|
-    c.source_files = 'HZFrameWork/HZEmptyView/**/*'
-    
-  end
-#网络相关 SDWebimage  AFNetworking
-  s.subspec 'HZNetworking' do |p|
-    p.source_files = 'HZFrameWork/HZNetworking/**/*'
-    p.dependency  'AFNetworking'
-  end
 
-#网络请求
-  s.subspec 'HZNetWork' do |p|
-    p.source_files = 'HZFrameWork/HZNetWork/**/*'
-    p.dependency  'AFNetworking'
-  end
+    spec.subspec "Classes" do |p|
+        p.source_files = "Classes/**/*"
+    end
 
-  #标题滚动相关 
-  s.subspec 'HZPageView' do |p|
-    p.source_files = 'HZFrameWork/HZPageView/**/*'
-  end
 
-  #图片浏览器相关
-  s.subspec 'HZPhotoBrowser' do |p|
-    p.source_files = 'HZFrameWork/HZPhotoBrowser/**/*'
-  end
-  
-  #工具相关
-  s.subspec 'HZTool' do |p|
-      p.source_files = 'HZFrameWork/HZTool/**/*'
-  end
-  
-  #FPS相关
-  s.subspec 'HZFPS' do |p|
-      p.source_files = 'HZFrameWork/HZFPS/**/*'
-  end
-  
-  #loading相关
-  s.subspec 'HZHUD' do |p|
-    p.source_files = 'HZFrameWork/HZHUD/**/*'
-    p.dependency  'MBProgressHUD'
-  end
-  
-  #字体设置相关
-  s.subspec 'HZFontFile' do |p|
-      p.source_files = 'HZFrameWork/HZFontFile/**/*'
-  end
-  
-  #弹窗转场动画
-  s.subspec 'HZPopView' do |p|
-      p.source_files = 'HZFrameWork/HZPopView/**/*'
-  end
 
 
   #s.source_files = 'HZFrameWork/Classes/**/*'
