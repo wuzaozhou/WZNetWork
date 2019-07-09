@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
 
-    spec.subspec "Classes" do |p|
+    s.subspec "Classes" do |p|
         p.source_files = "Classes/**/*"
     end
 
