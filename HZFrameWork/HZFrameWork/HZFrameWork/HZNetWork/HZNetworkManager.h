@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, HZRequestMethod) {
     HZRequestMethodHead,//Header方法
     HZRequestMethodPut,//Put方法
     HZRequestMethodDelete,//Delete 方法
+    HZRequestMethodDownload,//下载
 };
 UIKIT_EXTERN NSString * const HZNetworkManagerCharles;
 
@@ -74,6 +75,27 @@ typedef void(^HZRequestManagerProgress)(NSProgress * _Nullable progress);
                                           progress:(HZRequestManagerProgress _Nullable)progress
                                            successed:(HZRequestManagerSuccess _Nullable )successed
                                            failured:(HZRequestManagerFailure _Nullable )failured;
+
+/**
+ 下载
+ @param URLString 请求URL地址，不包含baseUrl
+ @param parameters 请求参数
+ @param filePath 下载地址
+ @param configurationHandler 将默认的配置给到外面，外面可能需要特殊处理，可以修改baseUrl等信息
+ @param progress 进度
+ @param cache  如果有的话返回缓存数据
+ @param successed 请求成功
+ @param failured 请求失败
+ @return task
+ */
+- (NSURLSessionDataTask *_Nullable)downloadWithURLString:(NSString *_Nullable)URLString
+                                              parameters:(NSDictionary *_Nullable)parameters filePath:(NSString *)filePath
+                            configurationHandler:(void (^_Nullable)(HZNetworkConfig * _Nullable configuration))configurationHandler
+                                                progress:(HZRequestManagerProgress _Nullable)progress
+                                           cache:(HZRequestManagerCache _Nullable )cache
+                                       successed:(HZRequestManagerSuccess _Nullable )successed
+                                        failured:(HZRequestManagerFailure _Nullable )failured;
+
 /** 取消所有的网络请求 */
 - (void)cancelAllRequest;
 @end
