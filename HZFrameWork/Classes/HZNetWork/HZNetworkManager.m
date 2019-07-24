@@ -213,6 +213,7 @@ static HZNetworkManager *instance;
        if (filePath) {
           return [NSURL fileURLWithPath:filePath];
        }
+       return nil;
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (error) {
             failured(dataTask,error, weakself.networkStatus);
