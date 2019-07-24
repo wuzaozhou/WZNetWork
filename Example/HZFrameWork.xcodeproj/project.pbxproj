@@ -21,6 +21,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		872C2DB622E70A5300EEF3DE /* PT_EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 872C2DB522E70A5300EEF3DE /* PT_EmptyView.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		9B2CCDCC2178306700A3AAC8 /* HZNetWorkSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CCDCB2178306700A3AAC8 /* HZNetWorkSettingViewController.m */; };
 		9B2CCDCF2178349300A3AAC8 /* HZoffLineDownLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CCDCE2178349300A3AAC8 /* HZoffLineDownLoadViewController.m */; };
@@ -119,6 +120,8 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		872C2DB422E70A5300EEF3DE /* PT_EmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PT_EmptyView.h; sourceTree = "<group>"; };
+		872C2DB522E70A5300EEF3DE /* PT_EmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PT_EmptyView.m; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B2CCDCA2178306700A3AAC8 /* HZNetWorkSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HZNetWorkSettingViewController.h; sourceTree = "<group>"; };
 		9B2CCDCB2178306700A3AAC8 /* HZNetWorkSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HZNetWorkSettingViewController.m; sourceTree = "<group>"; };
@@ -295,6 +298,8 @@
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				872C2DB422E70A5300EEF3DE /* PT_EmptyView.h */,
+				872C2DB522E70A5300EEF3DE /* PT_EmptyView.m */,
 			);
 			name = "Example for HZFrameWork";
 			path = HZFrameWork;
@@ -697,6 +702,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -861,6 +867,7 @@
 				9B2CCDCF2178349300A3AAC8 /* HZoffLineDownLoadViewController.m in Sources */,
 				9BBBA60E21760C8100C3CF6B /* HZTableViewController.m in Sources */,
 				9BBBA66E2176E6A200C3CF6B /* HZMessageViewController.m in Sources */,
+				872C2DB622E70A5300EEF3DE /* PT_EmptyView.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				9BBBA6DF2177140800C3CF6B /* UIView+Category.m in Sources */,
 				9BBBA6612176E4E900C3CF6B /* BaseTabBarController.m in Sources */,

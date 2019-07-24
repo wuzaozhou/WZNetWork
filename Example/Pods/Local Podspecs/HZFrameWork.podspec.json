@@ -1,6 +1,6 @@
 {
   "name": "HZFrameWork",
-  "version": "1.5.7",
+  "version": "1.6.3",
   "summary": "花镇封装私有库",
   "description": "花镇封装私有库  共有部分组件化管理",
   "homepage": "https://git.dev.tencent.com",
@@ -13,11 +13,12 @@
   },
   "source": {
     "git": "https://git.dev.tencent.com/paoxue/HZFrameWork.git",
-    "tag": "1.5.7"
+    "tag": "1.6.3"
   },
   "platforms": {
     "ios": "8.0"
   },
+  "source_files": "HZFrameWork/Classes/**/*",
   "resource_bundles": {
     "HZFrameWork": [
       "HZFrameWork/Assets/*.png"
@@ -32,63 +33,12 @@
     ],
     "Masonry": [
 
+    ],
+    "AFNetworking": [
+
+    ],
+    "MBProgressHUD": [
+
     ]
-  },
-  "subspecs": [
-    {
-      "name": "HZEmptyView",
-      "source_files": "HZFrameWork/HZEmptyView/**/*"
-    },
-    {
-      "name": "HZNetworking",
-      "source_files": "HZFrameWork/HZNetworking/**/*",
-      "dependencies": {
-        "AFNetworking": [
-
-        ]
-      }
-    },
-    {
-      "name": "HZNetWork",
-      "source_files": "HZFrameWork/HZNetWork/**/*",
-      "dependencies": {
-        "AFNetworking": [
-
-        ]
-      }
-    },
-    {
-      "name": "HZPageView",
-      "source_files": "HZFrameWork/HZPageView/**/*"
-    },
-    {
-      "name": "HZPhotoBrowser",
-      "source_files": "HZFrameWork/HZPhotoBrowser/**/*"
-    },
-    {
-      "name": "HZTool",
-      "source_files": "HZFrameWork/HZTool/**/*"
-    },
-    {
-      "name": "HZFPS",
-      "source_files": "HZFrameWork/HZFPS/**/*"
-    },
-    {
-      "name": "HZHUD",
-      "source_files": "HZFrameWork/HZHUD/**/*",
-      "dependencies": {
-        "MBProgressHUD": [
-
-        ]
-      }
-    },
-    {
-      "name": "HZFontFile",
-      "source_files": "HZFrameWork/HZFontFile/**/*"
-    },
-    {
-      "name": "HZPopView",
-      "source_files": "HZFrameWork/HZPopView/**/*"
-    }
-  ]
+  }
 }

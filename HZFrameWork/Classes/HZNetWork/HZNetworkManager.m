@@ -205,6 +205,26 @@ static HZNetworkManager *instance;
     return dataTask;
 }
 
+- (NSURLSessionDataTask *)downloadWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters filePath:(NSString *)filePath configurationHandler:(void (^)(HZNetworkConfig * _Nullable))configurationHandler progress:(HZRequestManagerProgress)progress cache:(HZRequestManagerCache)cache successed:(HZRequestManagerSuccess)successed failured:(HZRequestManagerFailure)failured{
+    
+    __weak typeof(self) weakself = self;
+   __block NSURLSessionDownloadTask *dataTask = [self.requestManager downloadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:URLString]] progress:progress destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+       //设置存储路径，下载成功会自动存储。注意使用fileURLWithPath
+       if (filePath) {
+          return [NSURL fileURLWithPath:filePath];
+       }
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        if (error) {
+            failured(dataTask,error, weakself.networkStatus);
+        }else{
+            successed(dataTask,filePath);
+        }
+    }];
+    
+    [dataTask resume];
+    return dataTask;
+}
+
 /**
  上传资源
  

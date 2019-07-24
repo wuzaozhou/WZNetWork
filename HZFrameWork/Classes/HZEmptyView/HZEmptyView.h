@@ -18,8 +18,6 @@ typedef NS_ENUM(NSInteger, HZEmptyType) {
 typedef void(^HZEmptyResetBlock) (void);
 
 @interface HZEmptyView : UIView
-
-
 /**
  自动显隐
  */
@@ -51,6 +49,8 @@ typedef void(^HZEmptyResetBlock) (void);
 - (instancetype)initWithType:(HZEmptyType )type resetBlock:(HZEmptyResetBlock) block;
 
 
+- (void)setUpViews;
+- (void)hz_setAutoLayout;
 
 - (void)show;
 - (void)dismiss;

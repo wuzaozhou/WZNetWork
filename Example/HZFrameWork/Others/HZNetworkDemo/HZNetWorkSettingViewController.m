@@ -71,7 +71,7 @@ static const NSInteger cacheTime = 30;
     if (indexPath.row==0) {
         cell.textLabel.text=@"清除全部缓存";
         CGFloat cacheSize=[[HZCacheManager sharedInstance] getCacheSize];//json缓存文件大小
-        CGFloat imageSize = [[SDImageCache sharedImageCache]getSize];//图片缓存大小
+        CGFloat imageSize = [[SDImageCache sharedImageCache] totalDiskSize];//图片缓存大小
         CGFloat AppCacheSize=cacheSize+imageSize;
         AppCacheSize=AppCacheSize/1000.0/1000.0;
         cell.detailTextLabel.text=[NSString stringWithFormat:@"%.2fM",AppCacheSize];
@@ -82,7 +82,7 @@ static const NSInteger cacheTime = 30;
         cell.userInteractionEnabled = NO;
         
         CGFloat cacheCount=[[HZCacheManager sharedInstance]getCacheCount];//json缓存文件个数
-        CGFloat imageCount=[[SDImageCache sharedImageCache] getDiskCount];//图片缓存个数
+        CGFloat imageCount=[[SDImageCache sharedImageCache] totalDiskSize];//图片缓存个数
         CGFloat AppCacheCount=cacheCount+imageCount;
         cell.detailTextLabel.text= [NSString stringWithFormat:@"%.f",AppCacheCount];
         
@@ -110,7 +110,7 @@ static const NSInteger cacheTime = 30;
     
     if (indexPath.row==4) {
         cell.textLabel.text=@"清除图片缓存方法";
-        CGFloat imageSize = [[SDImageCache sharedImageCache]getSize];//图片缓存大小
+        CGFloat imageSize = [[SDImageCache sharedImageCache]totalDiskSize];//图片缓存大小
         
         imageSize=imageSize/1000.0/1000.0;
         
@@ -121,7 +121,7 @@ static const NSInteger cacheTime = 30;
         cell.textLabel.text=@"图片缓存数量方法";
         cell.userInteractionEnabled = NO;
         
-        CGFloat imageCount=[[SDImageCache sharedImageCache]getDiskCount];//图片缓存个数
+        CGFloat imageCount=[[SDImageCache sharedImageCache]totalDiskSize];//图片缓存个数
         
         cell.detailTextLabel.text= [NSString stringWithFormat:@"%.f",imageCount];
     }

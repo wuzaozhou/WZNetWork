@@ -9,6 +9,7 @@
 #import "UIView+HZKit.h"
 #import <objc/runtime.h>
 #import "HZEmptyView.h"
+#import <Masonry/Masonry.h>
 
 @implementation UIView (HZKit)
 static char  kHZEmptyView;
@@ -29,6 +30,7 @@ static char  kHZEmptyView;
         
         [self addSubview:self.emptyView];
         self.emptyView.hidden = YES;
+        [self setEmptyViewAutoLayout];
     }
 }
 
@@ -69,6 +71,7 @@ static char  kHZEmptyView;
     [self.emptyView.superview layoutSubviews];
     self.emptyView.hidden = NO;
     [self bringSubviewToFront:self.emptyView];
+    [self setEmptyViewAutoLayout];
 }
 
 - (void)hz_hideEmptyView {
@@ -76,15 +79,23 @@ static char  kHZEmptyView;
 }
 
 
-
 - (void)hz_startLoading {
     self.emptyView.hidden = NO;
+    [self setEmptyViewAutoLayout];
 }
 
 - (void)hz_endLoading {
     self.emptyView.hidden = [self itemTotalCount];
+    [self setEmptyViewAutoLayout];
 }
 
+- (void)setEmptyViewAutoLayout {
+    [self.emptyView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.bottom.equalTo(self);
+        make.center.equalTo(self);
+    }];
+    [self setNeedsLayout];
+}
 
 - (NSInteger)itemTotalCount {
     NSInteger totalCount = 0;
@@ -105,12 +116,6 @@ static char  kHZEmptyView;
 - (HZEmptyView *)emptyView {
    return  objc_getAssociatedObject(self, &kHZEmptyView);
 }
-
-
-
-
-
-
 
 @end
 

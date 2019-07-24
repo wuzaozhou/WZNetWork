@@ -14,68 +14,17 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - HZFrameWork (1.5.7):
-    - HZFrameWork/HZEmptyView (= 1.5.7)
-    - HZFrameWork/HZFontFile (= 1.5.7)
-    - HZFrameWork/HZFPS (= 1.5.7)
-    - HZFrameWork/HZHUD (= 1.5.7)
-    - HZFrameWork/HZNetWork (= 1.5.7)
-    - HZFrameWork/HZNetworking (= 1.5.7)
-    - HZFrameWork/HZPageView (= 1.5.7)
-    - HZFrameWork/HZPhotoBrowser (= 1.5.7)
-    - HZFrameWork/HZPopView (= 1.5.7)
-    - HZFrameWork/HZTool (= 1.5.7)
-    - Masonry
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZEmptyView (1.5.7):
-    - Masonry
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZFontFile (1.5.7):
-    - Masonry
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZFPS (1.5.7):
-    - Masonry
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZHUD (1.5.7):
+  - HZFrameWork (1.6.3):
+    - AFNetworking
     - Masonry
     - MBProgressHUD
     - SDWebImage
     - YYKit
-  - HZFrameWork/HZNetWork (1.5.7):
-    - AFNetworking
-    - Masonry
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZNetworking (1.5.7):
-    - AFNetworking
-    - Masonry
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZPageView (1.5.7):
-    - Masonry
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZPhotoBrowser (1.5.7):
-    - Masonry
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZPopView (1.5.7):
-    - Masonry
-    - SDWebImage
-    - YYKit
-  - HZFrameWork/HZTool (1.5.7):
-    - Masonry
-    - SDWebImage
-    - YYKit
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
-  - SDWebImage (4.4.2):
-    - SDWebImage/Core (= 4.4.2)
-  - SDWebImage/Core (4.4.2)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -97,12 +46,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  HZFrameWork: c5701c818216078fd4507f539bbf14cb02d53099
+  HZFrameWork: 54ad5887225a113d3ae5665355d4461370511f02
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 8b1a1201103a8e189f69392354ebefc35504bd4a
+PODFILE CHECKSUM: 3cdf5b4cce2958272303f0047ba1b3f18e1c77cd
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.5

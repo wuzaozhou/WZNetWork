@@ -7,7 +7,7 @@
 //
 
 #import "HZHomeViewController.h"
-#import "HZEmptyView.h"
+#import "PT_EmptyView.h"
 #import "UIView+HZKit.h"
 #import "Masonry.h"
 #import "HZTableViewController.h"
