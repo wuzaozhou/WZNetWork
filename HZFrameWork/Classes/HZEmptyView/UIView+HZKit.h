@@ -10,6 +10,7 @@
 @class HZEmptyView;
 @interface UIView (HZKit)
 @property HZEmptyView *emptyView;
+@property int isFist;
 
 /**
  手动加载

@@ -24,6 +24,7 @@ typedef void(^HZEmptyResetBlock) (void);
 @property (nonatomic, assign) BOOL autoShowAndHideEmptyView;
 
 @property (nonatomic, copy, readonly) HZEmptyResetBlock resetBlock;
+@property (nonatomic, assign) HZEmptyType type;
 //类初始方法
 + (instancetype)createEmptyViewWithType:(HZEmptyType )type;
 

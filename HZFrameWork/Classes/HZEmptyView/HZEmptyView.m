@@ -11,7 +11,7 @@
 
 @interface HZEmptyView()
 
-@property (nonatomic, assign) HZEmptyType type;
+
 @property (nonatomic, strong) UIImageView *imageView;
 
 @end
@@ -33,6 +33,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self == [super initWithFrame:frame]) {
         [self setUpViews];
+        _autoShowAndHideEmptyView = YES;
     }
     return self;
 }
@@ -40,6 +41,7 @@
 - (instancetype)initWithType:(HZEmptyType)type {
     if (self = [super init]) {
         _type = type;
+        
     }
     return self;
 }
@@ -55,6 +57,7 @@
 
 
 - (void)setUpViews {
+    
     self.backgroundColor = [UIColor whiteColor];
     _imageView = [[UIImageView alloc] init];
     _imageView.contentMode = UIViewContentModeCenter;
@@ -81,14 +84,15 @@
 - (void)setType:(HZEmptyType)type {
     _type = type;
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *filePath = [bundle pathForResource:@"bg_wunrong@2x.png" ofType:nil inDirectory:@"HZFrameWork.bundle"];
     UIImage *image;
     switch (type) {
         case HZEmptyTypeNotNetwork:{
-            image = [UIImage imageWithContentsOfFile:filePath];
+            NSString *filePath1 = [bundle pathForResource:@"bg_wuwangluo@2x.png" ofType:nil inDirectory:@"HZFrameWork.bundle"];
+            image = [UIImage imageWithContentsOfFile:filePath1];
         }
             break;
         case HZEmptyTypeNotContent: {
+            NSString *filePath = [bundle pathForResource:@"bg_wunrong@2x.png" ofType:nil inDirectory:@"HZFrameWork.bundle"];
             image = [UIImage imageWithContentsOfFile:filePath];
         }
             break;

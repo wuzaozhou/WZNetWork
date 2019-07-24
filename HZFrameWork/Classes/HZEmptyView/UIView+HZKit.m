@@ -13,6 +13,7 @@
 
 @implementation UIView (HZKit)
 static char  kHZEmptyView;
+static char  kIsFirst;
 
 + (void)hz_exchangeInstanceMethod:(SEL)method targetMethod:(SEL)target{
     method_exchangeImplementations(class_getInstanceMethod(self, method), class_getInstanceMethod(self, target));
@@ -29,8 +30,8 @@ static char  kHZEmptyView;
         }
         
         [self addSubview:self.emptyView];
-        self.emptyView.hidden = YES;
         [self setEmptyViewAutoLayout];
+        self.emptyView.hidden = YES;
     }
 }
 
@@ -39,12 +40,12 @@ static char  kHZEmptyView;
     if (!self.emptyView) {
         return;
     }
-    if ([self itemTotalCount] > 0) {
+    if ([self itemTotalCount] > 0 || self.isFist == 0) {
         [self hide];
     }else {
         [self show];
     }
-    
+    self.isFist = 1;
 }
 
 
@@ -116,6 +117,15 @@ static char  kHZEmptyView;
 - (HZEmptyView *)emptyView {
    return  objc_getAssociatedObject(self, &kHZEmptyView);
 }
+
+- (void)setIsFist:(int)isFist {
+    objc_setAssociatedObject(self, &kIsFirst, @(isFist), OBJC_ASSOCIATION_RETAIN);
+}
+
+- (int)isFist {
+    return [objc_getAssociatedObject(self, &kIsFirst) intValue];
+}
+
 
 @end
 
