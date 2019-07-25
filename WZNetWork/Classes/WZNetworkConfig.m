@@ -1,22 +1,22 @@
 //
-//  HZNetworkConfig.m
-//  HZNetWork
+//  WZNetworkConfig.m
+//  WZNetWork
 //
 //  Created by 吴灶洲 on 2019/1/12.
 //  Copyright © 2019年 吴灶洲. All rights reserved.
 //
 
-#import "HZNetworkConfig.h"
+#import "WZNetworkConfig.h"
 
-const CGFloat HZRequestTimeoutInterval = 10.0f;
+const CGFloat WZRequestTimeoutInterval = 10.0f;
 
 
-@implementation HZNetworkConfig
+@implementation WZNetworkConfig
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _timeoutInterval = HZRequestTimeoutInterval;
-        _requestCachePolicy = HZRequestCacheAndLoadToCache;
+        _timeoutInterval = WZRequestTimeoutInterval;
+        _requestCachePolicy = WZRequestCacheAndLoadToCache;
         _resultCacheDuration = 7*24*60*60;
     }
     return self;
@@ -38,7 +38,7 @@ const CGFloat HZRequestTimeoutInterval = 10.0f;
 }
 
 - (instancetype)copyWithZone:(NSZone *)zone {
-    HZNetworkConfig *configuration = [[HZNetworkConfig alloc] init];
+    WZNetworkConfig *configuration = [[WZNetworkConfig alloc] init];
     configuration.resultCacheDuration = self.resultCacheDuration;
     configuration.requestCachePolicy = self.requestCachePolicy;
     configuration.baseURL = [self.baseURL copy];

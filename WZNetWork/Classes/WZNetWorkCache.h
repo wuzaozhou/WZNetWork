@@ -1,6 +1,6 @@
 //
-//  HZNetWorkCache.h
-//  HZNetWork
+//  WZNetWorkCache.h
+//  WZNetWork
 //
 //  Created by 吴灶洲 on 2019/1/12.
 //  Copyright © 2019年 吴灶洲. All rights reserved.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HZNetWorkCache : NSObject
+@interface WZNetWorkCache : NSObject
 /**
  异步缓存网络数据,根据请求的 URL与parameters
  做KEY存储数据, 这样就能缓存多级页面的数据

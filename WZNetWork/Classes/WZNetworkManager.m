@@ -1,20 +1,20 @@
 //
-//  HZNetworkManager.m
-//  HZNetWork
+//  WZNetworkManager.m
+//  WZNetWork
 //
 //  Created by 吴灶洲 on 2019/1/12.
 //  Copyright © 2019年 吴灶洲. All rights reserved.
 //
 
-#import "HZNetworkManager.h"
+#import "WZNetworkManager.h"
 
 
 
-@interface HZNetworkManager ()<NSCopying>
+@interface WZNetworkManager ()<NSCopying>
 /** 是AFURLSessionManager的子类，为HTTP的一些请求提供了便利方法，当提供baseURL时，请求只需要给出请求的路径即可 */
 @property (nonatomic, strong) AFHTTPSessionManager *requestManager;
 
-/** 将HZRequestMethod（NSInteger）类型转换成对应的方法名（NSString） */
+/** 将WZRequestMethod（NSInteger）类型转换成对应的方法名（NSString） */
 @property (nonatomic, strong) NSDictionary *methodMap;
 
 /**
@@ -27,9 +27,9 @@
 @property (nonatomic, strong) NSMutableDictionary <NSString *, NSMutableSet <NSString *>*>*cacheKeys;
 @end
 
-@implementation HZNetworkManager
+@implementation WZNetworkManager
 
-static HZNetworkManager *instance;
+static WZNetworkManager *instance;
 
 
 //单例方法
@@ -48,7 +48,7 @@ static HZNetworkManager *instance;
             }];
             [[AFNetworkReachabilityManager sharedManager] startMonitoring];
             
-            instance.configuration = [[HZNetworkConfig alloc] init];
+            instance.configuration = [[WZNetworkConfig alloc] init];
             
             _methodMap = @{
                            @"0" : @"POST",
@@ -87,10 +87,12 @@ static HZNetworkManager *instance;
     return instance;
 }
 
+
+
 #pragma mark - 实例化
 - (AFHTTPSessionManager *)requestManager {
     if (!_requestManager) {
-#ifdef HZ_TEST_MODE_ON
+#ifdef WZ_TEST_MODE_ON
         // debug 版本的包仍然能够正常抓包
         _requestManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://www.baidu.com"]];
 #else
@@ -119,14 +121,14 @@ static HZNetworkManager *instance;
  @param failured 请求失败
  @return task
  */
-- (NSURLSessionDataTask *_Nullable)requestMethod:(HZRequestMethod)method
+- (NSURLSessionDataTask *_Nullable)requestMethod:(WZRequestMethod)method
                                        URLString:(NSString *_Nullable)URLString
                                       parameters:(NSDictionary *_Nullable)parameters
-                            configurationHandler:(void (^_Nullable)(HZNetworkConfig * _Nullable configuration))configurationHandler
-                                           cache:(HZRequestManagerCache _Nullable )cache
-                                         successed:(HZRequestManagerSuccess _Nullable )successed
-                                         failured:(HZRequestManagerFailure _Nullable )failured {
-    HZNetworkConfig *configuration = [self disposeConfiguration:configurationHandler];
+                            configurationHandler:(void (^_Nullable)(WZNetworkConfig * _Nullable configuration))configurationHandler
+                                           cache:(WZRequestManagerCache _Nullable )cache
+                                         successed:(WZRequestManagerSuccess _Nullable )successed
+                                         failured:(WZRequestManagerFailure _Nullable )failured {
+    WZNetworkConfig *configuration = [self disposeConfiguration:configurationHandler];
     if (!URLString) {
         URLString = @"";
     }
@@ -135,7 +137,7 @@ static HZNetworkManager *instance;
     
     //获取缓存数据
     id (^ fetchCacheRespose)(void) = ^id (void) {
-        id resposeObject = [HZNetWorkCache httpCacheForURL:requestUrl parameters:parameters cacheValidTime:configuration.resultCacheDuration];
+        id resposeObject = [WZNetWorkCache httpCacheForURL:requestUrl parameters:parameters cacheValidTime:configuration.resultCacheDuration];
         if (resposeObject) {
             return resposeObject;
         }
@@ -143,15 +145,15 @@ static HZNetworkManager *instance;
     };
     
     //判断数据的返回
-    if (configuration.requestCachePolicy == HZRequestCacheDontLoad || configuration.requestCachePolicy == HZRequestCacheAndLoadToCache || configuration.requestCachePolicy == HZRequestCacheOrLoadToCache) {
+    if (configuration.requestCachePolicy == WZRequestCacheDontLoad || configuration.requestCachePolicy == WZRequestCacheAndLoadToCache || configuration.requestCachePolicy == WZRequestCacheOrLoadToCache) {
         id resposeObject = fetchCacheRespose();
         cache(resposeObject, nil);
         
-        if (configuration.requestCachePolicy == HZRequestCacheOrLoadToCache && resposeObject) {
+        if (configuration.requestCachePolicy == WZRequestCacheOrLoadToCache && resposeObject) {
             return nil;
         }
         
-        if (configuration.requestCachePolicy == HZRequestCacheDontLoad) {
+        if (configuration.requestCachePolicy == WZRequestCacheDontLoad) {
             return nil;
         }
     }
@@ -159,7 +161,7 @@ static HZNetworkManager *instance;
     //存数据
     void (^ saveCacheRespose)(id responseObject) = ^(id responseObject) {
         if (configuration.resultCacheDuration > 0) {
-            [HZNetWorkCache setHttpCache:responseObject URL:requestUrl parameters:parameters];
+            [WZNetWorkCache setHttpCache:responseObject URL:requestUrl parameters:parameters];
         }
     };
     
@@ -177,15 +179,15 @@ static HZNetworkManager *instance;
     __block NSURLSessionDataTask *dataTask = [self.requestManager dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         if (error) {
-            if (configuration.requestCachePolicy == HZRequestLoadToCache || ((configuration.requestCachePolicy == HZRequestCacheOrLoadToCache || configuration.requestCachePolicy == HZRequestCacheAndLoadToCache)&& fetchCacheRespose() == nil)) {//如果网络请求失败，则直接取缓存数据
-                id resposeObject = [HZNetWorkCache httpCacheForURL:requestUrl parameters:parameters];
+            if (configuration.requestCachePolicy == WZRequestLoadToCache || ((configuration.requestCachePolicy == WZRequestCacheOrLoadToCache || configuration.requestCachePolicy == WZRequestCacheAndLoadToCache)&& fetchCacheRespose() == nil)) {//如果网络请求失败，则直接取缓存数据
+                id resposeObject = [WZNetWorkCache httpCacheForURL:requestUrl parameters:parameters];
                 resposeObject ? cache(resposeObject, error) : failured(dataTask, error, weakself.networkStatus);
             }else {
                 failured(dataTask, error, weakself.networkStatus);
             }
             
         }else {
-            if (configuration.requestCachePolicy != HZRequestLoadDontCache && responseObject != nil) {
+            if (configuration.requestCachePolicy != WZRequestLoadDontCache && responseObject != nil) {
                 saveCacheRespose(responseObject);
             }
             if (configuration.resposeHandle) {
@@ -213,11 +215,11 @@ static HZNetworkManager *instance;
 - (NSURLSessionTask *_Nullable)uploadWithURLString:(NSString *_Nullable)URLString
                                         parameters:(NSDictionary *_Nullable)parameters
                          constructingBodyWithBlock:(void (^_Nullable)(id <AFMultipartFormData> _Nullable formData))block
-                              configurationHandler:(void (^_Nullable)(HZNetworkConfig * _Nullable configuration))configurationHandler
-                                          progress:(HZRequestManagerProgress _Nullable)progress
-                                           successed:(HZRequestManagerSuccess _Nullable )successed
-                                           failured:(HZRequestManagerFailure _Nullable )failured {
-    HZNetworkConfig *configuration = [self disposeConfiguration:configurationHandler];
+                              configurationHandler:(void (^_Nullable)(WZNetworkConfig * _Nullable configuration))configurationHandler
+                                          progress:(WZRequestManagerProgress _Nullable)progress
+                                           successed:(WZRequestManagerSuccess _Nullable )successed
+                                           failured:(WZRequestManagerFailure _Nullable )failured {
+    WZNetworkConfig *configuration = [self disposeConfiguration:configurationHandler];
     parameters = [self disposeRequestParameters:parameters];
     NSString *requestUrl = [[NSURL URLWithString:URLString relativeToURL:[NSURL URLWithString:configuration.baseURL]] absoluteString];
     __weak typeof(self) weakself = self;
@@ -250,7 +252,7 @@ static HZNetworkManager *instance;
  @param failured 请求失败
  @return task
  */
-- (NSURLSessionDataTask *)downloadWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters filePath:(NSString *)filePath configurationHandler:(void (^)(HZNetworkConfig * _Nullable))configurationHandler progress:(HZRequestManagerProgress)progress successed:(HZRequestManagerSuccess)successed failured:(HZRequestManagerFailure)failured {
+- (NSURLSessionDataTask *)downloadWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters filePath:(NSString *)filePath configurationHandler:(void (^)(WZNetworkConfig * _Nullable))configurationHandler progress:(WZRequestManagerProgress)progress successed:(WZRequestManagerSuccess)successed failured:(WZRequestManagerFailure)failured {
     
     __weak typeof(self) weakself = self;
     __block NSURLSessionDownloadTask *dataTask = [self.requestManager downloadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:URLString]] progress:progress destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
@@ -287,9 +289,9 @@ static HZNetworkManager *instance;
     return bodys;
 }
 
-- (HZNetworkConfig *)disposeConfiguration:(void (^_Nullable)(HZNetworkConfig * _Nullable configuration))configurationHandler {
+- (WZNetworkConfig *)disposeConfiguration:(void (^_Nullable)(WZNetworkConfig * _Nullable configuration))configurationHandler {
     //configuration配置
-    HZNetworkConfig *configuration = [self.configuration copy];
+    WZNetworkConfig *configuration = [self.configuration copy];
     if (configurationHandler) {
         configurationHandler(configuration);
     }
@@ -305,7 +307,7 @@ static HZNetworkManager *instance;
     if (configuration.timeoutInterval > 0) {
         self.requestManager.requestSerializer.timeoutInterval = configuration.timeoutInterval;
     }else {
-        self.requestManager.requestSerializer.timeoutInterval = HZRequestTimeoutInterval;
+        self.requestManager.requestSerializer.timeoutInterval = WZRequestTimeoutInterval;
     }
     [self.requestManager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     return configuration;

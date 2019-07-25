@@ -1,25 +1,25 @@
 //
-//  HZNetWorkCache.m
-//  HZNetWork
+//  WZNetWorkCache.m
+//  WZNetWork
 //
 //  Created by 吴灶洲 on 2019/1/12.
 //  Copyright © 2019年 吴灶洲. All rights reserved.
 //
 
-#import "HZNetWorkCache.h"
+#import "WZNetWorkCache.h"
 #import <YYKit/YYKit.h>
 #import <YYKit/YYCache.h>
 
-static NSString *const HZNetworkCache = @"HZNetworkCache";
-static NSString *const HZNetworkTimeOut = @"HZNetworkTimeOut";
-static NSString *const HZCouponKey_sign  = @"HZCouponKey_sign ";
-static NSString *const HZCouponKey_timestamp  = @"HZCouponKey_timestamp ";
+static NSString *const WZNetworkCache = @"WZNetworkCache";
+static NSString *const WZNetworkTimeOut = @"WZNetworkTimeOut";
+static NSString *const WZCouponKey_sign  = @"WZCouponKey_sign ";
+static NSString *const WZCouponKey_timestamp  = @"WZCouponKey_timestamp ";
 
-@implementation HZNetWorkCache
+@implementation WZNetWorkCache
 static YYCache *_dataCache;
 
 + (void)initialize {
-    _dataCache = [YYCache cacheWithName:HZNetworkCache];
+    _dataCache = [YYCache cacheWithName:WZNetworkCache];
 }
 
 
@@ -62,7 +62,7 @@ static YYCache *_dataCache;
         return cache;
     }else{
         [_dataCache.diskCache removeObjectForKey:cacheKey];
-        NSString *cacheDurationKey = [NSString stringWithFormat:@"%@_%@",cacheKey, HZNetworkTimeOut];
+        NSString *cacheDurationKey = [NSString stringWithFormat:@"%@_%@",cacheKey, WZNetworkTimeOut];
         [_dataCache.diskCache removeObjectForKey:cacheDurationKey];
         return nil;
     }
@@ -132,7 +132,7 @@ static YYCache *_dataCache;
 
 /** 存入缓存创建时间 */
 + (void)setCacheInvalidTimeWithCacheKey:(NSString *)cacheKey{
-    NSString *cacheDurationKey = [NSString stringWithFormat:@"%@_%@",cacheKey, HZNetworkTimeOut];
+    NSString *cacheDurationKey = [NSString stringWithFormat:@"%@_%@",cacheKey, WZNetworkTimeOut];
     NSTimeInterval nowTime = [[NSDate date] timeIntervalSince1970];
     [_dataCache setObject:@(nowTime) forKey:cacheDurationKey withBlock:nil];
 }
@@ -140,7 +140,7 @@ static YYCache *_dataCache;
 /** 判断缓存是否有效，有效则返回YES */
 + (BOOL)verifyInvalidCache:(NSString *)cacheKey resultCacheDuration:(NSTimeInterval )resultCacheDuration {
     //获取该次请求失效的时间戳
-    NSString *cacheDurationKey = [NSString stringWithFormat:@"%@_%@",cacheKey, HZNetworkTimeOut];
+    NSString *cacheDurationKey = [NSString stringWithFormat:@"%@_%@",cacheKey, WZNetworkTimeOut];
     id createTime = [_dataCache objectForKey:cacheDurationKey];
     NSTimeInterval createTime1 = [createTime doubleValue];
     NSTimeInterval nowTime = [[NSDate date] timeIntervalSince1970];
