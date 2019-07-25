@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,29 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bk-u5-uQb">
+                                <rect key="frame" x="156.5" y="288.5" width="62" height="30"/>
+                                <state key="normal" title="发起请求"/>
+                                <connections>
+                                    <action selector="onClick:" destination="whP-gf-Uak" eventType="touchUpInside" id="vGb-og-2F7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrZ-MH-HSU">
+                                <rect key="frame" x="156.5" y="326.5" width="62" height="30"/>
+                                <state key="normal" title="删除缓存"/>
+                                <connections>
+                                    <action selector="delete" destination="whP-gf-Uak" eventType="touchUpInside" id="Hfp-cA-xPw"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yrZ-MH-HSU" firstAttribute="top" secondItem="6bk-u5-uQb" secondAttribute="bottom" constant="8" id="QDb-Hd-cQb"/>
+                            <constraint firstItem="6bk-u5-uQb" firstAttribute="centerY" secondItem="TpU-gO-2f1" secondAttribute="centerY" constant="-30" id="RCl-s7-IDk"/>
+                            <constraint firstItem="yrZ-MH-HSU" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="ZiJ-go-Qwz"/>
+                            <constraint firstItem="6bk-u5-uQb" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="j83-gx-Vu1"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>

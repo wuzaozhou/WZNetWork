@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+    利用YYCache和AFN实现网络数据缓存
                        DESC
 
   s.homepage         = 'https://github.com/wuzaozhou/WZNetWork'
@@ -30,7 +30,10 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'WZNetWork/Classes/**/*'
+  s.subspec 'Classes' do |p|
+      p.source_files = "WZNetWork/Classes/**"
+  end
+  
   
   # s.resource_bundles = {
   #   'WZNetWork' => ['WZNetWork/Assets/*.png']
@@ -39,4 +42,6 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'AFNetworking'
+  s.dependency 'YYKit'
 end

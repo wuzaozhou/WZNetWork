@@ -1,0 +1,6 @@
+framework module WZNetWork {
+  umbrella header "WZNetWork-umbrella.h"
+
+  export *
+  module * { export * }
+}

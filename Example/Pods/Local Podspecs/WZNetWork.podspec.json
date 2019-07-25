@@ -1,0 +1,35 @@
+{
+  "name": "WZNetWork",
+  "version": "0.1.0",
+  "summary": "A short description of WZNetWork.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/wuzaozhou/WZNetWork",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wuzaozhou": "wuzaozhou@aliyun.com"
+  },
+  "source": {
+    "git": "https://github.com/wuzaozhou/WZNetWork.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "dependencies": {
+    "AFNetworking": [
+
+    ],
+    "YYKit": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Classes",
+      "source_files": "WZNetWork/Classes/**"
+    }
+  ]
+}
