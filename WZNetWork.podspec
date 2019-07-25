@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-    利用YYCache和AFN实现网络数据缓存
+        利用YYCache和AFN实现网络数据缓存
                        DESC
 
   s.homepage         = 'https://github.com/wuzaozhou/WZNetWork'
