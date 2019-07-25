@@ -11,7 +11,6 @@
 
 #import "HZNetworkConfig.h"
 #import "HZNetWorkCache.h"
-#import "HZRequestManager.h"
 #import "HZNetworkManager.h"
 
 #endif /* HZNetworking_h */
