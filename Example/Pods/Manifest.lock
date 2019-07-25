@@ -19,11 +19,11 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - WZNetWork (0.1.0):
+  - WZNetWork (1.0.1):
     - AFNetworking
-    - WZNetWork/Classes (= 0.1.0)
+    - WZNetWork/Classes (= 1.0.1)
     - YYKit
-  - WZNetWork/Classes (0.1.0):
+  - WZNetWork/Classes (1.0.1):
     - AFNetworking
     - YYKit
   - YYKit (1.0.9):
@@ -47,7 +47,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  WZNetWork: 5e2436d7e291996d827b47f0e4978bfd3596e018
+  WZNetWork: bc895e72c27593ead43be81ff34200afb38b18e4
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
 PODFILE CHECKSUM: b4e152afeb3e0ca0274133e2cee7ece57a5a8924

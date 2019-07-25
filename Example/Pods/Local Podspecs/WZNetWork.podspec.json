@@ -1,8 +1,8 @@
 {
   "name": "WZNetWork",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "summary": "A short description of WZNetWork.",
-  "description": "TODO: Add long description of the pod here.",
+  "description": "利用YYCache和AFN实现网络数据缓存",
   "homepage": "https://github.com/wuzaozhou/WZNetWork",
   "license": {
     "type": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/wuzaozhou/WZNetWork.git",
-    "tag": "0.1.0"
+    "tag": "1.0.1"
   },
   "platforms": {
     "ios": "8.0"

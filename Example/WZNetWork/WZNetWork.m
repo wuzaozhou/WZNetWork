@@ -7,11 +7,11 @@
 //
 
 #import "WZNetWork.h"
-#import "HZNetWorkCache.h"
+#import "WZNetWorkCache.h"
 
 
 @interface WZNetWork()<NSCopying, NSMutableCopying>
-@property (nonatomic, strong) HZNetworkManager *requestManager;
+@property (nonatomic, strong) WZNetworkManager *requestManager;
 
 @end
 
@@ -23,7 +23,7 @@ static WZNetWork *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [super init];
-        instance.requestManager = [HZNetworkManager sharedInstance];
+        instance.requestManager = [WZNetworkManager sharedInstance];
         [instance initialConfig];
     });
     return instance;
@@ -76,16 +76,16 @@ static WZNetWork *instance;
 
 #pragma mark - 缓存管理
 - (void)clearRequestCache:(NSString *_Nullable)urlString parameters:(NSDictionary *_Nullable)parameters {
-    [HZNetWorkCache removeHttpCacheWithUrl:urlString parameters:parameters];
+    [WZNetWorkCache removeHttpCacheWithUrl:urlString parameters:parameters];
 }
 
 - (void)clearAllCache {
-    [HZNetWorkCache removeAllHttpCache];
+    [WZNetWorkCache removeAllHttpCache];
 }
 
 
-- (NSURLSessionTask *_Nullable)GET:(NSString *)url parameters:(NSDictionary * _Nullable)parameters configurationHandler:(void (^_Nullable)(HZNetworkConfig * _Nullable configuration))configurationHandler cache:(HZRequestManagerCache _Nullable )cache successed:(HZRequestManagerSuccess _Nullable )successed failured:(HZRequestManagerFailure _Nullable )failured {
-    return [self.requestManager requestMethod:HZRequestMethodGet URLString:url parameters:parameters configurationHandler:^(HZNetworkConfig * _Nullable configuration) {
+- (NSURLSessionTask *_Nullable)GET:(NSString *)url parameters:(NSDictionary * _Nullable)parameters configurationHandler:(void (^_Nullable)(WZNetworkConfig * _Nullable configuration))configurationHandler cache:(WZRequestManagerCache _Nullable )cache successed:(WZRequestManagerSuccess _Nullable )successed failured:(WZRequestManagerFailure _Nullable )failured {
+    return [self.requestManager requestMethod:WZRequestMethodGet URLString:url parameters:parameters configurationHandler:^(WZNetworkConfig * _Nullable configuration) {
         
         //        NSString *contentStr = [[HeaderModel new] mj_JSONString];
         //        configuration.builtinHeaders = [NSMutableDictionary dictionary];
@@ -102,9 +102,9 @@ static WZNetWork *instance;
     }];
 }
 
-- (NSURLSessionTask *_Nullable)POST:(NSString *)url parameters:(NSDictionary * _Nullable)parameters configurationHandler:(void (^_Nullable)(HZNetworkConfig * _Nullable configuration))configurationHandler cache:(HZRequestManagerCache _Nullable )cache successed:(HZRequestManagerSuccess _Nullable )successed failured:(HZRequestManagerFailure _Nullable )failured {
+- (NSURLSessionTask *_Nullable)POST:(NSString *)url parameters:(NSDictionary * _Nullable)parameters configurationHandler:(void (^_Nullable)(WZNetworkConfig * _Nullable configuration))configurationHandler cache:(WZRequestManagerCache _Nullable )cache successed:(WZRequestManagerSuccess _Nullable )successed failured:(WZRequestManagerFailure _Nullable )failured {
     
-    return [self.requestManager requestMethod:HZRequestMethodPost URLString:url parameters:parameters configurationHandler:^(HZNetworkConfig * _Nullable configuration) {
+    return [self.requestManager requestMethod:WZRequestMethodPost URLString:url parameters:parameters configurationHandler:^(WZNetworkConfig * _Nullable configuration) {
         
 //        NSString *contentStr = [[HeaderModel new] mj_JSONString];
 //        configuration.builtinHeaders = [NSMutableDictionary dictionary];
@@ -136,13 +136,13 @@ static WZNetWork *instance;
 - (NSURLSessionTask *_Nullable)uploadWithURLString:(NSString *)url
                                         parameters:(NSDictionary * _Nullable)parameters
                          constructingBodyWithBlock:(void (^_Nullable)(id <AFMultipartFormData> _Nullable formData))block
-                              configurationHandler:(void (^_Nullable)(HZNetworkConfig * _Nullable configuration))configurationHandler
-                                         successed:(HZRequestManagerSuccess _Nullable )successed
-                                          failured:(HZRequestManagerFailure _Nullable )failured {
+                              configurationHandler:(void (^_Nullable)(WZNetworkConfig * _Nullable configuration))configurationHandler
+                                         successed:(WZRequestManagerSuccess _Nullable )successed
+                                          failured:(WZRequestManagerFailure _Nullable )failured {
     
     return [self.requestManager uploadWithURLString:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nullable formData) {
         block ? block(formData) : nil;
-    } configurationHandler:^(HZNetworkConfig * _Nullable configuration) {
+    } configurationHandler:^(WZNetworkConfig * _Nullable configuration) {
 //        NSString *contentStr = [[HeaderModel new] mj_JSONString];
 //        configuration.builtinHeaders = [NSMutableDictionary dictionary];
 //        [configuration.builtinHeaders setObject:contentStr forKey:@"App-Common-Params"];
@@ -171,9 +171,9 @@ static WZNetWork *instance;
  @param failured 失败回调
  @return task
  */
-- (NSURLSessionTask *)Download:(NSString *)url parameters:(NSDictionary *)parameters filePath:(NSString *)filePath configurationHandler:(void (^)(HZNetworkConfig * _Nullable))configurationHandler successed:(HZRequestManagerSuccess)successed failured:(HZRequestManagerFailure)failured {
+- (NSURLSessionTask *)Download:(NSString *)url parameters:(NSDictionary *)parameters filePath:(NSString *)filePath configurationHandler:(void (^)(WZNetworkConfig * _Nullable))configurationHandler successed:(WZRequestManagerSuccess)successed failured:(WZRequestManagerFailure)failured {
     
-    return [self.requestManager downloadWithURLString:url parameters:parameters filePath:filePath configurationHandler:^(HZNetworkConfig * _Nullable configuration) {
+    return [self.requestManager downloadWithURLString:url parameters:parameters filePath:filePath configurationHandler:^(WZNetworkConfig * _Nullable configuration) {
         if (configurationHandler) {
             configurationHandler(configuration);
         }

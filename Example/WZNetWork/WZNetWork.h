@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HZNetworkManager.h"
+#import "WZNetworkManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * _Nullable baseURL;
 + (instancetype)sharedInstance;
 
-- (NSURLSessionTask *_Nullable)GET:(NSString *)url parameters:(NSDictionary * _Nullable)parameters configurationHandler:(void (^_Nullable)(HZNetworkConfig * _Nullable configuration))configurationHandler cache:(HZRequestManagerCache _Nullable )cache successed:(HZRequestManagerSuccess _Nullable )successed failured:(HZRequestManagerFailure _Nullable )failured;
-- (NSURLSessionTask *_Nullable)POST:(NSString *)url parameters:(NSDictionary * _Nullable)parameters configurationHandler:(void (^_Nullable)(HZNetworkConfig * _Nullable configuration))configurationHandler cache:(HZRequestManagerCache _Nullable )cache successed:(HZRequestManagerSuccess _Nullable )successed failured:(HZRequestManagerFailure _Nullable )failured;
+- (NSURLSessionTask *_Nullable)GET:(NSString *)url parameters:(NSDictionary * _Nullable)parameters configurationHandler:(void (^_Nullable)(WZNetworkConfig * _Nullable configuration))configurationHandler cache:(WZRequestManagerCache _Nullable )cache successed:(WZRequestManagerSuccess _Nullable )successed failured:(WZRequestManagerFailure _Nullable )failured;
+- (NSURLSessionTask *_Nullable)POST:(NSString *)url parameters:(NSDictionary * _Nullable)parameters configurationHandler:(void (^_Nullable)(WZNetworkConfig * _Nullable configuration))configurationHandler cache:(WZRequestManagerCache _Nullable )cache successed:(WZRequestManagerSuccess _Nullable )successed failured:(WZRequestManagerFailure _Nullable )failured;
 
 /**
  上传图片资源
@@ -32,9 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSURLSessionTask *_Nullable)uploadWithURLString:(NSString *)url
                                         parameters:(NSDictionary * _Nullable)parameters
                          constructingBodyWithBlock:(void (^_Nullable)(id <AFMultipartFormData> _Nullable formData))block
-                              configurationHandler:(void (^_Nullable)(HZNetworkConfig * _Nullable configuration))configurationHandler
-                                         successed:(HZRequestManagerSuccess _Nullable )successed
-                                          failured:(HZRequestManagerFailure _Nullable )failured;
+                              configurationHandler:(void (^_Nullable)(WZNetworkConfig * _Nullable configuration))configurationHandler
+                                         successed:(WZRequestManagerSuccess _Nullable )successed
+                                          failured:(WZRequestManagerFailure _Nullable )failured;
 
 
 /**
@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param failured 失败回调
  @return task
  */
-- (NSURLSessionTask *)Download:(NSString *)url parameters:(NSDictionary *)parameters filePath:(NSString *)filePath configurationHandler:(void (^)(HZNetworkConfig * _Nullable))configurationHandler successed:(HZRequestManagerSuccess)successed failured:(HZRequestManagerFailure)failured;
+- (NSURLSessionTask *)Download:(NSString *)url parameters:(NSDictionary *)parameters filePath:(NSString *)filePath configurationHandler:(void (^)(WZNetworkConfig * _Nullable))configurationHandler successed:(WZRequestManagerSuccess)successed failured:(WZRequestManagerFailure)failured;
 
 /**
  删除缓存数据

@@ -10,10 +10,10 @@
 #endif
 #endif
 
-#import "HZNetWorkCache.h"
-#import "HZNetworkConfig.h"
-#import "HZNetworking.h"
-#import "HZNetworkManager.h"
+#import "WZNetWorkCache.h"
+#import "WZNetworkConfig.h"
+#import "WZNetworking.h"
+#import "WZNetworkManager.h"
 
 FOUNDATION_EXPORT double WZNetWorkVersionNumber;
 FOUNDATION_EXPORT const unsigned char WZNetWorkVersionString[];
