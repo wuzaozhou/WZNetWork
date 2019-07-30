@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZFrameWork'
-  s.version          = '1.6.5'
+  s.version          = '1.6.6'
   s.summary          = '花镇封装私有库'
 
 # This description is used to generate tags and improve search results.
